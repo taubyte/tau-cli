@@ -39,7 +39,7 @@ func (p CodePath) Write(templateURL, nameForMd string) error {
 		}
 
 		split := strings.Split(templateURL, "/")
-		templateCommon := path.Join(path.Join(split[0:len(split)-1]...), "common")
+		templateCommon := getTemplateCommon(split)
 		if _, err := os.Stat(templateCommon); err == nil {
 			var err0 error
 			err = filepath.WalkDir(templateCommon, func(_path string, d fs.DirEntry, err error) error {
