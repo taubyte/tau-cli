@@ -10,10 +10,6 @@ import (
 	"github.com/taubyte/tau/common"
 )
 
-var getTemplateCommon = func(split []string) string {
-	return path.Join("/", path.Join(split[0:len(split)-1]...), "common")
-}
-
 func (p CodePath) Write(templateURL, nameForMd string) error {
 	templateURL = strings.ReplaceAll(templateURL, "\\", "/")
 
