@@ -266,7 +266,7 @@ func createStorageMonkey() *testSpider {
 			},
 		},
 		{
-			name: "Differencing Edit Object => Streaming",
+			name: "Differencing Edit Object to Streaming",
 			args: []string{"query", command, testName},
 			wantOut: []string{
 				testName,
@@ -302,7 +302,7 @@ func createStorageMonkey() *testSpider {
 			},
 		},
 		{
-			name: "Differencing Edit Streaming => Object",
+			name: "Differencing Edit Streaming to Object",
 			args: []string{"query", command, testName},
 			wantOut: []string{
 				testName,

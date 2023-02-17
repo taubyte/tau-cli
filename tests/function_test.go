@@ -365,7 +365,7 @@ func createFunctionMonkey() *testSpider {
 			},
 		},
 		{
-			name: "edit http => p2p, query, confirm yaml",
+			name: "edit http to p2p, query, confirm yaml",
 			args: []string{"query", command, testName},
 			wantOut: []string{
 				"tag1", "tag2", "tag3", testName,
@@ -391,7 +391,7 @@ func createFunctionMonkey() *testSpider {
 			},
 			children: []testMonkey{
 				{
-					name: "edit http => p2p",
+					name: "edit http to p2p",
 					args: []string{
 						"edit", "-y", command, "--name", testName,
 						"--description", "some function description",
@@ -411,7 +411,7 @@ func createFunctionMonkey() *testSpider {
 			},
 		},
 		{
-			name: "edit p2p => http, query, confirm yaml",
+			name: "edit p2p to http, query, confirm yaml",
 			args: []string{"query", command, testName},
 			confirmProject: func(p project.Project) error {
 				function, err := p.Function(testName, "")
@@ -461,7 +461,7 @@ func createFunctionMonkey() *testSpider {
 					wantOut: []string{command, testName, "Created"},
 				},
 				{
-					name: "edit p2p => http",
+					name: "edit p2p to http",
 					args: []string{
 						"edit", "-y", command, "--name", testName,
 						"--description", "some function description",
@@ -481,7 +481,7 @@ func createFunctionMonkey() *testSpider {
 			},
 		},
 		{
-			name: "edit pubsub => p2p, query, confirm yaml",
+			name: "edit pubsub to p2p, query, confirm yaml",
 			args: []string{"query", command, testName},
 			confirmProject: func(p project.Project) error {
 				function, err := p.Function(testName, "")
@@ -527,7 +527,7 @@ func createFunctionMonkey() *testSpider {
 					wantOut: []string{command, testName, "Created"},
 				},
 				{
-					name: "edit pubsub => p2p",
+					name: "edit pubsub to p2p",
 					args: []string{
 						"edit", "-y", command, "--name", testName,
 						"--description", "some function description",
