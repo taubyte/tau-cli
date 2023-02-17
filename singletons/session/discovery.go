@@ -52,6 +52,9 @@ func nearestProcessDirectory(pid int) (processDir string, found bool) {
 		if err != nil {
 			return
 		}
+		if process == nil {
+			return
+		}
 
 		ppid := process.PPid()
 		if ppid == 1 {

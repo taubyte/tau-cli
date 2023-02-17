@@ -10,7 +10,9 @@ import (
 	"github.com/taubyte/tau/common"
 )
 
-func (p CodePath) Write(templateURL, name string) error {
+func (p CodePath) Write(templateURL, nameForMd string) error {
+	templateURL = filepath.ToSlash(templateURL)
+
 	err := os.MkdirAll(p.String(), common.DefaultDirPermission)
 	if err != nil {
 		return err
@@ -33,10 +35,11 @@ func (p CodePath) Write(templateURL, name string) error {
 		}
 
 		split := strings.Split(templateURL, "/")
-		templateCommon := path.Join("/", path.Join(split[0:len(split)-1]...), "common")
+		templateCommon := getTemplateCommon(split)
 		if _, err := os.Stat(templateCommon); err == nil {
 			var err0 error
 			err = filepath.WalkDir(templateCommon, func(_path string, d fs.DirEntry, err error) error {
+				_path = filepath.ToSlash(_path)
 				if d.IsDir() {
 					if d.Name() != "common" {
 						err0 = os.MkdirAll(path.Join(p.String(), d.Name()), common.DefaultDirPermission)
@@ -64,7 +67,7 @@ func (p CodePath) Write(templateURL, name string) error {
 			}
 		}
 	} else {
-		err := os.WriteFile(path.Join(p.String(), name+".md"), nil, common.DefaultFilePermission)
+		err := os.WriteFile(path.Join(p.String(), nameForMd+".md"), nil, common.DefaultFilePermission)
 		if err != nil {
 			return err
 		}

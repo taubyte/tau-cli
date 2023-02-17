@@ -10,7 +10,13 @@
 
 ## Installation
 
+### Fetch and Install with Go
+```shell
+go install github.com/taubyte/tau@latest
 ```
+
+### Clone and Build
+```shell
 git clone https://github.com/taubyte/tau
 cd tau
 go build -o ~/go/bin/tau
@@ -18,7 +24,7 @@ go build -o ~/go/bin/tau
 
 ### Offline version (Optional)
 Fails faster if exploring an unregistered project
-```
+```shell
 go build -o ~/go/bin/otau -tags=localAuthClient
 ```
 
