@@ -22,10 +22,10 @@ cd tau
 go build -o ~/go/bin/tau
 ```
 
-```
-git clone https://github.com/taubyte/tau
-cd tau
-go build -o ~/go/bin/tau
+### Offline version (Optional)
+Fails faster if exploring an unregistered project
+```shell
+go build -o ~/go/bin/otau -tags=localAuthClient
 ```
 
 ## Login
