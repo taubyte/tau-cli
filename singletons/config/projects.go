@@ -45,10 +45,7 @@ func (p *projectHandler) Delete(name string) error {
 
 func (p *projectHandler) List() (projects map[string]Project) {
 	// Ignoring error here as it will just return an empty map
-	err := p.Root().Value(&projects)
-	if err != nil {
-		singletonsI18n.WarnListingProjectsFailed(err)
-	}
+	p.Root().Value(&projects)
 
 	return projects
 }

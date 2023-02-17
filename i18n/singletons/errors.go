@@ -2,8 +2,6 @@ package singletonsI18n
 
 import (
 	"fmt"
-
-	"github.com/pterm/pterm"
 )
 
 const (
@@ -120,8 +118,4 @@ func CreatingAuthClientFailed(err error) error {
 
 func LoadingAuthClientFailed(err error) error {
 	return fmt.Errorf(loadingAuthClientFailed, err)
-}
-
-func WarnListingProjectsFailed(err error) {
-	pterm.Warning.Printfln("listing projects failed with: %s", err)
 }
