@@ -11,7 +11,7 @@ import (
 )
 
 func (p CodePath) Write(templateURL, nameForMd string) error {
-	templateURL = strings.ReplaceAll(templateURL, "\\", "/")
+	templateURL = filepath.ToSlash(templateURL)
 
 	err := os.MkdirAll(p.String(), common.DefaultDirPermission)
 	if err != nil {
@@ -39,7 +39,7 @@ func (p CodePath) Write(templateURL, nameForMd string) error {
 		if _, err := os.Stat(templateCommon); err == nil {
 			var err0 error
 			err = filepath.WalkDir(templateCommon, func(_path string, d fs.DirEntry, err error) error {
-				_path = strings.ReplaceAll(_path, "\\", "/")
+				_path = filepath.ToSlash(_path)
 				if d.IsDir() {
 					if d.Name() != "common" {
 						err0 = os.MkdirAll(path.Join(p.String(), d.Name()), common.DefaultDirPermission)
