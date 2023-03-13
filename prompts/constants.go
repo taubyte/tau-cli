@@ -32,7 +32,6 @@ const (
 	TagsPrompt             = "Tags [comma separated]:"
 	RegexPrompt            = "Use Regex For Match:"
 	LocalPrompt            = "Local:"
-	PathPrompt             = "Path:"
 	GenerateRepoPrompt     = "Generate a Repository:"
 	UseTemplatePrompt      = "Use a Template:"
 	SelectTemplatePrompt   = "Select a Template:"

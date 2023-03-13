@@ -10,7 +10,6 @@ tau new -y database \
     --key somekey \
     --min 10 \
     --max 112 \
-    --path /SOMEPATH \
     --size 10 \
     --size-unit GB
 
@@ -25,7 +24,6 @@ tau new -y database \
     --key somekey \
     --min 10 \
     --max 112 \
-    --path /SOMEPATH \
     --size 10 \
     --size-unit GB
 
@@ -40,7 +38,6 @@ tau new -y database \
     --key somekey \
     --min 10 \
     --max 112 \
-    --path /SOMEPATH \
     --size 10 \
     --size-unit GB
 
@@ -58,7 +55,6 @@ tau new -y database \
     --key somekey \
     --min 10 \
     --max 112 \
-    --path /SOMEPATH \
     --size 10 \
     --size-unit GB
 
@@ -73,7 +69,6 @@ tau new -y database \
     --key somekey \
     --min 10 \
     --max 112 \
-    --path /SOMEPATH \
     --size 10 \
     --size-unit GB
 
