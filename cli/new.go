@@ -17,6 +17,7 @@ import (
 	"github.com/taubyte/tau/cli/commands/resources/smartops"
 	"github.com/taubyte/tau/cli/commands/resources/storage"
 	"github.com/taubyte/tau/cli/commands/resources/website"
+	"github.com/taubyte/tau/cli/commands/verify"
 	"github.com/taubyte/tau/cli/commands/version"
 	"github.com/taubyte/tau/cli/common"
 	"github.com/taubyte/tau/flags"
@@ -53,6 +54,7 @@ func New() (*cli.App, error) {
 			login.Command,
 			current.Command,
 			exit.Command,
+			verify.Command,
 		},
 	}
 
