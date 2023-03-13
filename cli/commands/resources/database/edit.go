@@ -24,7 +24,6 @@ func (link) Edit() common.Command {
 		UniqueFlags: flags.Combine(
 			flags.MatchRegex,
 			flags.Match,
-			flags.Path,
 			flags.Local,
 			databaseFlags.Encryption,
 			databaseFlags.EncryptionKey,

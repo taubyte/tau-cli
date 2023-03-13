@@ -10,7 +10,6 @@ tau new -y database \
     --key somekey \
     --min 10 \
     --max 112 \
-    --path /SOMEPATH \
     --size 10 \
     --size-unit GB
 
@@ -25,7 +24,6 @@ tau edit -y database \
     --match test \
     --min 10 \
     --max 12 \
-    --path /SOMEPATH \
     --size 200PB
 
 # command
