@@ -5,12 +5,12 @@ go 1.19
 // Direct Taubyte imports
 require (
 	github.com/taubyte/go-auth-http v0.9.0
-	github.com/taubyte/go-project-schema v0.9.0
+	github.com/taubyte/go-project-schema v0.9.2
 	github.com/taubyte/go-seer v1.0.6
 	github.com/taubyte/go-simple-git v0.2.5
-	github.com/taubyte/go-specs v0.9.2
+	github.com/taubyte/go-specs v0.9.6
 	github.com/taubyte/http v0.9.0
-	github.com/taubyte/utils v0.1.3
+	github.com/taubyte/utils v0.1.4
 )
 
 // Direct imports
@@ -96,7 +96,7 @@ require (
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
-	github.com/taubyte/go-simple-container v0.4.0 // indirect
+	github.com/taubyte/go-simple-container v0.4.2 // indirect
 	github.com/unrolled/secure v1.0.9 // indirect
 	github.com/xanzy/ssh-agent v0.3.1 // indirect
 	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
@@ -104,7 +104,7 @@ require (
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	go.uber.org/zap v1.19.1 // indirect
-	golang.org/x/crypto v0.1.0 // indirect
+	golang.org/x/crypto v0.5.0 // indirect
 	golang.org/x/net v0.5.0 // indirect
 	golang.org/x/sys v0.4.0 // indirect
 	golang.org/x/term v0.4.0 // indirect

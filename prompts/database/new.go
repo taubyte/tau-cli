@@ -22,7 +22,6 @@ func New(ctx *cli.Context) (*structureSpec.Database, error) {
 
 	database.Regex = prompts.GetMatchRegex(ctx)
 	database.Match = GetOrRequireAMatch(ctx)
-	database.Path = prompts.GetOrRequireAPath(ctx, prompts.PathPrompt)
 	database.Local = prompts.GetOrAskForLocal(ctx)
 
 	if GetEncryption(ctx) == true {

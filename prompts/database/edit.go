@@ -13,7 +13,6 @@ func Edit(ctx *cli.Context, prev *structureSpec.Database) error {
 
 	prev.Regex = prompts.GetMatchRegex(ctx, prev.Regex)
 	prev.Match = GetOrRequireAMatch(ctx, prev.Match)
-	prev.Path = prompts.GetOrRequireAPath(ctx, prompts.PathPrompt, prev.Path)
 	prev.Local = prompts.GetOrAskForLocal(ctx, prev.Local)
 
 	if GetEncryption(ctx, len(prev.Key) > 0) == true {
