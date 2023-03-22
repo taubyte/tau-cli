@@ -3,24 +3,27 @@ package project
 import (
 	gosimplegit "github.com/taubyte/go-simple-git"
 	"github.com/taubyte/tau/cli/common"
+	"github.com/taubyte/tau/flags"
 	projectFlags "github.com/taubyte/tau/flags/project"
 	projectI18n "github.com/taubyte/tau/i18n/project"
 	projectLib "github.com/taubyte/tau/lib/project"
+	"github.com/taubyte/tau/prompts"
 	projectPrompts "github.com/taubyte/tau/prompts/project"
 	"github.com/urfave/cli/v2"
 )
 
-func (link) Pull() common.Command {
+func (link) Checkout() common.Command {
 	return common.Create(&cli.Command{
 		Flags: []cli.Flag{
+			flags.Branch,
 			projectFlags.ConfigOnly,
 			projectFlags.CodeOnly,
 		},
-		Action: pull,
+		Action: checkout,
 	})
 }
 
-func pull(ctx *cli.Context) error {
+func checkout(ctx *cli.Context) error {
 	project, err := projectPrompts.GetOrSelect(ctx, true)
 	if err != nil {
 		return err
@@ -31,19 +34,29 @@ func pull(ctx *cli.Context) error {
 		return err
 	}
 
+	configRepo, err := repoHandler.Config()
+	if err != nil {
+		return err
+	}
+
+	branch, err := prompts.SelectABranch(ctx, configRepo)
+	if err != nil {
+		return err
+	}
+
 	err = (&dualRepoHandler{
 		ctx:         ctx,
 		repository:  repoHandler,
 		projectName: project.Name,
-		errorFormat: projectI18n.PullingProjectFailed,
+		errorFormat: projectI18n.CheckingOutProjectFailed,
 		action: func(r *gosimplegit.Repository) error {
-			return r.Pull()
+			return r.Checkout(branch)
 		},
 	}).Run()
 	if err != nil {
 		return err
 	}
 
-	projectI18n.PulledProject(project.Name)
+	projectI18n.CheckedOutProject(project.Name, branch)
 	return nil
 }

@@ -29,7 +29,7 @@ func push(ctx *cli.Context) error {
 		return err
 	}
 
-	repoHandler, err := projectLib.Repository(project.Name, "").Open()
+	repoHandler, err := projectLib.Repository(project.Name).Open()
 	if err != nil {
 		return err
 	}

@@ -9,7 +9,6 @@ import (
 
 	httpClient "github.com/taubyte/go-auth-http"
 	"github.com/taubyte/go-project-schema/project"
-	"github.com/taubyte/tau/common"
 	"github.com/taubyte/tau/singletons/config"
 )
 
@@ -38,7 +37,7 @@ func cloneProjectAndPushConfig(clientProject *httpClient.Project, location, desc
 	}
 
 	// Clone project to given location
-	projectRepository, err := Repository(clientProject.Name, common.DefaultNewProjectBranch).Clone(configProject, embedToken)
+	projectRepository, err := Repository(clientProject.Name).Clone(configProject, embedToken)
 	if err != nil {
 		return err
 	}

@@ -6,7 +6,7 @@ import (
 )
 
 func (info *Info) Push(project config.Project, message, url string) (*git.Repository, error) {
-	repo, err := info.Open(project, "", url)
+	repo, err := info.Open(project, url)
 	if err != nil {
 		return nil, err
 	}

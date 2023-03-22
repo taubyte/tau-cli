@@ -10,7 +10,7 @@ import (
 	"github.com/taubyte/tau/states"
 )
 
-func (info *Info) Open(project config.Project, branch, url string) (*git.Repository, error) {
+func (info *Info) Open(project config.Project, url string) (*git.Repository, error) {
 	profile, err := loginLib.GetSelectedProfile()
 	if err != nil {
 		return nil, err

@@ -16,12 +16,14 @@ const (
 	cloningProjectFailed          = "cloning project `%s` failed with: %s"
 	pullingProjectFailed          = "pulling project `%s` failed"
 	pushingProjectFailed          = "pushing project `%s` failed"
+	checkoutProjectFailed         = "checkout project `%s` failed"
 
 	configRepoCreateFailed   = "creating config repository failed with: %s"
 	codeRepoCreateFailed     = "creating code repository failed with: %s"
 	configRepoRegisterFailed = "registering config repository failed with: %s"
 	codeRepoRegisterFailed   = "registering code repository failed with: %s"
 	creatingProjectFailed    = "creating project failed with: %s"
+	projectBranchesNotEqual  = "config-`%s` and code-`%s` not on the same branch"
 
 	ConfigRepo = "config repository: %s"
 	CodeRepo   = "code repository: %s"
@@ -69,6 +71,10 @@ func PullingProjectFailed(project string) error {
 	return fmt.Errorf(pullingProjectFailed, project)
 }
 
+func CheckingOutProjectFailed(project string) error {
+	return fmt.Errorf(checkoutProjectFailed, project)
+}
+
 func PushingProjectFailed(project string) error {
 	return fmt.Errorf(pushingProjectFailed, project)
 }
@@ -91,4 +97,8 @@ func CodeRepoRegisterFailed(err error) error {
 
 func CreatingProjectFailed(err error) error {
 	return fmt.Errorf(creatingProjectFailed, err)
+}
+
+func ProjectBranchesNotEqual(branch1, branch2 string) error {
+	return fmt.Errorf(projectBranchesNotEqual, branch1, branch2)
 }

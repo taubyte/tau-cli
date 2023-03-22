@@ -1,9 +1,12 @@
 package constants
 
-const CurrentProjectEnvVarName = "TAUBYTE_PROJECT"
-const CurrentSelectedProfileNameEnvVarName = "TAUBYTE_PROFILE"
-const CurrentApplicationEnvVarName = "TAUBYTE_APPLICATION"
-const TauConfigFileNameEnvVarName = "TAUBYTE_CONFIG"
-const TauSessionLocationEnvVarName = "TAUBYTE_SESSION"
-const AuthURLEnvVarName = "TAUBYTE_URL"
-const JobURLEnvVarName = "TAUBYTE_JOB_URL"
+const (
+	CurrentProjectEnvVarName             = "TAUBYTE_PROJECT"
+	CurrentSelectedProfileNameEnvVarName = "TAUBYTE_PROFILE"
+	CurrentApplicationEnvVarName         = "TAUBYTE_APPLICATION"
+	TauConfigFileNameEnvVarName          = "TAUBYTE_CONFIG"
+	TauSessionLocationEnvVarName         = "TAUBYTE_SESSION"
+	DreamBinaryLocationEnvVarName        = "DREAM_BINARY"
+	AuthURLEnvVarName                    = "TAUBYTE_URL"
+	JobURLEnvVarName                     = "TAUBYTE_JOB_URL"
+)

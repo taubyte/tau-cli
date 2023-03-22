@@ -4,6 +4,7 @@ import (
 	"github.com/pterm/pterm"
 	"github.com/taubyte/tau/cli/commands/autocomplete"
 	"github.com/taubyte/tau/cli/commands/current"
+	"github.com/taubyte/tau/cli/commands/dream"
 	"github.com/taubyte/tau/cli/commands/exit"
 	"github.com/taubyte/tau/cli/commands/login"
 	"github.com/taubyte/tau/cli/commands/resources/application"
@@ -53,6 +54,7 @@ func New() (*cli.App, error) {
 			login.Command,
 			current.Command,
 			exit.Command,
+			dream.Command,
 		},
 	}
 

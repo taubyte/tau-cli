@@ -27,3 +27,7 @@ func PushedProject(name string) {
 func PulledProject(name string) {
 	success("Pulled", name)
 }
+
+func CheckedOutProject(name, branch string) {
+	printer.SuccessWithName("Checked out branch `%s` on project `%s`", branch, name)
+}

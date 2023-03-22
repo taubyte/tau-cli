@@ -15,6 +15,7 @@ type Project struct {
 type ProjectRepository interface {
 	Config() (*git.Repository, error)
 	Code() (*git.Repository, error)
+	CurrentBranch() (string, error)
 }
 
 type RepositoryHandler interface {
