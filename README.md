@@ -81,14 +81,6 @@ go tool cover -func=cover.out
 ```
 
 
-### WIP dreamland doc:
-
-#### Add hal.computers.com to /etc/hosts
-```
-sudo bash -c 'echo "127.0.0.1 hal.computers.com" >> /etc/hosts'
-```
-
-
 # Documentation
 For documentation head to [tau.how](https://tau.how/docs/tau)
 
