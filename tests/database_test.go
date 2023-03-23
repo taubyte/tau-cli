@@ -35,7 +35,6 @@ func createDatabaseMonkey() *testSpider {
 			"--key", "somekey",
 			"--min", "10",
 			"--max", "112",
-			"--path", "/SOMEPATH",
 			"--size", "10",
 			"--size-unit", "GB",
 		}
@@ -60,7 +59,7 @@ func createDatabaseMonkey() *testSpider {
 				"some database description",
 				"tag1", "tag2", "tag3",
 				"all", "10", "112", "10GB",
-				"/SOMEPATH", "true",
+				"true",
 			},
 			children: []testMonkey{
 				{
@@ -78,7 +77,7 @@ func createDatabaseMonkey() *testSpider {
 				"some database description",
 				"tag1", "tag2", "tag3",
 				"host", "10", "12", "200PB",
-				"/SOMEPATH", "false",
+				"false",
 			},
 			preRun: [][]string{
 				basicNew(testName),
@@ -95,7 +94,6 @@ func createDatabaseMonkey() *testSpider {
 						"--match", "test",
 						"--min", "10",
 						"--max", "12",
-						"--path", "/SOMEPATH",
 						"--size", "200PB",
 					},
 					wantOut: []string{command, testName, "Edited"},
@@ -159,7 +157,6 @@ func createDatabaseMonkey() *testSpider {
 						"--min", "10",
 						"--max", "112",
 						"--match", "testmatch",
-						"--path", "/SOMEPATH",
 						"--size", "10",
 						"--size-unit", "GB",
 					},
@@ -190,7 +187,6 @@ func createDatabaseMonkey() *testSpider {
 						"--min", "42",
 						"--max", "432",
 						"--match", "somematch",
-						"--path", "/SOMENEWPATH",
 						"--size", "43GB",
 					},
 					exitCode: 1,
@@ -206,7 +202,7 @@ func createDatabaseMonkey() *testSpider {
 				"some database description",
 				"tag1", "tag2", "tag3",
 				"all", "10", "112", "10GB",
-				"/SOMEPATH", "true",
+				"true",
 			},
 			preRun: [][]string{
 				basicNew(testName),
@@ -223,7 +219,7 @@ func createDatabaseMonkey() *testSpider {
 				"some hola description",
 				"tag1", "tag28913", "tag3",
 				"host", "42", "432", "43GB",
-				"/SOMENEWPATH", "false",
+				"false",
 			},
 			preRun: [][]string{
 				basicNew(testName),
@@ -243,7 +239,6 @@ func createDatabaseMonkey() *testSpider {
 						"--match", "someMatch",
 						"--min", "42",
 						"--max", "432",
-						"--path", "/SOMENEWPATH",
 						"--size", "43GB",
 					},
 				},

@@ -23,7 +23,6 @@ func (link) New() common.Command {
 		UniqueFlags: flags.Combine(
 			flags.MatchRegex,
 			flags.Match,
-			flags.Path,
 			flags.Local,
 			databaseFlags.Encryption,
 			databaseFlags.EncryptionKey,

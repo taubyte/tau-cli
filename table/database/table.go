@@ -29,7 +29,6 @@ func getTableData(database *structureSpec.Database, showId bool) (toRender [][]s
 		{"Name", database.Name},
 		{"Description", database.Description},
 		{"Tags", strings.Join(database.Tags, ", ")},
-		{"Path", database.Path},
 		{"Encryption", strconv.FormatBool(secret)},
 		{"Access", ""},
 		getNetworkDisplay(database.Local),

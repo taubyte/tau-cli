@@ -14,7 +14,6 @@ func ExampleQuery_key() {
 		Tags:        []string{"apple", "orange", "banana"},
 		Match:       "/test/v1",
 		Regex:       false,
-		Path:        "/",
 		Local:       false,
 		Key:         "someKey",
 		Min:         15,
@@ -33,8 +32,6 @@ func ExampleQuery_key() {
 	// │ Description │ this is a database of some type                │
 	// ├─────────────┼────────────────────────────────────────────────┤
 	// │ Tags        │ apple, orange, banana                          │
-	// ├─────────────┼────────────────────────────────────────────────┤
-	// │ Path        │ /                                              │
 	// ├─────────────┼────────────────────────────────────────────────┤
 	// │ Encryption  │ true                                           │
 	// ├─────────────┼────────────────────────────────────────────────┤
@@ -62,7 +59,6 @@ func ExampleQuery_no_key() {
 		Tags:        []string{"apple", "orange", "banana"},
 		Match:       "/test/v1",
 		Regex:       false,
-		Path:        "/",
 		Local:       false,
 		Min:         15,
 		Max:         30,
@@ -80,8 +76,6 @@ func ExampleQuery_no_key() {
 	// │ Description │ this is a database of some type                │
 	// ├─────────────┼────────────────────────────────────────────────┤
 	// │ Tags        │ apple, orange, banana                          │
-	// ├─────────────┼────────────────────────────────────────────────┤
-	// │ Path        │ /                                              │
 	// ├─────────────┼────────────────────────────────────────────────┤
 	// │ Encryption  │ false                                          │
 	// ├─────────────┼────────────────────────────────────────────────┤
