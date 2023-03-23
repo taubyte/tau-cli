@@ -45,6 +45,7 @@ go build -o ~/go/bin/otau -tags=localAuthClient
 - `TAUBYTE_APPLICATION` Selected application
 - `TAUBYTE_CONFIG (default: ~/tau.yaml)` Config location
 - `TAUBYTE_SESSION (default: /tmp/tau-<ppid>)` Session location
+- `DREAM_BINARY (default: $GOPATH/dream)` Dream binary location
 
 ## Testing
 
@@ -77,6 +78,14 @@ go test -v ./... -tags=localAuthClient,projectCreateable,localPatrick,cover,noPr
 ```
 go tool cover -html=cover.out
 go tool cover -func=cover.out
+```
+
+
+### WIP dreamland doc:
+
+#### Add hal.computers.com to /etc/hosts
+```
+sudo bash -c 'echo "127.0.0.1 hal.computers.com" >> /etc/hosts'
 ```
 
 
