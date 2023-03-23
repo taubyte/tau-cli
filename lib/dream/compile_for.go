@@ -40,6 +40,7 @@ func (c *CompileForRepository) Execute() error {
 		"--project-id", c.ProjectId,
 		"--resource-id", c.ResourceId,
 		"--branch", c.Branch,
+		"--path", c.Path,
 	}
 
 	if len(c.ApplicationId) > 0 {
