@@ -21,6 +21,14 @@ var Command = &cli.Command{
 	Name: "build",
 	Subcommands: attachName0([]*cli.Command{
 		{
+			Name:   "config",
+			Action: buildConfig,
+		},
+		{
+			Name:   "code",
+			Action: buildCode,
+		},
+		{
 			Name:   "function",
 			Action: buildFunction,
 		},
