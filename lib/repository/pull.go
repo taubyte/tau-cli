@@ -5,8 +5,8 @@ import (
 	"github.com/taubyte/tau/singletons/config"
 )
 
-func (info *Info) Pull(project config.Project, branch, url string) (*git.Repository, error) {
-	repo, err := info.Open(project, branch, url)
+func (info *Info) Pull(project config.Project, url string) (*git.Repository, error) {
+	repo, err := info.Open(project, url)
 	if err != nil {
 		return nil, err
 	}

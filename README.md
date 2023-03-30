@@ -45,6 +45,7 @@ go build -o ~/go/bin/otau -tags=localAuthClient
 - `TAUBYTE_APPLICATION` Selected application
 - `TAUBYTE_CONFIG (default: ~/tau.yaml)` Config location
 - `TAUBYTE_SESSION (default: /tmp/tau-<ppid>)` Session location
+- `DREAM_BINARY (default: $GOPATH/dream)` Dream binary location
 
 ## Testing
 

@@ -12,6 +12,7 @@ func (lib *repositoryCommands) CloneCmd() common.Command {
 		&cli.Command{
 			Flags: flags.Combine(
 				flags.EmbedToken,
+				flags.Branch,
 			),
 			Action: lib.Clone,
 		},
@@ -29,5 +30,10 @@ func (lib *repositoryCommands) Clone(ctx *cli.Context) error {
 		return err
 	}
 
-	return nil
+	err = ctx.Set("name", resource.Get().Name())
+	if err != nil {
+		return err
+	}
+
+	return lib.Checkout(ctx)
 }

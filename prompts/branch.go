@@ -20,10 +20,7 @@ func GetOrRequireABranch(c *cli.Context, prev ...string) string {
 }
 
 func SelectABranch(c *cli.Context, repo *git.Repository) (branch string, err error) {
-	branchOptions, fetchErr, err := repo.ListBranches(true)
-	if fetchErr != nil && strings.Contains(fetchErr.Error(), "already up-to-date") == false {
-		return "", fetchErr
-	}
+	branchOptions, _, err := repo.ListBranches(true)
 	if err != nil {
 		return
 	}

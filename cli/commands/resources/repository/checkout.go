@@ -24,7 +24,7 @@ func (lib *repositoryCommands) Checkout(ctx *cli.Context) error {
 		return err
 	}
 
-	repo, err := info.Open(project, resource.Get().Branch(), resource.Get().RepositoryURL())
+	repo, err := info.Open(project, resource.Get().RepositoryURL())
 	if err != nil {
 		return err
 	}

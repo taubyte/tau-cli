@@ -9,14 +9,13 @@ import (
 
 type repositoryHandler struct {
 	projectName string
-	branch      string
 
 	config *git.Repository
 	code   *git.Repository
 }
 
-func Repository(projectName string, branch string) RepositoryHandler {
-	return &repositoryHandler{projectName: projectName, branch: branch}
+func Repository(projectName string) RepositoryHandler {
+	return &repositoryHandler{projectName: projectName}
 }
 
 func (h *repositoryHandler) Config() (*git.Repository, error) {

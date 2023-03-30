@@ -18,8 +18,3 @@ func (link) Edit() common.Command {
 func (link) Delete() common.Command {
 	return common.NotImplemented
 }
-
-// TODO implement
-func (link) Checkout() common.Command {
-	return common.NotImplemented
-}

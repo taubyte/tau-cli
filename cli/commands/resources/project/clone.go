@@ -4,6 +4,7 @@ import (
 	"os"
 	"path"
 
+	gosimplegit "github.com/taubyte/go-simple-git"
 	"github.com/taubyte/tau/cli/common"
 	"github.com/taubyte/tau/flags"
 	projectFlags "github.com/taubyte/tau/flags/project"
@@ -56,11 +57,35 @@ func clone(c *cli.Context) error {
 		configProject.Location = path.Join(cwd, project.Name)
 	}
 
-	branch := prompts.GetOrRequireABranch(c)
-
-	_, err = projectLib.Repository(project.Name, branch).Clone(configProject, prompts.GetOrAskForEmbedToken(c))
+	repository, err := projectLib.Repository(project.Name).Clone(configProject, prompts.GetOrAskForEmbedToken(c))
 	if err != nil {
 		return projectI18n.CloningProjectFailed(project.Name, err)
+	}
+
+	config, err := repository.Config()
+	if err != nil {
+		return err
+	}
+
+	branch, err := prompts.SelectABranch(c, config)
+	if err != nil {
+		return err
+	}
+
+	currentBranch, err := repository.CurrentBranch()
+	if err != nil {
+		return err
+	}
+	if branch != currentBranch {
+		return (&dualRepoHandler{
+			ctx:         c,
+			repository:  repository,
+			projectName: project.Name,
+			errorFormat: projectI18n.CheckingOutProjectFailed,
+			action: func(r *gosimplegit.Repository) error {
+				return r.Checkout(branch)
+			},
+		}).Run()
 	}
 
 	return nil

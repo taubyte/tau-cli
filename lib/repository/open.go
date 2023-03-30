@@ -4,13 +4,14 @@ import (
 	"fmt"
 
 	git "github.com/taubyte/go-simple-git"
+	libraryI18n "github.com/taubyte/tau/i18n/library"
 	websiteI18n "github.com/taubyte/tau/i18n/website"
 	loginLib "github.com/taubyte/tau/lib/login"
 	"github.com/taubyte/tau/singletons/config"
 	"github.com/taubyte/tau/states"
 )
 
-func (info *Info) Open(project config.Project, branch, url string) (*git.Repository, error) {
+func (info *Info) Open(project config.Project, url string) (*git.Repository, error) {
 	profile, err := loginLib.GetSelectedProfile()
 	if err != nil {
 		return nil, err
@@ -22,7 +23,12 @@ func (info *Info) Open(project config.Project, branch, url string) (*git.Reposit
 	}
 
 	if info.isCloned(repositoryPath) == false {
-		websiteI18n.Help().BeSureToCloneWebsite()
+		switch info.Type {
+		case "website":
+			websiteI18n.Help().BeSureToCloneWebsite()
+		case "library":
+			libraryI18n.Help().BeSureToCloneLibrary()
+		}
 		return nil, fmt.Errorf("repository not cloned: `%s`", repositoryPath)
 	}
 
