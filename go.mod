@@ -5,10 +5,10 @@ go 1.19
 // Direct Taubyte imports
 require (
 	github.com/taubyte/go-auth-http v0.9.0
-	github.com/taubyte/go-project-schema v0.9.2
+	github.com/taubyte/go-project-schema v0.9.3
 	github.com/taubyte/go-seer v1.0.6
 	github.com/taubyte/go-simple-git v0.2.5
-	github.com/taubyte/go-specs v0.9.6
+	github.com/taubyte/go-specs v0.10.0
 	github.com/taubyte/http v0.9.0
 	github.com/taubyte/utils v0.1.4
 )
@@ -115,4 +115,13 @@ require (
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	lukechampine.com/blake3 v1.1.6 // indirect
+)
+
+require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
+	github.com/ipfs/go-cid v0.0.7 // indirect
+	github.com/multiformats/go-base32 v0.0.3 // indirect
+	github.com/multiformats/go-base36 v0.1.0 // indirect
+	github.com/multiformats/go-multibase v0.0.3 // indirect
+	github.com/taubyte/domain-validation v1.0.0 // indirect
 )
