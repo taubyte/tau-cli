@@ -24,6 +24,7 @@ func createWebsiteMonkey() *testSpider {
 
 	testDomain := "test_domain_1"
 	testDomainFqdn := "hal.computers.com"
+	network := "Sandbox Network [Deprecated]"
 
 	// Create a basic resource of name
 	basicNew := func(name string) []string {
@@ -48,6 +49,7 @@ func createWebsiteMonkey() *testSpider {
 	// Run before each test
 	beforeEach := func(tt testMonkey) [][]string {
 		tt.env[constants.CurrentProjectEnvVarName] = projectName
+		tt.env[constants.CurrentSelectedNetworkName] = network
 		return nil
 	}
 

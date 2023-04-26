@@ -1,10 +1,12 @@
 package authClient
 
 import (
-	"os"
+	"fmt"
 
 	client "github.com/taubyte/go-auth-http"
+	"github.com/taubyte/tau/common"
 	"github.com/taubyte/tau/constants"
+	"github.com/taubyte/tau/env"
 	"github.com/taubyte/tau/i18n"
 	singletonsI18n "github.com/taubyte/tau/i18n/singletons"
 	loginLib "github.com/taubyte/tau/lib/login"
@@ -20,12 +22,22 @@ func Clear() {
 }
 
 func getClientUrl() (url string) {
-	url = os.Getenv(constants.AuthURLEnvVarName)
-	if url == "" {
+	selectedNetwork, _ := env.GetSelectedNetwork()
+	switch selectedNetwork {
+	case common.DefaultNetwork:
+		url = common.DefaultAuthUrl
+	case common.DeprecatedNetwork:
+		url = common.DeprecatedAuthUrl
+	case common.CustomNetwork:
+		customNetworkUrl, _ := env.GetCustomNetworkUrl()
+		url = fmt.Sprintf("https://auth.tau.%s", customNetworkUrl)
+	case common.PythonTestNetwork:
 		url = constants.ClientURL
+	default:
+		url = ""
 	}
 
-	return
+	return url
 }
 
 func loadClient() (config.Profile, *client.Client, error) {
@@ -42,6 +54,12 @@ func loadClient() (config.Profile, *client.Client, error) {
 	profile, err := config.Profiles().Get(profileName)
 	if err != nil {
 		return config.Profile{}, nil, err
+	}
+
+	selectedNetwork, _ := env.GetSelectedNetwork()
+	if selectedNetwork == "" {
+		i18n.Help().HaveYouSelectedANetwork()
+		return config.Profile{}, nil, singletonsI18n.NoNetworkSelected()
 	}
 
 	client, err := client.New(

@@ -21,3 +21,11 @@ func (getter) SelectedProject() (value string, exist bool) {
 func (getter) SelectedApplication() (value string, exist bool) {
 	return getKey[string](constants.CurrentApplicationEnvVarName)
 }
+
+func (getter) SelectedNetwork() (value string, exist bool) {
+	return getKey[string](constants.CurrentSelectedNetworkName)
+}
+
+func (getter) CustomNetworkUrl() (value string, exist bool) {
+	return getKey[string](constants.CustomNetworkUrlName)
+}

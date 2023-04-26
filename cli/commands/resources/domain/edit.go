@@ -46,7 +46,12 @@ func (link) Edit() common.Command {
 			}
 
 			// Skipping registration check for generated FQDN
-			if domainLib.IsAGeneratedFQDN(resource.Fqdn) == true {
+
+			isGeneratedFqdn, err := domainLib.IsAGeneratedFQDN(resource.Fqdn)
+			if err != nil {
+				return err
+			}
+			if isGeneratedFqdn {
 				return nil
 			}
 

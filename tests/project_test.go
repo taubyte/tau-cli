@@ -2,6 +2,8 @@ package tests
 
 import (
 	"testing"
+
+	"github.com/taubyte/tau/constants"
 )
 
 func TestProjectAll(t *testing.T) {
@@ -10,8 +12,9 @@ func TestProjectAll(t *testing.T) {
 
 func createProjectMonkey() *testSpider {
 	// userName := "taf-test"
-
+	network := "Test"
 	beforeEach := func(tt testMonkey) [][]string {
+		tt.env[constants.CurrentSelectedNetworkName] = network
 		return [][]string{
 			{
 				"login", "-new",

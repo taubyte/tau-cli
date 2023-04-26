@@ -18,7 +18,6 @@ func Select(ctx *cli.Context, name string, setDefault bool) error {
 		for profileName, profile := range profiles {
 			if profileName == name {
 				profile.Default = true
-
 				err := configProfiles.Set(profileName, profile)
 				if err != nil {
 					return loginI18n.SettingDefaultFailed(err)
@@ -37,5 +36,11 @@ func Select(ctx *cli.Context, name string, setDefault bool) error {
 		}
 	}
 
+	profile, err := config.Profiles().Get(name)
+	if err != nil {
+		return err
+	}
+
+	env.SetSelectedNetwork(ctx, profile.Network)
 	return env.SetSelectedUser(ctx, name)
 }

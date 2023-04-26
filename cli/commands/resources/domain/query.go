@@ -29,8 +29,14 @@ func (link) Query() common.Command {
 				return
 			}
 
+			// TODO: write error in domainI18n
 			// Skipping registration check for generated FQDN
-			if domainLib.IsAGeneratedFQDN(domain.Fqdn) == true {
+			isGeneratedFqdn, err := domainLib.IsAGeneratedFQDN(domain.Fqdn)
+			if err != nil {
+				pterm.Error.Printfln("Checking if `%s` is a generated fqdn failed with: %s", domain.Fqdn, err)
+				return
+			}
+			if isGeneratedFqdn {
 				return
 			}
 

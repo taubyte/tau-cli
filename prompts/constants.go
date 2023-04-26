@@ -47,6 +47,8 @@ const (
 	CallPrompt             = "Entry Point:"
 	TimeoutPrompt          = "Time To Live:"
 
+	NetworkPrompts = "Network:"
+
 	NoDomainGeneratePrompt = "No domains found, generate one?"
 
 	// Error messages

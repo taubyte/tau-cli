@@ -37,6 +37,7 @@ func createLibraryMonkey() *testSpider {
 	profileName := "test"
 	projectName := "test_project"
 	testName := "someLibrary"
+	network := "Test"
 
 	// Create a basic resource of name
 	basicNew := func(name string) []string {
@@ -60,6 +61,7 @@ func createLibraryMonkey() *testSpider {
 	// Run before each test
 	beforeEach := func(tt testMonkey) [][]string {
 		tt.env[constants.CurrentProjectEnvVarName] = projectName
+		tt.env[constants.CurrentSelectedNetworkName] = network
 		return nil
 	}
 

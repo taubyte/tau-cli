@@ -1,3 +1,4 @@
 package domainLib
 
-var GeneratedFqdnSuffix = ".g.tau.link"
+var DeprecatedGeneratedFqdnSuffix = ".g.tau.link"
+var GeneratedFqdnSuffix = ".gtau.link"

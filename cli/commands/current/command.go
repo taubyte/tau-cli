@@ -1,6 +1,7 @@
 package current
 
 import (
+	"github.com/taubyte/tau/common"
 	"github.com/taubyte/tau/env"
 	"github.com/taubyte/tau/prompts"
 	"github.com/urfave/cli/v2"
@@ -25,11 +26,20 @@ func Run(c *cli.Context) error {
 	selectedProfile, _ := env.GetSelectedUser()
 	selectedProject, _ := env.GetSelectedProject()
 	selectedApplication, _ := env.GetSelectedApplication()
+	selectedNetwork, _ := env.GetSelectedNetwork()
+	customNetworkUrl, _ := env.GetCustomNetworkUrl()
 
-	prompts.RenderTableWithMerge([][]string{
+	defaultRender := [][]string{
 		{"Profile", parseIfEmpty(selectedProfile)},
 		{"Project", parseIfEmpty(selectedProject)},
 		{"Application", parseIfEmpty(selectedApplication)},
-	})
+		{"Network", parseIfEmpty(selectedNetwork)},
+	}
+
+	if selectedNetwork == common.CustomNetwork {
+		defaultRender = append(defaultRender, []string{"FQDN", parseIfEmpty(customNetworkUrl)})
+	}
+
+	prompts.RenderTableWithMerge(defaultRender)
 	return nil
 }

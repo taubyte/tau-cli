@@ -69,6 +69,7 @@ func createDomainMonkey() *testSpider {
 	command := "domain"
 	certFile := "testcert.crt"
 	keyFile := "key.key"
+	network := "Test"
 
 	// Create a basic resource of name
 	basicNew := basicNewDomain
@@ -79,6 +80,7 @@ func createDomainMonkey() *testSpider {
 	// Run before each test
 	beforeEach := func(tt testMonkey) [][]string {
 		tt.env[constants.CurrentProjectEnvVarName] = projectName
+		tt.env[constants.CurrentSelectedNetworkName] = network
 		return nil
 	}
 

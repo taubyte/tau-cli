@@ -27,6 +27,7 @@ func createFunctionMonkey() *testSpider {
 
 	testService := "test_service_1"
 	testServiceProtocol := "/test/v1"
+	network := "Test"
 
 	// Create a basic resource of name using a template
 	basicNewTemplate := func(name, template string) []string {
@@ -77,6 +78,7 @@ func createFunctionMonkey() *testSpider {
 	// Run before each test
 	beforeEach := func(tt testMonkey) [][]string {
 		tt.env[constants.CurrentProjectEnvVarName] = projectName
+		tt.env[constants.CurrentSelectedNetworkName] = network
 		return nil
 	}
 

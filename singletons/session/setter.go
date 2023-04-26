@@ -21,3 +21,11 @@ func (setter) SelectedProject(value string) (err error) {
 func (setter) SelectedApplication(value string) (err error) {
 	return setKey(constants.CurrentApplicationEnvVarName, value)
 }
+
+func (setter) SelectedNetwork(value string) (err error) {
+	return setKey(constants.CurrentSelectedNetworkName, value)
+}
+
+func (setter) CustomNetworkUrl(value string) (err error) {
+	return setKey(constants.CustomNetworkUrlName, value)
+}
