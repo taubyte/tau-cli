@@ -19,8 +19,6 @@ import (
 	"github.com/taubyte/tau/cli/commands/resources/smartops"
 	"github.com/taubyte/tau/cli/commands/resources/storage"
 	"github.com/taubyte/tau/cli/commands/resources/website"
-
-	// "github.com/taubyte/tau/cli/commands/selects"
 	"github.com/taubyte/tau/cli/commands/version"
 	"github.com/taubyte/tau/cli/common"
 	"github.com/taubyte/tau/flags"

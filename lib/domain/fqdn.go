@@ -55,16 +55,21 @@ func NewGeneratedFQDN(prefix string) (string, error) {
 	}
 	projectID = strings.ToLower(projectID[len(projectID)-8:])
 
+	parseFqdn := func(suffix string) string {
+		return fmt.Sprintf("%s%d%s", projectID, ProjectDomainCount(project), suffix)
+	}
+
 	// Generate fqdn
 	var fqdn string
 	selectedNetwork, _ := env.GetSelectedNetwork()
+
 	switch selectedNetwork {
 	case common.DefaultNetwork:
-		fqdn = fmt.Sprintf("%s%d%s", projectID, ProjectDomainCount(project), GeneratedFqdnSuffix)
+		fqdn = parseFqdn(GeneratedFqdnSuffix)
 	case common.DeprecatedNetwork:
-		fqdn = fmt.Sprintf("%s%d%s", projectID, ProjectDomainCount(project), DeprecatedGeneratedFqdnSuffix)
+		fqdn = parseFqdn(DeprecatedGeneratedFqdnSuffix)
 	case common.PythonTestNetwork:
-		fqdn = fmt.Sprintf("%s%d%s", projectID, ProjectDomainCount(project), DeprecatedGeneratedFqdnSuffix)
+		fqdn = parseFqdn(DeprecatedGeneratedFqdnSuffix)
 	case common.CustomNetwork:
 		customNetworkUrl, _ := env.GetCustomNetworkUrl()
 		customGeneratedFqdn, err := FetchCustomNetworkGeneratedFqdn(customNetworkUrl)
@@ -72,7 +77,7 @@ func NewGeneratedFQDN(prefix string) (string, error) {
 			return "", err
 		}
 
-		fqdn = fmt.Sprintf("%s%d%s", projectID, ProjectDomainCount(project), customGeneratedFqdn)
+		fqdn = parseFqdn(customGeneratedFqdn)
 	}
 
 	// Attach prefix
@@ -101,11 +106,14 @@ func IsAGeneratedFQDN(fqdn string) (bool, error) {
 	}
 }
 
+// TODO: Move to specs
 func FetchCustomNetworkGeneratedFqdn(fqdn string) (string, error) {
 	resp, err := http.Get(fmt.Sprintf("https://seer.tau.%s/network/config", fqdn))
 	if err != nil {
 		return "", fmt.Errorf("fetching generated url prefix for fqdn `%s` failed with: %s", fqdn, err)
 	}
+
+	defer resp.Body.Close()
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {

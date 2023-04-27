@@ -35,13 +35,16 @@ func (link) List() common.Command {
 }
 
 func (link) Delete() common.Command {
-	return nil
+	return common.NotImplemented
+
 }
 
 func (link) New() common.Command {
 	return nil
+
 }
 
 func (link) Query() common.Command {
-	return nil
+	return common.NotImplemented
+
 }

@@ -29,7 +29,7 @@ func Run(c *cli.Context) error {
 	selectedNetwork, _ := env.GetSelectedNetwork()
 	customNetworkUrl, _ := env.GetCustomNetworkUrl()
 
-	defaultRender := [][]string{
+	toRender := [][]string{
 		{"Profile", parseIfEmpty(selectedProfile)},
 		{"Project", parseIfEmpty(selectedProject)},
 		{"Application", parseIfEmpty(selectedApplication)},
@@ -37,9 +37,9 @@ func Run(c *cli.Context) error {
 	}
 
 	if selectedNetwork == common.CustomNetwork {
-		defaultRender = append(defaultRender, []string{"FQDN", parseIfEmpty(customNetworkUrl)})
+		toRender = append(toRender, []string{"FQDN", parseIfEmpty(customNetworkUrl)})
 	}
 
-	prompts.RenderTableWithMerge(defaultRender)
+	prompts.RenderTableWithMerge(toRender)
 	return nil
 }

@@ -4,6 +4,7 @@ import (
 	cliCommon "github.com/taubyte/tau/cli/common"
 	"github.com/taubyte/tau/common"
 	"github.com/taubyte/tau/env"
+	loginLib "github.com/taubyte/tau/lib/login"
 	"github.com/taubyte/tau/prompts"
 	domainPrompts "github.com/taubyte/tau/prompts/domain"
 	"github.com/taubyte/tau/singletons/config"
@@ -33,8 +34,7 @@ func _select(ctx *cli.Context) error {
 		}
 	}
 
-	selectedProfile, _ := env.GetSelectedUser()
-	profile, err := config.Profiles().Get(selectedProfile)
+	profile, err := loginLib.GetSelectedProfile()
 	if err != nil {
 		return err
 	}
@@ -45,9 +45,8 @@ func _select(ctx *cli.Context) error {
 	} else if ctx.Bool(networkFlags.Deprecated.Name) {
 		selectedNetwork = common.DeprecatedNetwork
 		profile.FQDN = ""
-	} else if ctx.String(networkFlags.FQDN.Name) != "" {
+	} else if fqdn = ctx.String(networkFlags.FQDN.Name); fqdn != "" {
 		selectedNetwork = common.CustomNetwork
-		fqdn = ctx.String(networkFlags.FQDN.Name)
 		env.SetCustomNetworkUrl(ctx, fqdn)
 		profile.FQDN = fqdn
 	} else {
@@ -64,9 +63,8 @@ func _select(ctx *cli.Context) error {
 
 	profile.Network = selectedNetwork
 
-	config.Profiles().Set(selectedProfile, profile)
-	err = env.SetSelectedNetwork(ctx, selectedNetwork)
-	if err != nil {
+	config.Profiles().Set(profile.Name(), profile)
+	if err := env.SetSelectedNetwork(ctx, selectedNetwork); err != nil {
 		return err
 	}
 

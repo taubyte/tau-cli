@@ -1,6 +1,7 @@
 package common
 
 // TODO: Add dreamland connection
+// TODO: Move to specs
 const (
 	DefaultNetwork    = "Taubyte's Sandbox Network"
 	DeprecatedNetwork = "Sandbox Network [Deprecated]"

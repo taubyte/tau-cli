@@ -14,19 +14,13 @@ func SetSelectedNetwork(c *cli.Context, network string) error {
 	return session.Set().SelectedNetwork(network)
 }
 
-func GetSelectedNetwork() (string, error) {
+func GetSelectedNetwork() (string, bool) {
 	network, isSet := LookupEnv(constants.CurrentSelectedNetworkName)
 	if isSet == true && len(network) > 0 {
-		return network, nil
+		return network, isSet
 	}
 
-	// Try to get profile from current session
-	network, exist := session.Get().SelectedNetwork()
-	if exist == true && len(network) > 0 {
-		return network, nil
-	}
-
-	return network, nil
+	return session.Get().SelectedNetwork()
 }
 
 func SetCustomNetworkUrl(c *cli.Context, network string) error {
@@ -37,17 +31,11 @@ func SetCustomNetworkUrl(c *cli.Context, network string) error {
 	return session.Set().CustomNetworkUrl(network)
 }
 
-func GetCustomNetworkUrl() (string, error) {
+func GetCustomNetworkUrl() (string, bool) {
 	fqdn, isSet := LookupEnv(constants.CustomNetworkUrlName)
 	if isSet == true && len(fqdn) > 0 {
-		return fqdn, nil
+		return fqdn, isSet
 	}
 
-	// Try to get profile from current session
-	fqdn, exist := session.Get().CustomNetworkUrl()
-	if exist == true && len(fqdn) > 0 {
-		return fqdn, nil
-	}
-
-	return fqdn, nil
+	return session.Get().CustomNetworkUrl()
 }
