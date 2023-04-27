@@ -29,7 +29,6 @@ func (link) Query() common.Command {
 				return
 			}
 
-			// TODO: write error in domainI18n
 			isGeneratedFqdn, err := domainLib.IsAGeneratedFQDN(domain.Fqdn)
 			if err != nil {
 				pterm.Error.Printfln(domainI18n.IsGeneratedFQDNFailed(domain.Fqdn, err).Error())
