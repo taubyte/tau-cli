@@ -24,7 +24,7 @@ func createWebsiteMonkey() *testSpider {
 
 	testDomain := "test_domain_1"
 	testDomainFqdn := "hal.computers.com"
-	network := "Sandbox Network [Deprecated]"
+	network := "Test"
 
 	// Create a basic resource of name
 	basicNew := func(name string) []string {

@@ -2,6 +2,7 @@ package authClient
 
 import (
 	"fmt"
+	"os"
 
 	client "github.com/taubyte/go-auth-http"
 	"github.com/taubyte/tau/common"
@@ -32,7 +33,10 @@ func getClientUrl() (url string) {
 		customNetworkUrl, _ := env.GetCustomNetworkUrl()
 		url = fmt.Sprintf("https://auth.tau.%s", customNetworkUrl)
 	case common.PythonTestNetwork:
-		url = constants.ClientURL
+		url = os.Getenv(constants.AuthURLEnvVarName)
+		if url == "" {
+			url = constants.ClientURL
+		}
 	default:
 		url = ""
 	}

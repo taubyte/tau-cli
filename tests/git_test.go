@@ -19,7 +19,7 @@ func createGitMonkey() *testSpider {
 	projectName := commonTest.ProjectName
 	branch := commonTest.Branch
 	provider := "github"
-	network := "Sandbox Network [Deprecated]"
+	network := "Test"
 
 	// Run before each test
 	beforeEach := func(tt testMonkey) [][]string {
