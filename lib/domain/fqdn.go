@@ -120,5 +120,15 @@ func FetchCustomNetworkGeneratedFqdn(fqdn string) (string, error) {
 		return "", fmt.Errorf("reading response failed with: %s", err)
 	}
 
-	return strings.Trim(string(body), "\""), nil
+	bodyStr := strings.Trim(string(body), "\"")
+
+	return formatGeneratedSuffix(bodyStr), nil
+}
+
+func formatGeneratedSuffix(suffix string) string {
+	if !strings.HasPrefix(suffix, ".") {
+		suffix = "." + suffix
+	}
+
+	return suffix
 }
