@@ -285,6 +285,7 @@ func createDomainMonkey() *testSpider {
 		},
 		{
 			name:            "generated domain",
+			mock:            true,
 			writeFilesInDir: basicWriteFilesInDir("projectTestID"),
 			args:            []string{"query", command, testName},
 			wantOut:         []string{"cttestid0.g.tau.link"},
@@ -304,6 +305,7 @@ func createDomainMonkey() *testSpider {
 		},
 		{
 			name:            "generated domain with prefix",
+			mock:            true,
 			writeFilesInDir: basicWriteFilesInDir("projectTestID"),
 			args:            []string{"query", command, testName},
 			wantOut:         []string{"domain-prefix-cttestid0.g.tau.link"},
