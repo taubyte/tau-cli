@@ -13,6 +13,7 @@ import (
 	"github.com/taubyte/tau/cli/commands/resources/function"
 	"github.com/taubyte/tau/cli/commands/resources/library"
 	"github.com/taubyte/tau/cli/commands/resources/messaging"
+	"github.com/taubyte/tau/cli/commands/resources/network"
 	"github.com/taubyte/tau/cli/commands/resources/project"
 	"github.com/taubyte/tau/cli/commands/resources/service"
 	"github.com/taubyte/tau/cli/commands/resources/smartops"
@@ -61,6 +62,7 @@ func New() (*cli.App, error) {
 	common.Attach(app,
 		project.New,
 		application.New,
+		network.New,
 		database.New,
 		domain.New,
 		function.New,

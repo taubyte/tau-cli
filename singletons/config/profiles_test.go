@@ -62,6 +62,7 @@ func TestProfiles(t *testing.T) {
         default: false
         git_username: ""
         git_email: ""
+        network: ""
 `
 
 	configData, err := readConfig()

@@ -34,6 +34,9 @@ const (
 	profileDoesNotExist      = "profile does not exist"
 	creatingAuthClientFailed = "creating auth client failed with: %s"
 	loadingAuthClientFailed  = "loading auth client failed with: %s"
+
+	//Network
+	noNetworkSelected = "no network selected"
 )
 
 func CreatingSeerAtLocFailed(loc string, err error) error {
@@ -118,4 +121,8 @@ func CreatingAuthClientFailed(err error) error {
 
 func LoadingAuthClientFailed(err error) error {
 	return fmt.Errorf(loadingAuthClientFailed, err)
+}
+
+func NoNetworkSelected() error {
+	return fmt.Errorf(noNetworkSelected)
 }

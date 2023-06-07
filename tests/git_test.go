@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	commonTest "github.com/taubyte/tau/common/test"
+	"github.com/taubyte/tau/constants"
 	"github.com/taubyte/tau/singletons/session"
 )
 
@@ -18,6 +19,13 @@ func createGitMonkey() *testSpider {
 	projectName := commonTest.ProjectName
 	branch := commonTest.Branch
 	provider := "github"
+	network := "Test"
+
+	// Run before each test
+	beforeEach := func(tt testMonkey) [][]string {
+		tt.env[constants.CurrentSelectedNetworkName] = network
+		return nil
+	}
 
 	tests := []testMonkey{
 		{
@@ -56,5 +64,5 @@ func createGitMonkey() *testSpider {
 			},
 		},
 	}
-	return &testSpider{"test_project", tests, nil, nil, "git"}
+	return &testSpider{"test_project", tests, beforeEach, nil, "git"}
 }

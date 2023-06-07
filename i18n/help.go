@@ -12,6 +12,10 @@ func (helper) HaveYouLoggedIn() {
 	pterm.Info.Println("Have you logged in ( $tau login )")
 }
 
+func (helper) HaveYouSelectedANetwork() {
+	pterm.Info.Println("Have you selected a network with ( $tau select network )")
+}
+
 func (helper) TokenMayBeExpired(login string) {
 	pterm.Info.Printfln("Token may be expired refresh with ( $tau login --new %s )", login)
 }

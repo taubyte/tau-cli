@@ -2,9 +2,13 @@ package domainLib
 
 import (
 	"fmt"
+	"io/ioutil"
+	"net/http"
 	"strings"
 
 	client "github.com/taubyte/go-auth-http"
+	"github.com/taubyte/tau/common"
+	"github.com/taubyte/tau/env"
 	domainI18n "github.com/taubyte/tau/i18n/domain"
 	projectLib "github.com/taubyte/tau/lib/project"
 	authClient "github.com/taubyte/tau/singletons/auth_client"
@@ -51,8 +55,30 @@ func NewGeneratedFQDN(prefix string) (string, error) {
 	}
 	projectID = strings.ToLower(projectID[len(projectID)-8:])
 
+	parseFqdn := func(suffix string) string {
+		return fmt.Sprintf("%s%d%s", projectID, ProjectDomainCount(project), suffix)
+	}
+
 	// Generate fqdn
-	fqdn := fmt.Sprintf("%s%d%s", projectID, ProjectDomainCount(project), GeneratedFqdnSuffix)
+	var fqdn string
+	selectedNetwork, _ := env.GetSelectedNetwork()
+
+	switch selectedNetwork {
+	case common.DefaultNetwork:
+		fqdn = parseFqdn(GeneratedFqdnSuffix)
+	case common.DeprecatedNetwork:
+		fqdn = parseFqdn(DeprecatedGeneratedFqdnSuffix)
+	case common.PythonTestNetwork:
+		fqdn = parseFqdn(DeprecatedGeneratedFqdnSuffix)
+	case common.CustomNetwork:
+		customNetworkUrl, _ := env.GetCustomNetworkUrl()
+		customGeneratedFqdn, err := FetchCustomNetworkGeneratedFqdn(customNetworkUrl)
+		if err != nil {
+			return "", err
+		}
+
+		fqdn = parseFqdn(customGeneratedFqdn)
+	}
 
 	// Attach prefix
 	if len(prefix) > 0 {
@@ -62,6 +88,47 @@ func NewGeneratedFQDN(prefix string) (string, error) {
 	return fqdn, nil
 }
 
-func IsAGeneratedFQDN(fqdn string) bool {
-	return strings.HasSuffix(fqdn, GeneratedFqdnSuffix)
+func IsAGeneratedFQDN(fqdn string) (bool, error) {
+	selectedNetwork, _ := env.GetSelectedNetwork()
+	switch selectedNetwork {
+	case common.DeprecatedNetwork:
+		return strings.HasSuffix(fqdn, DeprecatedGeneratedFqdnSuffix), nil
+	case common.CustomNetwork:
+		customNetworkUrl, _ := env.GetCustomNetworkUrl()
+		customGeneratedFqdn, err := FetchCustomNetworkGeneratedFqdn(customNetworkUrl)
+		if err != nil {
+			return false, err
+		}
+
+		return strings.HasSuffix(fqdn, customGeneratedFqdn), nil
+	default:
+		return strings.HasSuffix(fqdn, GeneratedFqdnSuffix), nil
+	}
+}
+
+// TODO: Move to specs
+func FetchCustomNetworkGeneratedFqdn(fqdn string) (string, error) {
+	resp, err := http.Get(fmt.Sprintf("https://seer.tau.%s/network/config", fqdn))
+	if err != nil {
+		return "", fmt.Errorf("fetching generated url prefix for fqdn `%s` failed with: %s", fqdn, err)
+	}
+
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return "", fmt.Errorf("reading response failed with: %s", err)
+	}
+
+	bodyStr := strings.Trim(string(body), "\"")
+
+	return formatGeneratedSuffix(bodyStr), nil
+}
+
+func formatGeneratedSuffix(suffix string) string {
+	if !strings.HasPrefix(suffix, ".") {
+		suffix = "." + suffix
+	}
+
+	return suffix
 }

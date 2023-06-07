@@ -21,3 +21,7 @@ func (unSetter) SelectedProject() (err error) {
 func (unSetter) SelectedApplication() (err error) {
 	return deleteKey(constants.CurrentApplicationEnvVarName)
 }
+
+func (unSetter) CustomNetworkUrl() (err error) {
+	return deleteKey(constants.CustomNetworkUrlName)
+}
