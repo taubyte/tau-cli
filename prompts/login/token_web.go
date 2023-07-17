@@ -43,11 +43,10 @@ func extractTokenFromSession(session string) (data SessionData, err error) {
 	return
 }
 
-func getTokenAuthURL(provider string, origin string) string {
-	authURL := "auth.taubyte.com/"
-
-	authURL = "https://" + path.Join(authURL, fmt.Sprintf("oauth/%s/login", provider))
-	return authURL + fmt.Sprintf("?origin=%s", origin)
+func getTokenConsoleURL(provider string, origin string) string {
+	consoleURL := "console.taubyte.com/"
+	consoleURL = "https://" + path.Join(consoleURL, fmt.Sprintf("oauth/%s/login", provider))
+	return consoleURL + fmt.Sprintf("?origin=%s", origin)
 }
 
 // Token from web gives a link to github with a hook back to here
@@ -91,7 +90,7 @@ func TokenFromWeb(ctx *cli.Context, provider string) (token string, err error) {
 	srv.Start()
 
 	origin := fmt.Sprintf("http://127.0.0.1:%s", githubLoginListenPort)
-	pterm.Info.Printfln(OpenURLToLogin, provider, getTokenAuthURL(provider, origin))
+	pterm.Info.Printfln(OpenURLToLogin, provider, getTokenConsoleURL(provider, origin))
 
 	select {
 	case token = <-tokenCh:
