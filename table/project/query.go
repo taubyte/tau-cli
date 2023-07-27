@@ -5,7 +5,7 @@ import (
 
 	"github.com/jedib0t/go-pretty/v6/table"
 	client "github.com/taubyte/go-auth-http"
-	projectLib "github.com/taubyte/tau/lib/project"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
 )
 
 func Query(project *client.Project, repos *client.RawRepoDataOuter, description string) {

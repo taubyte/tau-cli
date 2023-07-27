@@ -2,7 +2,7 @@ package databaseTable_test
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	databaseTable "github.com/taubyte/tau/table/database"
+	databaseTable "github.com/taubyte/tau-cli/table/database"
 )
 
 func ExampleList() {

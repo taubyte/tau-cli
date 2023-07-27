@@ -1,7 +1,7 @@
 package exit
 
 import (
-	"github.com/taubyte/tau/singletons/session"
+	"github.com/taubyte/tau-cli/singletons/session"
 	"github.com/urfave/cli/v2"
 )
 

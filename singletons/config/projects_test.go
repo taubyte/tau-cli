@@ -5,7 +5,7 @@ import (
 	"path"
 	"testing"
 
-	"github.com/taubyte/tau/singletons/config"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 func TestProjects(t *testing.T) {

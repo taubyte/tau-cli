@@ -2,7 +2,7 @@ package version
 
 import (
 	"github.com/pterm/pterm"
-	"github.com/taubyte/tau/common"
+	"github.com/taubyte/tau-cli/common"
 	"github.com/urfave/cli/v2"
 )
 

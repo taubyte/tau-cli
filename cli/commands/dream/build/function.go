@@ -5,10 +5,10 @@ import (
 
 	commonSpec "github.com/taubyte/go-specs/common"
 	functionSpec "github.com/taubyte/go-specs/function"
-	dreamI18n "github.com/taubyte/tau/i18n/dream"
-	applicationLib "github.com/taubyte/tau/lib/application"
-	dreamLib "github.com/taubyte/tau/lib/dream"
-	functionPrompts "github.com/taubyte/tau/prompts/function"
+	dreamI18n "github.com/taubyte/tau-cli/i18n/dream"
+	applicationLib "github.com/taubyte/tau-cli/lib/application"
+	dreamLib "github.com/taubyte/tau-cli/lib/dream"
+	functionPrompts "github.com/taubyte/tau-cli/prompts/function"
 	"github.com/urfave/cli/v2"
 )
 

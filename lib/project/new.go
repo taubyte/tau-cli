@@ -7,12 +7,12 @@ import (
 
 	"github.com/pterm/pterm"
 	httpClient "github.com/taubyte/go-auth-http"
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/env"
-	projectI18n "github.com/taubyte/tau/i18n/project"
-	"github.com/taubyte/tau/prompts/spinner"
-	authClient "github.com/taubyte/tau/singletons/auth_client"
-	"github.com/taubyte/tau/singletons/session"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/env"
+	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	"github.com/taubyte/tau-cli/prompts/spinner"
+	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
+	"github.com/taubyte/tau-cli/singletons/session"
 )
 
 /*

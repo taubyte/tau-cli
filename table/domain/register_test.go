@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	client "github.com/taubyte/go-auth-http"
-	domainTable "github.com/taubyte/tau/table/domain"
+	domainTable "github.com/taubyte/tau-cli/table/domain"
 )
 
 var _ = ` Domain Registration                             

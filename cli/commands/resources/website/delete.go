@@ -2,12 +2,12 @@ package website
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	resources "github.com/taubyte/tau/cli/commands/resources/common"
-	"github.com/taubyte/tau/cli/common"
-	websiteI18n "github.com/taubyte/tau/i18n/website"
-	websiteLib "github.com/taubyte/tau/lib/website"
-	websitePrompts "github.com/taubyte/tau/prompts/website"
-	websiteTable "github.com/taubyte/tau/table/website"
+	resources "github.com/taubyte/tau-cli/cli/commands/resources/common"
+	"github.com/taubyte/tau-cli/cli/common"
+	websiteI18n "github.com/taubyte/tau-cli/i18n/website"
+	websiteLib "github.com/taubyte/tau-cli/lib/website"
+	websitePrompts "github.com/taubyte/tau-cli/prompts/website"
+	websiteTable "github.com/taubyte/tau-cli/table/website"
 )
 
 func (link) Delete() common.Command {

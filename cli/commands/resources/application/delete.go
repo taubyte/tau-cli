@@ -1,12 +1,12 @@
 package application
 
 import (
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/flags"
-	applicationI18n "github.com/taubyte/tau/i18n/application"
-	applicationLib "github.com/taubyte/tau/lib/application"
-	applicationPrompts "github.com/taubyte/tau/prompts/application"
-	applicationTable "github.com/taubyte/tau/table/application"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	applicationI18n "github.com/taubyte/tau-cli/i18n/application"
+	applicationLib "github.com/taubyte/tau-cli/lib/application"
+	applicationPrompts "github.com/taubyte/tau-cli/prompts/application"
+	applicationTable "github.com/taubyte/tau-cli/table/application"
 	"github.com/urfave/cli/v2"
 )
 

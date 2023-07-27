@@ -5,11 +5,11 @@ import (
 
 	"github.com/pterm/pterm"
 	git "github.com/taubyte/go-simple-git"
-	projectFlags "github.com/taubyte/tau/flags/project"
-	"github.com/taubyte/tau/i18n"
-	projectI18n "github.com/taubyte/tau/i18n/project"
-	projectLib "github.com/taubyte/tau/lib/project"
-	"github.com/taubyte/tau/singletons/config"
+	projectFlags "github.com/taubyte/tau-cli/flags/project"
+	"github.com/taubyte/tau-cli/i18n"
+	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	"github.com/taubyte/tau-cli/singletons/config"
 	"github.com/urfave/cli/v2"
 )
 

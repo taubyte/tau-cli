@@ -3,7 +3,7 @@ package config_test
 import (
 	"testing"
 
-	"github.com/taubyte/tau/singletons/config"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 func TestProfiles(t *testing.T) {

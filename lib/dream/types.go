@@ -2,7 +2,7 @@ package dreamLib
 
 import (
 	"github.com/taubyte/go-project-schema/project"
-	"github.com/taubyte/tau/singletons/config"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 type internalJob func() error

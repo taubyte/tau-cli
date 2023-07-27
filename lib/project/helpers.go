@@ -2,8 +2,8 @@ package projectLib
 
 import (
 	httpClient "github.com/taubyte/go-auth-http"
-	projectI18n "github.com/taubyte/tau/i18n/project"
-	authClient "github.com/taubyte/tau/singletons/auth_client"
+	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 )
 
 func projectByName(name string) (*httpClient.Project, error) {

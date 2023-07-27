@@ -2,7 +2,7 @@ package projectLib
 
 import (
 	client "github.com/taubyte/go-auth-http"
-	authClient "github.com/taubyte/tau/singletons/auth_client"
+	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 )
 
 func List() ([]string, error) {

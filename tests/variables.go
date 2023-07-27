@@ -1,7 +1,7 @@
 package tests
 
 import (
-	commonTest "github.com/taubyte/tau/common/test"
+	commonTest "github.com/taubyte/tau-cli/common/test"
 )
 
 var (

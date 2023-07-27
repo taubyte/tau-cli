@@ -1,10 +1,10 @@
 package project
 
 import (
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/cli/common/options"
-	"github.com/taubyte/tau/env"
-	"github.com/taubyte/tau/i18n"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/cli/common/options"
+	"github.com/taubyte/tau-cli/env"
+	"github.com/taubyte/tau-cli/i18n"
 	"github.com/urfave/cli/v2"
 )
 

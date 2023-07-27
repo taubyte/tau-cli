@@ -3,7 +3,7 @@ package storageTable_test
 import (
 	"github.com/alecthomas/units"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	storageTable "github.com/taubyte/tau/table/storage"
+	storageTable "github.com/taubyte/tau-cli/table/storage"
 )
 
 func ExampleQuery_object() {

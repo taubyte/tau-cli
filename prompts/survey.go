@@ -6,7 +6,7 @@ import (
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/AlecAivazis/survey/v2/terminal"
-	"github.com/taubyte/tau/states"
+	"github.com/taubyte/tau-cli/states"
 )
 
 func handleError(err error) {

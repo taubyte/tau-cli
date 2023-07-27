@@ -4,9 +4,9 @@ import (
 	"github.com/taubyte/go-project-schema/application"
 	"github.com/taubyte/go-project-schema/project"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/env"
-	projectLib "github.com/taubyte/tau/lib/project"
-	"github.com/taubyte/tau/singletons/session"
+	"github.com/taubyte/tau-cli/env"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	"github.com/taubyte/tau-cli/singletons/session"
 	"github.com/taubyte/utils/id"
 	"github.com/urfave/cli/v2"
 )

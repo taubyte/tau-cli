@@ -5,15 +5,15 @@ import (
 	"os"
 
 	client "github.com/taubyte/go-auth-http"
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/constants"
-	"github.com/taubyte/tau/env"
-	"github.com/taubyte/tau/i18n"
-	singletonsI18n "github.com/taubyte/tau/i18n/singletons"
-	loginLib "github.com/taubyte/tau/lib/login"
-	"github.com/taubyte/tau/singletons/config"
-	"github.com/taubyte/tau/singletons/session"
-	"github.com/taubyte/tau/states"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/constants"
+	"github.com/taubyte/tau-cli/env"
+	"github.com/taubyte/tau-cli/i18n"
+	singletonsI18n "github.com/taubyte/tau-cli/i18n/singletons"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
+	"github.com/taubyte/tau-cli/singletons/config"
+	"github.com/taubyte/tau-cli/singletons/session"
+	"github.com/taubyte/tau-cli/states"
 )
 
 var _client *client.Client

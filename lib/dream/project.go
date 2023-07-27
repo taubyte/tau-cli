@@ -9,9 +9,9 @@ import (
 	"sync"
 
 	"github.com/pterm/pterm"
-	libraryI18n "github.com/taubyte/tau/i18n/library"
-	websiteI18n "github.com/taubyte/tau/i18n/website"
-	projectLib "github.com/taubyte/tau/lib/project"
+	libraryI18n "github.com/taubyte/tau-cli/i18n/library"
+	websiteI18n "github.com/taubyte/tau-cli/i18n/website"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
 )
 
 func runJobs(jobs []internalJob) error {

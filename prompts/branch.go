@@ -5,7 +5,7 @@ import (
 
 	"github.com/pterm/pterm"
 	git "github.com/taubyte/go-simple-git"
-	"github.com/taubyte/tau/flags"
+	"github.com/taubyte/tau-cli/flags"
 	"github.com/urfave/cli/v2"
 )
 

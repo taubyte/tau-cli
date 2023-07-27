@@ -2,7 +2,7 @@ package validate
 
 import (
 	schemaCommon "github.com/taubyte/go-project-schema/common"
-	"github.com/taubyte/tau/i18n"
+	"github.com/taubyte/tau-cli/i18n"
 )
 
 func Time(s string) error {

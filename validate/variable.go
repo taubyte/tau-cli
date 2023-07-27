@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/asaskevich/govalidator"
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/constants"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/constants"
 )
 
 func SliceContains(slice []string, str string) bool {

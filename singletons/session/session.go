@@ -1,11 +1,11 @@
 package session
 
 import (
-	singletonsI18n "github.com/taubyte/tau/i18n/singletons"
+	singletonsI18n "github.com/taubyte/tau-cli/i18n/singletons"
 
 	// Importing to run the common initialization
 	"github.com/taubyte/go-seer"
-	_ "github.com/taubyte/tau/singletons/common"
+	_ "github.com/taubyte/tau-cli/singletons/common"
 )
 
 func getOrCreateSession() *tauSession {

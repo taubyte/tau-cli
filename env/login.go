@@ -1,10 +1,10 @@
 package env
 
 import (
-	"github.com/taubyte/tau/constants"
-	envI18n "github.com/taubyte/tau/i18n/env"
-	"github.com/taubyte/tau/singletons/config"
-	"github.com/taubyte/tau/singletons/session"
+	"github.com/taubyte/tau-cli/constants"
+	envI18n "github.com/taubyte/tau-cli/i18n/env"
+	"github.com/taubyte/tau-cli/singletons/config"
+	"github.com/taubyte/tau-cli/singletons/session"
 	"github.com/urfave/cli/v2"
 )
 

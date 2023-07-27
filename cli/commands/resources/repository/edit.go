@@ -2,10 +2,10 @@ package repositoryCommands
 
 import (
 	"github.com/pterm/pterm"
-	repositoryI18n "github.com/taubyte/tau/i18n/repository"
-	projectLib "github.com/taubyte/tau/lib/project"
-	repositoryLib "github.com/taubyte/tau/lib/repository"
-	"github.com/taubyte/tau/prompts"
+	repositoryI18n "github.com/taubyte/tau-cli/i18n/repository"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

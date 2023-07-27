@@ -5,8 +5,8 @@ import (
 
 	"github.com/taubyte/go-project-schema/common"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	storageLib "github.com/taubyte/tau/lib/storage"
-	"github.com/taubyte/tau/prompts"
+	storageLib "github.com/taubyte/tau-cli/lib/storage"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

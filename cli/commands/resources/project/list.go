@@ -4,10 +4,10 @@ import (
 	"fmt"
 
 	httpClient "github.com/taubyte/go-auth-http"
-	projectLib "github.com/taubyte/tau/lib/project"
-	"github.com/taubyte/tau/prompts/spinner"
-	auth_client "github.com/taubyte/tau/singletons/auth_client"
-	projectTable "github.com/taubyte/tau/table/project"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	"github.com/taubyte/tau-cli/prompts/spinner"
+	auth_client "github.com/taubyte/tau-cli/singletons/auth_client"
+	projectTable "github.com/taubyte/tau-cli/table/project"
 	"github.com/urfave/cli/v2"
 )
 

@@ -2,8 +2,8 @@ package projectLib
 
 import (
 	git "github.com/taubyte/go-simple-git"
-	projectI18n "github.com/taubyte/tau/i18n/project"
-	"github.com/taubyte/tau/singletons/config"
+	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 func (h *repositoryHandler) openOrCloneProject(profile config.Profile, tauProject config.Project, embedToken bool) error {

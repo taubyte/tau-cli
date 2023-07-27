@@ -1,7 +1,7 @@
 package domain
 
 import (
-	"github.com/taubyte/tau/cli/common"
+	"github.com/taubyte/tau-cli/cli/common"
 )
 
 type link struct{}

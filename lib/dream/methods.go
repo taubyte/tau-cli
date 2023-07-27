@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/taubyte/tau/constants"
+	"github.com/taubyte/tau-cli/constants"
 )
 
 func IsRunning() bool {

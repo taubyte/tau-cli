@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	"github.com/taubyte/go-project-schema/project"
-	"github.com/taubyte/tau/constants"
-	functionPrompts "github.com/taubyte/tau/prompts/function"
+	"github.com/taubyte/tau-cli/constants"
+	functionPrompts "github.com/taubyte/tau-cli/prompts/function"
 )
 
 // Define a method to test your monkey

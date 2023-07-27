@@ -5,9 +5,9 @@ import (
 	"strings"
 
 	schemaCommon "github.com/taubyte/go-project-schema/common"
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/flags"
-	"github.com/taubyte/tau/validate"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	"github.com/taubyte/tau-cli/validate"
 	"github.com/urfave/cli/v2"
 )
 

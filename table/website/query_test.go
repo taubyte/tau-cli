@@ -2,7 +2,7 @@ package websiteTable_test
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	websiteTable "github.com/taubyte/tau/table/website"
+	websiteTable "github.com/taubyte/tau-cli/table/website"
 )
 
 func ExampleQuery() {

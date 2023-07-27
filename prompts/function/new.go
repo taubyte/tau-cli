@@ -2,9 +2,9 @@ package functionPrompts
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/common"
-	functionLib "github.com/taubyte/tau/lib/function"
-	"github.com/taubyte/tau/prompts"
+	"github.com/taubyte/tau-cli/common"
+	functionLib "github.com/taubyte/tau-cli/lib/function"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

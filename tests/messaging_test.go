@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/taubyte/tau/constants"
-	messagingPrompts "github.com/taubyte/tau/prompts/messaging"
+	"github.com/taubyte/tau-cli/constants"
+	messagingPrompts "github.com/taubyte/tau-cli/prompts/messaging"
 )
 
 func TestMessagingAll(t *testing.T) {

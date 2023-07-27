@@ -2,9 +2,9 @@ package projectLib
 
 import (
 	"github.com/taubyte/go-project-schema/project"
-	"github.com/taubyte/tau/env"
-	"github.com/taubyte/tau/i18n"
-	"github.com/taubyte/tau/singletons/config"
+	"github.com/taubyte/tau-cli/env"
+	"github.com/taubyte/tau-cli/i18n"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 func SelectedProjectInterface() (project.Project, error) {

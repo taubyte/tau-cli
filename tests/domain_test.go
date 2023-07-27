@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/taubyte/tau/constants"
-	domainPrompts "github.com/taubyte/tau/prompts/domain"
+	"github.com/taubyte/tau-cli/constants"
+	domainPrompts "github.com/taubyte/tau-cli/prompts/domain"
 )
 
 // To view the test certificate info, current expires 2023

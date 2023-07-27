@@ -2,9 +2,9 @@ package libraryPrompts
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	libraryLib "github.com/taubyte/tau/lib/library"
-	"github.com/taubyte/tau/prompts"
-	loginPrompts "github.com/taubyte/tau/prompts/login"
+	libraryLib "github.com/taubyte/tau-cli/lib/library"
+	"github.com/taubyte/tau-cli/prompts"
+	loginPrompts "github.com/taubyte/tau-cli/prompts/login"
 	"github.com/urfave/cli/v2"
 )
 

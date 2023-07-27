@@ -2,11 +2,11 @@ package database
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	resources "github.com/taubyte/tau/cli/commands/resources/common"
-	"github.com/taubyte/tau/cli/common"
-	databaseLib "github.com/taubyte/tau/lib/database"
-	databasePrompts "github.com/taubyte/tau/prompts/database"
-	databaseTable "github.com/taubyte/tau/table/database"
+	resources "github.com/taubyte/tau-cli/cli/commands/resources/common"
+	"github.com/taubyte/tau-cli/cli/common"
+	databaseLib "github.com/taubyte/tau-cli/lib/database"
+	databasePrompts "github.com/taubyte/tau-cli/prompts/database"
+	databaseTable "github.com/taubyte/tau-cli/table/database"
 )
 
 func (link) Query() common.Command {

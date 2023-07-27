@@ -2,7 +2,7 @@ package libraryTable_test
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	libraryTable "github.com/taubyte/tau/table/library"
+	libraryTable "github.com/taubyte/tau-cli/table/library"
 )
 
 func ExampleQuery() {

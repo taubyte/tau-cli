@@ -1,16 +1,16 @@
 package network
 
 import (
-	cliCommon "github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/env"
-	loginLib "github.com/taubyte/tau/lib/login"
-	"github.com/taubyte/tau/prompts"
-	domainPrompts "github.com/taubyte/tau/prompts/domain"
-	"github.com/taubyte/tau/singletons/config"
+	cliCommon "github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/env"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
+	"github.com/taubyte/tau-cli/prompts"
+	domainPrompts "github.com/taubyte/tau-cli/prompts/domain"
+	"github.com/taubyte/tau-cli/singletons/config"
 
-	networkFlags "github.com/taubyte/tau/flags/network"
-	networkI18n "github.com/taubyte/tau/i18n/network"
+	networkFlags "github.com/taubyte/tau-cli/flags/network"
+	networkI18n "github.com/taubyte/tau-cli/i18n/network"
 	"github.com/urfave/cli/v2"
 )
 

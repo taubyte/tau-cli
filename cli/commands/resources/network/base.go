@@ -1,7 +1,7 @@
 package network
 
 import (
-	"github.com/taubyte/tau/cli/common"
+	"github.com/taubyte/tau-cli/cli/common"
 	"github.com/urfave/cli/v2"
 )
 

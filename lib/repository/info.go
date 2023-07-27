@@ -3,7 +3,7 @@ package repositoryLib
 import (
 	"fmt"
 
-	authClient "github.com/taubyte/tau/singletons/auth_client"
+	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 )
 
 func (info *Info) GetNameFromID() error {

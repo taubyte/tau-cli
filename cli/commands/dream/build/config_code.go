@@ -1,8 +1,8 @@
 package build
 
 import (
-	dreamI18n "github.com/taubyte/tau/i18n/dream"
-	dreamLib "github.com/taubyte/tau/lib/dream"
+	dreamI18n "github.com/taubyte/tau-cli/i18n/dream"
+	dreamLib "github.com/taubyte/tau-cli/lib/dream"
 	"github.com/urfave/cli/v2"
 )
 

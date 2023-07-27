@@ -1,10 +1,10 @@
 package repositoryCommands
 
 import (
-	"github.com/taubyte/tau/i18n"
-	projectLib "github.com/taubyte/tau/lib/project"
-	repositoryLib "github.com/taubyte/tau/lib/repository"
-	"github.com/taubyte/tau/singletons/config"
+	"github.com/taubyte/tau-cli/i18n"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
+	"github.com/taubyte/tau-cli/singletons/config"
 	"github.com/urfave/cli/v2"
 )
 

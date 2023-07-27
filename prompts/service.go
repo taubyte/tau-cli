@@ -7,8 +7,8 @@ import (
 	"github.com/pterm/pterm"
 	"github.com/taubyte/go-project-schema/project"
 	serviceSchema "github.com/taubyte/go-project-schema/services"
-	"github.com/taubyte/tau/env"
-	projectLib "github.com/taubyte/tau/lib/project"
+	"github.com/taubyte/tau-cli/env"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
 	"github.com/urfave/cli/v2"
 )
 

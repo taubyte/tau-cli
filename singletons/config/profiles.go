@@ -2,8 +2,8 @@ package config
 
 import (
 	"github.com/taubyte/go-seer"
-	"github.com/taubyte/tau/i18n"
-	singletonsI18n "github.com/taubyte/tau/i18n/singletons"
+	"github.com/taubyte/tau-cli/i18n"
+	singletonsI18n "github.com/taubyte/tau-cli/i18n/singletons"
 )
 
 func Profiles() *profileHandler {

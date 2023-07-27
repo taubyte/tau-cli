@@ -1,6 +1,6 @@
 package repositoryLib
 
-import "github.com/taubyte/tau/singletons/templates"
+import "github.com/taubyte/tau-cli/singletons/templates"
 
 type RepositoryType = string
 

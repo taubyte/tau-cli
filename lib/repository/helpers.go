@@ -6,8 +6,8 @@ import (
 	"path"
 	"strings"
 
-	loginLib "github.com/taubyte/tau/lib/login"
-	"github.com/taubyte/tau/singletons/config"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 func (info *Info) isCloned(repositoryPath string) bool {

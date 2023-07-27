@@ -7,7 +7,7 @@ import (
 	"github.com/taubyte/go-project-schema/project"
 	"github.com/taubyte/go-project-schema/storages"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	applicationLib "github.com/taubyte/tau/lib/application"
+	applicationLib "github.com/taubyte/tau-cli/lib/application"
 	"github.com/taubyte/utils/id"
 )
 

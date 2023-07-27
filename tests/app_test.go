@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/taubyte/tau/constants"
-	applicationPrompts "github.com/taubyte/tau/prompts/application"
+	"github.com/taubyte/tau-cli/constants"
+	applicationPrompts "github.com/taubyte/tau-cli/prompts/application"
 )
 
 func TestApplicationAll(t *testing.T) {

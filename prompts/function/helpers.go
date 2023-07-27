@@ -6,10 +6,10 @@ import (
 
 	"github.com/taubyte/go-project-schema/functions"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/flags"
-	functionFlags "github.com/taubyte/tau/flags/function"
-	"github.com/taubyte/tau/prompts"
-	"github.com/taubyte/tau/singletons/templates"
+	"github.com/taubyte/tau-cli/flags"
+	functionFlags "github.com/taubyte/tau-cli/flags/function"
+	"github.com/taubyte/tau-cli/prompts"
+	"github.com/taubyte/tau-cli/singletons/templates"
 	"github.com/urfave/cli/v2"
 )
 

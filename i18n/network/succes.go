@@ -2,7 +2,7 @@ package network
 
 import (
 	"github.com/pterm/pterm"
-	"github.com/taubyte/tau/common"
+	"github.com/taubyte/tau-cli/common"
 )
 
 func Success(network, fqdn string) {

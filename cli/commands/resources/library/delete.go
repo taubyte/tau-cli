@@ -2,12 +2,12 @@ package library
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	resources "github.com/taubyte/tau/cli/commands/resources/common"
-	"github.com/taubyte/tau/cli/common"
-	libraryI18n "github.com/taubyte/tau/i18n/library"
-	libraryLib "github.com/taubyte/tau/lib/library"
-	libraryPrompts "github.com/taubyte/tau/prompts/library"
-	libraryTable "github.com/taubyte/tau/table/library"
+	resources "github.com/taubyte/tau-cli/cli/commands/resources/common"
+	"github.com/taubyte/tau-cli/cli/common"
+	libraryI18n "github.com/taubyte/tau-cli/i18n/library"
+	libraryLib "github.com/taubyte/tau-cli/lib/library"
+	libraryPrompts "github.com/taubyte/tau-cli/prompts/library"
+	libraryTable "github.com/taubyte/tau-cli/table/library"
 )
 
 func (link) Delete() common.Command {

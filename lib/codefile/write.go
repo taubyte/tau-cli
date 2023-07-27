@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/taubyte/tau/common"
+	"github.com/taubyte/tau-cli/common"
 )
 
 func (p CodePath) Write(templateURL, nameForMd string) error {

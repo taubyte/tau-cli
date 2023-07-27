@@ -2,9 +2,9 @@ package build
 
 import (
 	"github.com/taubyte/go-project-schema/project"
-	"github.com/taubyte/tau/env"
-	projectLib "github.com/taubyte/tau/lib/project"
-	"github.com/taubyte/tau/singletons/config"
+	"github.com/taubyte/tau-cli/env"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 type buildHelper struct {

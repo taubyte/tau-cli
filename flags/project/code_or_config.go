@@ -1,7 +1,7 @@
 package projectFlags
 
 import (
-	projectI18n "github.com/taubyte/tau/i18n/project"
+	projectI18n "github.com/taubyte/tau-cli/i18n/project"
 	"github.com/urfave/cli/v2"
 )
 

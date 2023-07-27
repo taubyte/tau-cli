@@ -6,10 +6,10 @@ import (
 	"strings"
 
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/flags"
-	databaseI18n "github.com/taubyte/tau/i18n/database"
-	databaseLib "github.com/taubyte/tau/lib/database"
-	"github.com/taubyte/tau/prompts"
+	"github.com/taubyte/tau-cli/flags"
+	databaseI18n "github.com/taubyte/tau-cli/i18n/database"
+	databaseLib "github.com/taubyte/tau-cli/lib/database"
+	"github.com/taubyte/tau-cli/prompts"
 
 	"github.com/urfave/cli/v2"
 )

@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"testing"
 
-	commonTest "github.com/taubyte/tau/common/test"
-	"github.com/taubyte/tau/constants"
-	libraryPrompts "github.com/taubyte/tau/prompts/library"
+	commonTest "github.com/taubyte/tau-cli/common/test"
+	"github.com/taubyte/tau-cli/constants"
+	libraryPrompts "github.com/taubyte/tau-cli/prompts/library"
 )
 
 func basicNewLibrary(name string) []string {

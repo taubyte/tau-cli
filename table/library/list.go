@@ -5,7 +5,7 @@ import (
 
 	"github.com/jedib0t/go-pretty/v6/table"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	repositoryLib "github.com/taubyte/tau/lib/repository"
+	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
 )
 
 func List(libraries []*structureSpec.Library) {

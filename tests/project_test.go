@@ -3,7 +3,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/taubyte/tau/constants"
+	"github.com/taubyte/tau-cli/constants"
 )
 
 func TestProjectAll(t *testing.T) {

@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/taubyte/tau/cli"
-	"github.com/taubyte/tau/i18n"
+	"github.com/taubyte/tau-cli/cli"
+	"github.com/taubyte/tau-cli/i18n"
 )
 
 func main() {

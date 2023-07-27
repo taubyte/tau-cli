@@ -4,12 +4,12 @@ import (
 	"fmt"
 
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/flags"
-	projectLib "github.com/taubyte/tau/lib/project"
-	repositoryLib "github.com/taubyte/tau/lib/repository"
-	"github.com/taubyte/tau/prompts"
-	"github.com/taubyte/tau/singletons/templates"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
+	"github.com/taubyte/tau-cli/prompts"
+	"github.com/taubyte/tau-cli/singletons/templates"
 	"github.com/urfave/cli/v2"
 )
 

@@ -3,9 +3,9 @@ package loginPrompts
 import (
 	"fmt"
 
-	flags "github.com/taubyte/tau/flags/login"
-	i18n "github.com/taubyte/tau/i18n/login"
-	"github.com/taubyte/tau/prompts"
+	flags "github.com/taubyte/tau-cli/flags/login"
+	i18n "github.com/taubyte/tau-cli/i18n/login"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 	"golang.org/x/exp/slices"
 )

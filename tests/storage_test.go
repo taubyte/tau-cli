@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/taubyte/tau/constants"
-	storagePrompts "github.com/taubyte/tau/prompts/storage"
+	"github.com/taubyte/tau-cli/constants"
+	storagePrompts "github.com/taubyte/tau-cli/prompts/storage"
 )
 
 func TestStorageAll(t *testing.T) {

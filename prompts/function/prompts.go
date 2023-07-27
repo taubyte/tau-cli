@@ -1,9 +1,9 @@
 package functionPrompts
 
 import (
-	"github.com/taubyte/tau/common"
-	functionFlags "github.com/taubyte/tau/flags/function"
-	"github.com/taubyte/tau/prompts"
+	"github.com/taubyte/tau-cli/common"
+	functionFlags "github.com/taubyte/tau-cli/flags/function"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

@@ -2,7 +2,7 @@ package repositoryLib
 
 import (
 	git "github.com/taubyte/go-simple-git"
-	"github.com/taubyte/tau/singletons/config"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 func (info *Info) Push(project config.Project, message, url string) (*git.Repository, error) {

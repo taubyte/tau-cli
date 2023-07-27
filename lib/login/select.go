@@ -1,9 +1,9 @@
 package loginLib
 
 import (
-	"github.com/taubyte/tau/env"
-	loginI18n "github.com/taubyte/tau/i18n/login"
-	"github.com/taubyte/tau/singletons/config"
+	"github.com/taubyte/tau-cli/env"
+	loginI18n "github.com/taubyte/tau-cli/i18n/login"
+	"github.com/taubyte/tau-cli/singletons/config"
 	"github.com/urfave/cli/v2"
 )
 

@@ -2,13 +2,13 @@ package project
 
 import (
 	gosimplegit "github.com/taubyte/go-simple-git"
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/flags"
-	projectFlags "github.com/taubyte/tau/flags/project"
-	projectI18n "github.com/taubyte/tau/i18n/project"
-	projectLib "github.com/taubyte/tau/lib/project"
-	"github.com/taubyte/tau/prompts"
-	projectPrompts "github.com/taubyte/tau/prompts/project"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	projectFlags "github.com/taubyte/tau-cli/flags/project"
+	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	"github.com/taubyte/tau-cli/prompts"
+	projectPrompts "github.com/taubyte/tau-cli/prompts/project"
 	"github.com/urfave/cli/v2"
 )
 

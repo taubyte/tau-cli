@@ -7,14 +7,14 @@ import (
 
 	"github.com/pterm/pterm"
 	"github.com/taubyte/go-auth-http/git/common"
-	"github.com/taubyte/tau/flags"
-	repositoryI18n "github.com/taubyte/tau/i18n/repository"
-	loginLib "github.com/taubyte/tau/lib/login"
-	repositoryLib "github.com/taubyte/tau/lib/repository"
-	"github.com/taubyte/tau/prompts/spinner"
-	authClient "github.com/taubyte/tau/singletons/auth_client"
-	"github.com/taubyte/tau/singletons/templates"
-	"github.com/taubyte/tau/validate"
+	"github.com/taubyte/tau-cli/flags"
+	repositoryI18n "github.com/taubyte/tau-cli/i18n/repository"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
+	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
+	"github.com/taubyte/tau-cli/prompts/spinner"
+	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
+	"github.com/taubyte/tau-cli/singletons/templates"
+	"github.com/taubyte/tau-cli/validate"
 	"github.com/urfave/cli/v2"
 )
 

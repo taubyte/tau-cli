@@ -2,9 +2,9 @@ package projectLib
 
 import (
 	git "github.com/taubyte/go-simple-git"
-	projectI18n "github.com/taubyte/tau/i18n/project"
-	"github.com/taubyte/tau/singletons/config"
-	"github.com/taubyte/tau/states"
+	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	"github.com/taubyte/tau-cli/singletons/config"
+	"github.com/taubyte/tau-cli/states"
 )
 
 type repositoryHandler struct {

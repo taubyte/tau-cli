@@ -4,11 +4,11 @@ import (
 	"fmt"
 
 	git "github.com/taubyte/go-simple-git"
-	libraryI18n "github.com/taubyte/tau/i18n/library"
-	websiteI18n "github.com/taubyte/tau/i18n/website"
-	loginLib "github.com/taubyte/tau/lib/login"
-	"github.com/taubyte/tau/singletons/config"
-	"github.com/taubyte/tau/states"
+	libraryI18n "github.com/taubyte/tau-cli/i18n/library"
+	websiteI18n "github.com/taubyte/tau-cli/i18n/website"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
+	"github.com/taubyte/tau-cli/singletons/config"
+	"github.com/taubyte/tau-cli/states"
 )
 
 func (info *Info) Open(project config.Project, url string) (*git.Repository, error) {

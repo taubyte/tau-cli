@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	singletonsI18n "github.com/taubyte/tau/i18n/singletons"
-	loginLib "github.com/taubyte/tau/lib/login"
-	"github.com/taubyte/tau/singletons/config"
+	singletonsI18n "github.com/taubyte/tau-cli/i18n/singletons"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 func (h *repositoryHandler) Clone(tauProject config.Project, embedToken bool) (ProjectRepository, error) {

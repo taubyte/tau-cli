@@ -1,13 +1,13 @@
 package library
 
 import (
-	repositoryCommands "github.com/taubyte/tau/cli/commands/resources/repository"
-	"github.com/taubyte/tau/cli/common"
-	libraryI18n "github.com/taubyte/tau/i18n/library"
-	libraryLib "github.com/taubyte/tau/lib/library"
-	repositoryLib "github.com/taubyte/tau/lib/repository"
-	libraryPrompts "github.com/taubyte/tau/prompts/library"
-	libraryTable "github.com/taubyte/tau/table/library"
+	repositoryCommands "github.com/taubyte/tau-cli/cli/commands/resources/repository"
+	"github.com/taubyte/tau-cli/cli/common"
+	libraryI18n "github.com/taubyte/tau-cli/i18n/library"
+	libraryLib "github.com/taubyte/tau-cli/lib/library"
+	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
+	libraryPrompts "github.com/taubyte/tau-cli/prompts/library"
+	libraryTable "github.com/taubyte/tau-cli/table/library"
 	"github.com/urfave/cli/v2"
 )
 

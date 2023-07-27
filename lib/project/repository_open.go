@@ -2,8 +2,8 @@ package projectLib
 
 import (
 	git "github.com/taubyte/go-simple-git"
-	loginLib "github.com/taubyte/tau/lib/login"
-	"github.com/taubyte/tau/singletons/config"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 func (h *repositoryHandler) Open() (ProjectRepository, error) {

@@ -3,7 +3,7 @@ package websiteI18n
 import (
 	"fmt"
 
-	"github.com/taubyte/tau/i18n/printer"
+	"github.com/taubyte/tau-cli/i18n/printer"
 )
 
 func success(prefix, name string) {

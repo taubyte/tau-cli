@@ -5,7 +5,7 @@ import (
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/pterm/pterm"
-	"github.com/taubyte/tau/flags"
+	"github.com/taubyte/tau-cli/flags"
 	slices "github.com/taubyte/utils/slices/string"
 	"github.com/urfave/cli/v2"
 )

@@ -2,7 +2,7 @@ package serviceTable_test
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	serviceTable "github.com/taubyte/tau/table/service"
+	serviceTable "github.com/taubyte/tau-cli/table/service"
 )
 
 func ExampleList() {

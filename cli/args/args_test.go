@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	tauCLI "github.com/taubyte/tau/cli"
-	"github.com/taubyte/tau/cli/args"
+	tauCLI "github.com/taubyte/tau-cli/cli"
+	"github.com/taubyte/tau-cli/cli/args"
 	"github.com/urfave/cli/v2"
 )
 

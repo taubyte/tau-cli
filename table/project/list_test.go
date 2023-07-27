@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	client "github.com/taubyte/go-auth-http"
-	projectTable "github.com/taubyte/tau/table/project"
+	projectTable "github.com/taubyte/tau-cli/table/project"
 )
 
 func ExampleList() {

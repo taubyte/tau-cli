@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/pterm/pterm"
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/constants"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/constants"
 )
 
 func TestNetworkAll(t *testing.T) {

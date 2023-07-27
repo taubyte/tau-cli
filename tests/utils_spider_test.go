@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/taubyte/tau/common"
+	"github.com/taubyte/tau-cli/common"
 )
 
 func newSpider(s *testSpider, parallel bool, debug ...bool) *spiderTestContext {

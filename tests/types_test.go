@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/taubyte/go-project-schema/project"
-	"github.com/taubyte/tau/singletons/session"
+	"github.com/taubyte/tau-cli/singletons/session"
 )
 
 type testMonkey struct {

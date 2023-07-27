@@ -2,7 +2,7 @@ package libraryTable
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/prompts"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

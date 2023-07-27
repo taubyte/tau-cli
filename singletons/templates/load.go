@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	git "github.com/taubyte/go-simple-git"
-	"github.com/taubyte/tau/states"
+	"github.com/taubyte/tau-cli/states"
 )
 
 func loadTemplates() error {

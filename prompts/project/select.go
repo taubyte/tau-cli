@@ -6,11 +6,11 @@ import (
 	"strings"
 
 	client "github.com/taubyte/go-auth-http"
-	"github.com/taubyte/tau/env"
-	"github.com/taubyte/tau/flags"
-	projectI18n "github.com/taubyte/tau/i18n/project"
-	projectLib "github.com/taubyte/tau/lib/project"
-	"github.com/taubyte/tau/prompts"
+	"github.com/taubyte/tau-cli/env"
+	"github.com/taubyte/tau-cli/flags"
+	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	"github.com/taubyte/tau-cli/prompts"
 
 	"github.com/urfave/cli/v2"
 )

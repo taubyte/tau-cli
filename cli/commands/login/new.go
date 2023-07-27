@@ -1,11 +1,11 @@
 package login
 
 import (
-	loginFlags "github.com/taubyte/tau/flags/login"
-	loginI18n "github.com/taubyte/tau/i18n/login"
-	loginLib "github.com/taubyte/tau/lib/login"
-	"github.com/taubyte/tau/prompts"
-	loginPrompts "github.com/taubyte/tau/prompts/login"
+	loginFlags "github.com/taubyte/tau-cli/flags/login"
+	loginI18n "github.com/taubyte/tau-cli/i18n/login"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
+	"github.com/taubyte/tau-cli/prompts"
+	loginPrompts "github.com/taubyte/tau-cli/prompts/login"
 	"github.com/urfave/cli/v2"
 )
 

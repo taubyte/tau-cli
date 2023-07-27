@@ -5,10 +5,10 @@ import (
 	"strings"
 
 	seer "github.com/taubyte/go-seer"
-	"github.com/taubyte/tau/constants"
+	"github.com/taubyte/tau-cli/constants"
 
 	// Importing to run the common initialization
-	_ "github.com/taubyte/tau/singletons/common"
+	_ "github.com/taubyte/tau-cli/singletons/common"
 )
 
 var _config *tauConfig

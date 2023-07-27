@@ -2,7 +2,7 @@ package prompts
 
 import (
 	"github.com/AlecAivazis/survey/v2"
-	"github.com/taubyte/tau/flags"
+	"github.com/taubyte/tau-cli/flags"
 	"github.com/urfave/cli/v2"
 )
 

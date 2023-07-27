@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/taubyte/tau/constants"
+	"github.com/taubyte/tau-cli/constants"
 )
 
 func TestServiceAll(t *testing.T) {

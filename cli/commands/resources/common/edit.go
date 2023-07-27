@@ -2,9 +2,9 @@ package resources
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/flags"
-	projectLib "github.com/taubyte/tau/lib/project"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
 	"github.com/urfave/cli/v2"
 )
 

@@ -4,8 +4,8 @@ import (
 	"path"
 
 	schemaCommon "github.com/taubyte/go-project-schema/common"
-	"github.com/taubyte/tau/env"
-	projectLib "github.com/taubyte/tau/lib/project"
+	"github.com/taubyte/tau-cli/env"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
 )
 
 func Path(name, folder string) (CodePath, error) {

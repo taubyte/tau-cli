@@ -2,7 +2,7 @@ package loginLib
 
 import (
 	"github.com/google/go-github/github"
-	"github.com/taubyte/tau/states"
+	"github.com/taubyte/tau-cli/states"
 	"golang.org/x/oauth2"
 )
 

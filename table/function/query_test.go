@@ -5,8 +5,8 @@ import (
 
 	"github.com/alecthomas/units"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/common"
-	functionTable "github.com/taubyte/tau/table/function"
+	"github.com/taubyte/tau-cli/common"
+	functionTable "github.com/taubyte/tau-cli/table/function"
 )
 
 func getDefaultFunction() *structureSpec.Function {

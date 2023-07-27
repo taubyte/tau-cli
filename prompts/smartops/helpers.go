@@ -6,9 +6,9 @@ import (
 
 	smartopsSchema "github.com/taubyte/go-project-schema/smartops"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/flags"
-	"github.com/taubyte/tau/prompts"
-	"github.com/taubyte/tau/singletons/templates"
+	"github.com/taubyte/tau-cli/flags"
+	"github.com/taubyte/tau-cli/prompts"
+	"github.com/taubyte/tau-cli/singletons/templates"
 	"github.com/urfave/cli/v2"
 )
 

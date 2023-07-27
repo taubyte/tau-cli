@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/taubyte/tau/singletons/templates"
+	"github.com/taubyte/tau-cli/singletons/templates"
 	"gotest.tools/v3/assert"
 )
 

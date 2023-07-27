@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/taubyte/tau/cli/args"
+	"github.com/taubyte/tau-cli/cli/args"
 	"github.com/urfave/cli/v2"
 )
 

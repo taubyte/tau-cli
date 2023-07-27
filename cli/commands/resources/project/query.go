@@ -1,13 +1,13 @@
 package project
 
 import (
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/flags"
-	projectI18n "github.com/taubyte/tau/i18n/project"
-	projectLib "github.com/taubyte/tau/lib/project"
-	projectPrompts "github.com/taubyte/tau/prompts/project"
-	"github.com/taubyte/tau/prompts/spinner"
-	projectTable "github.com/taubyte/tau/table/project"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	projectPrompts "github.com/taubyte/tau-cli/prompts/project"
+	"github.com/taubyte/tau-cli/prompts/spinner"
+	projectTable "github.com/taubyte/tau-cli/table/project"
 	"github.com/urfave/cli/v2"
 )
 

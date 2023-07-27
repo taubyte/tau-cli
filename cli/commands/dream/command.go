@@ -3,9 +3,9 @@ package dream
 import (
 	"fmt"
 
-	"github.com/taubyte/tau/cli/commands/dream/build"
-	dreamLib "github.com/taubyte/tau/lib/dream"
-	projectLib "github.com/taubyte/tau/lib/project"
+	"github.com/taubyte/tau-cli/cli/commands/dream/build"
+	dreamLib "github.com/taubyte/tau-cli/lib/dream"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
 	"github.com/urfave/cli/v2"
 )
 

@@ -3,7 +3,7 @@ package flags
 import (
 	"fmt"
 
-	"github.com/taubyte/tau/singletons/templates"
+	"github.com/taubyte/tau-cli/singletons/templates"
 	"github.com/urfave/cli/v2"
 )
 

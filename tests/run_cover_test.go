@@ -9,12 +9,12 @@ import (
 	"sync"
 
 	"github.com/pterm/pterm"
-	"github.com/taubyte/tau/cli"
-	"github.com/taubyte/tau/constants"
-	"github.com/taubyte/tau/env"
-	authClient "github.com/taubyte/tau/singletons/auth_client"
-	"github.com/taubyte/tau/singletons/config"
-	"github.com/taubyte/tau/singletons/session"
+	"github.com/taubyte/tau-cli/cli"
+	"github.com/taubyte/tau-cli/constants"
+	"github.com/taubyte/tau-cli/env"
+	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
+	"github.com/taubyte/tau-cli/singletons/config"
+	"github.com/taubyte/tau-cli/singletons/session"
 )
 
 var coverLock sync.Mutex

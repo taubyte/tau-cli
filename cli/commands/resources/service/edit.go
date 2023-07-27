@@ -2,13 +2,13 @@ package service
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	resources "github.com/taubyte/tau/cli/commands/resources/common"
-	"github.com/taubyte/tau/cli/common"
-	serviceFlags "github.com/taubyte/tau/flags/service"
-	serviceI18n "github.com/taubyte/tau/i18n/service"
-	serviceLib "github.com/taubyte/tau/lib/service"
-	servicePrompts "github.com/taubyte/tau/prompts/service"
-	serviceTable "github.com/taubyte/tau/table/service"
+	resources "github.com/taubyte/tau-cli/cli/commands/resources/common"
+	"github.com/taubyte/tau-cli/cli/common"
+	serviceFlags "github.com/taubyte/tau-cli/flags/service"
+	serviceI18n "github.com/taubyte/tau-cli/i18n/service"
+	serviceLib "github.com/taubyte/tau-cli/lib/service"
+	servicePrompts "github.com/taubyte/tau-cli/prompts/service"
+	serviceTable "github.com/taubyte/tau-cli/table/service"
 	"github.com/urfave/cli/v2"
 )
 

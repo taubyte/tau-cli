@@ -1,8 +1,8 @@
 package databasePrompts
 
 import (
-	databaseFlags "github.com/taubyte/tau/flags/database"
-	"github.com/taubyte/tau/prompts"
+	databaseFlags "github.com/taubyte/tau-cli/flags/database"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

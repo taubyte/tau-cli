@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	tauCLI "github.com/taubyte/tau/cli"
-	argsLib "github.com/taubyte/tau/cli/args"
+	tauCLI "github.com/taubyte/tau-cli/cli"
+	argsLib "github.com/taubyte/tau-cli/cli/args"
 )
 
 func TestPostfix(t *testing.T) {

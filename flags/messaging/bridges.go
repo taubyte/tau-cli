@@ -1,7 +1,7 @@
 package messagingFlags
 
 import (
-	"github.com/taubyte/tau/flags"
+	"github.com/taubyte/tau-cli/flags"
 	"github.com/urfave/cli/v2"
 )
 

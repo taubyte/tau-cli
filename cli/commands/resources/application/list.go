@@ -1,8 +1,8 @@
 package application
 
 import (
-	applicationLib "github.com/taubyte/tau/lib/application"
-	applicationTable "github.com/taubyte/tau/table/application"
+	applicationLib "github.com/taubyte/tau-cli/lib/application"
+	applicationTable "github.com/taubyte/tau-cli/table/application"
 	"github.com/urfave/cli/v2"
 )
 

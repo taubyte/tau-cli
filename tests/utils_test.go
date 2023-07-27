@@ -11,7 +11,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/taubyte/tau/common"
+	"github.com/taubyte/tau-cli/common"
 	"gotest.tools/v3/assert"
 )
 

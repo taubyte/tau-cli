@@ -3,10 +3,10 @@ package authClient_test
 import (
 	"testing"
 
-	commonTest "github.com/taubyte/tau/common/test"
-	authClient "github.com/taubyte/tau/singletons/auth_client"
-	"github.com/taubyte/tau/singletons/config"
-	"github.com/taubyte/tau/singletons/session"
+	commonTest "github.com/taubyte/tau-cli/common/test"
+	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
+	"github.com/taubyte/tau-cli/singletons/config"
+	"github.com/taubyte/tau-cli/singletons/session"
 )
 
 func TestClient(t *testing.T) {

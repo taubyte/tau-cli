@@ -2,8 +2,8 @@ package loginLib
 
 import (
 	"github.com/pterm/pterm"
-	loginI18n "github.com/taubyte/tau/i18n/login"
-	"github.com/taubyte/tau/singletons/config"
+	loginI18n "github.com/taubyte/tau-cli/i18n/login"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 func New(name, provider, token string, setDefault bool) error {

@@ -1,9 +1,9 @@
 package servicePrompts
 
 import (
-	serviceFlags "github.com/taubyte/tau/flags/service"
-	"github.com/taubyte/tau/prompts"
-	"github.com/taubyte/tau/validate"
+	serviceFlags "github.com/taubyte/tau-cli/flags/service"
+	"github.com/taubyte/tau-cli/prompts"
+	"github.com/taubyte/tau-cli/validate"
 	"github.com/urfave/cli/v2"
 )
 

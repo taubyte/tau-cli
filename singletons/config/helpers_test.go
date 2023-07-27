@@ -4,9 +4,9 @@ import (
 	"os"
 	"path"
 
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/constants"
-	"github.com/taubyte/tau/singletons/config"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/constants"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 var (

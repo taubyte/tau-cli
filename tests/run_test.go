@@ -12,7 +12,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/taubyte/tau/constants"
+	"github.com/taubyte/tau-cli/constants"
 )
 
 func takeCover() func() {

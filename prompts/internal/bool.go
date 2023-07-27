@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/pterm/pterm"
-	"github.com/taubyte/tau/flags"
-	"github.com/taubyte/tau/prompts"
+	"github.com/taubyte/tau-cli/flags"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

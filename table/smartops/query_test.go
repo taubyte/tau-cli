@@ -5,7 +5,7 @@ import (
 
 	"github.com/alecthomas/units"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	smartopsTable "github.com/taubyte/tau/table/smartops"
+	smartopsTable "github.com/taubyte/tau-cli/table/smartops"
 )
 
 func ExampleQuery() {

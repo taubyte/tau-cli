@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"testing"
 
-	commonTest "github.com/taubyte/tau/common/test"
-	repositoryLib "github.com/taubyte/tau/lib/repository"
-	"github.com/taubyte/tau/singletons/session"
+	commonTest "github.com/taubyte/tau-cli/common/test"
+	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
+	"github.com/taubyte/tau-cli/singletons/session"
 )
 
 func TestInfo(t *testing.T) {

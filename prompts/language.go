@@ -4,8 +4,8 @@ import (
 	"strings"
 
 	"github.com/taubyte/go-specs/builders/wasm"
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/flags"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/flags"
 	"github.com/urfave/cli/v2"
 	"golang.org/x/exp/slices"
 )

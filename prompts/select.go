@@ -6,7 +6,7 @@ import (
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/pterm/pterm"
-	promptsI18n "github.com/taubyte/tau/i18n/prompts"
+	promptsI18n "github.com/taubyte/tau-cli/i18n/prompts"
 	"github.com/urfave/cli/v2"
 )
 

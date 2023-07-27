@@ -2,8 +2,8 @@ package servicePrompts
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	serviceLib "github.com/taubyte/tau/lib/service"
-	"github.com/taubyte/tau/prompts"
+	serviceLib "github.com/taubyte/tau-cli/lib/service"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

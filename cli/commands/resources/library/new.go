@@ -1,9 +1,9 @@
 package library
 
 import (
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/flags"
-	libraryFlags "github.com/taubyte/tau/flags/library"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	libraryFlags "github.com/taubyte/tau-cli/flags/library"
 	"github.com/urfave/cli/v2"
 )
 

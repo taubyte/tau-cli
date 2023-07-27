@@ -1,14 +1,14 @@
 package login
 
 import (
-	"github.com/taubyte/tau/cli/common/options"
-	"github.com/taubyte/tau/flags"
-	loginFlags "github.com/taubyte/tau/flags/login"
-	"github.com/taubyte/tau/i18n"
-	loginI18n "github.com/taubyte/tau/i18n/login"
-	loginLib "github.com/taubyte/tau/lib/login"
-	"github.com/taubyte/tau/prompts"
-	loginPrompts "github.com/taubyte/tau/prompts/login"
+	"github.com/taubyte/tau-cli/cli/common/options"
+	"github.com/taubyte/tau-cli/flags"
+	loginFlags "github.com/taubyte/tau-cli/flags/login"
+	"github.com/taubyte/tau-cli/i18n"
+	loginI18n "github.com/taubyte/tau-cli/i18n/login"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
+	"github.com/taubyte/tau-cli/prompts"
+	loginPrompts "github.com/taubyte/tau-cli/prompts/login"
 	slices "github.com/taubyte/utils/slices/string"
 	"github.com/urfave/cli/v2"
 )

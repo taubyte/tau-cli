@@ -1,9 +1,9 @@
 package projectPrompts
 
 import (
-	projectFlags "github.com/taubyte/tau/flags/project"
-	projectI18n "github.com/taubyte/tau/i18n/project"
-	"github.com/taubyte/tau/prompts"
+	projectFlags "github.com/taubyte/tau-cli/flags/project"
+	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

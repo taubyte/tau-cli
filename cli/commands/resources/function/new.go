@@ -2,14 +2,14 @@ package function
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	resources "github.com/taubyte/tau/cli/commands/resources/common"
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/flags"
-	functionFlags "github.com/taubyte/tau/flags/function"
-	functionI18n "github.com/taubyte/tau/i18n/function"
-	functionLib "github.com/taubyte/tau/lib/function"
-	functionPrompts "github.com/taubyte/tau/prompts/function"
-	functionTable "github.com/taubyte/tau/table/function"
+	resources "github.com/taubyte/tau-cli/cli/commands/resources/common"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	functionFlags "github.com/taubyte/tau-cli/flags/function"
+	functionI18n "github.com/taubyte/tau-cli/i18n/function"
+	functionLib "github.com/taubyte/tau-cli/lib/function"
+	functionPrompts "github.com/taubyte/tau-cli/prompts/function"
+	functionTable "github.com/taubyte/tau-cli/table/function"
 	"github.com/urfave/cli/v2"
 )
 

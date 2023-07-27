@@ -1,6 +1,6 @@
 package repositoryLib
 
-import authClient "github.com/taubyte/tau/singletons/auth_client"
+import authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 
 func Register(repoID string) error {
 	client, err := authClient.Load()

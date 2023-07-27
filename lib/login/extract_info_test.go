@@ -3,7 +3,7 @@ package loginLib
 import (
 	"testing"
 
-	commonTest "github.com/taubyte/tau/common/test"
+	commonTest "github.com/taubyte/tau-cli/common/test"
 )
 
 func TestInfo(t *testing.T) {

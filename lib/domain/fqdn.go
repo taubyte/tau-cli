@@ -7,11 +7,11 @@ import (
 	"strings"
 
 	client "github.com/taubyte/go-auth-http"
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/env"
-	domainI18n "github.com/taubyte/tau/i18n/domain"
-	projectLib "github.com/taubyte/tau/lib/project"
-	authClient "github.com/taubyte/tau/singletons/auth_client"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/env"
+	domainI18n "github.com/taubyte/tau-cli/i18n/domain"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 )
 
 type validator struct {

@@ -1,9 +1,9 @@
 package projectTable
 
 import (
-	projectLib "github.com/taubyte/tau/lib/project"
-	"github.com/taubyte/tau/prompts"
-	projectPrompts "github.com/taubyte/tau/prompts/project"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	"github.com/taubyte/tau-cli/prompts"
+	projectPrompts "github.com/taubyte/tau-cli/prompts/project"
 	"github.com/urfave/cli/v2"
 )
 

@@ -1,11 +1,11 @@
 package website
 
 import (
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/flags"
-	websiteLib "github.com/taubyte/tau/lib/website"
-	websitePrompts "github.com/taubyte/tau/prompts/website"
-	websiteTable "github.com/taubyte/tau/table/website"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	websiteLib "github.com/taubyte/tau-cli/lib/website"
+	websitePrompts "github.com/taubyte/tau-cli/prompts/website"
+	websiteTable "github.com/taubyte/tau-cli/table/website"
 	"github.com/urfave/cli/v2"
 )
 

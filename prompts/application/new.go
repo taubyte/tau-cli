@@ -2,8 +2,8 @@ package applicationPrompts
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	applicationLib "github.com/taubyte/tau/lib/application"
-	"github.com/taubyte/tau/prompts"
+	applicationLib "github.com/taubyte/tau-cli/lib/application"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

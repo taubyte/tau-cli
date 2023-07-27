@@ -1,9 +1,9 @@
 package storagePrompts
 
 import (
-	storageFlags "github.com/taubyte/tau/flags/storage"
-	storageLib "github.com/taubyte/tau/lib/storage"
-	"github.com/taubyte/tau/prompts"
+	storageFlags "github.com/taubyte/tau-cli/flags/storage"
+	storageLib "github.com/taubyte/tau-cli/lib/storage"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

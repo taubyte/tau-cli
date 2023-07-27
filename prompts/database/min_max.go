@@ -5,9 +5,9 @@ import (
 	"strconv"
 
 	"github.com/pterm/pterm"
-	databaseFlags "github.com/taubyte/tau/flags/database"
-	"github.com/taubyte/tau/prompts"
-	"github.com/taubyte/tau/validate"
+	databaseFlags "github.com/taubyte/tau-cli/flags/database"
+	"github.com/taubyte/tau-cli/prompts"
+	"github.com/taubyte/tau-cli/validate"
 	"github.com/urfave/cli/v2"
 )
 

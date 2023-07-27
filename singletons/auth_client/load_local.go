@@ -4,7 +4,7 @@ package authClient
 
 import (
 	client "github.com/taubyte/go-auth-http"
-	singletonsI18n "github.com/taubyte/tau/i18n/singletons"
+	singletonsI18n "github.com/taubyte/tau-cli/i18n/singletons"
 )
 
 func Load() (*client.Client, error) {

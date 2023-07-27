@@ -2,14 +2,14 @@ package domain
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	resources "github.com/taubyte/tau/cli/commands/resources/common"
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/flags"
-	domainFlags "github.com/taubyte/tau/flags/domain"
-	domainI18n "github.com/taubyte/tau/i18n/domain"
-	domainLib "github.com/taubyte/tau/lib/domain"
-	domainPrompts "github.com/taubyte/tau/prompts/domain"
-	domainTable "github.com/taubyte/tau/table/domain"
+	resources "github.com/taubyte/tau-cli/cli/commands/resources/common"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	domainFlags "github.com/taubyte/tau-cli/flags/domain"
+	domainI18n "github.com/taubyte/tau-cli/i18n/domain"
+	domainLib "github.com/taubyte/tau-cli/lib/domain"
+	domainPrompts "github.com/taubyte/tau-cli/prompts/domain"
+	domainTable "github.com/taubyte/tau-cli/table/domain"
 )
 
 func (link) New() common.Command {

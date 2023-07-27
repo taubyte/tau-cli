@@ -12,8 +12,8 @@ import (
 	"github.com/pterm/pterm"
 	"github.com/spf13/afero"
 	"github.com/taubyte/go-project-schema/project"
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/singletons/session"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/singletons/session"
 	"gotest.tools/v3/assert"
 )
 

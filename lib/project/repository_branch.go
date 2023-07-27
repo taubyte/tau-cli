@@ -1,6 +1,6 @@
 package projectLib
 
-import projectI18n "github.com/taubyte/tau/i18n/project"
+import projectI18n "github.com/taubyte/tau-cli/i18n/project"
 
 func (h *repositoryHandler) CurrentBranch() (string, error) {
 	config, err := h.Config()

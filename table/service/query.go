@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/prompts"
+	"github.com/taubyte/tau-cli/prompts"
 )
 
 func Query(service *structureSpec.Service) {

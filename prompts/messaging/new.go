@@ -2,8 +2,8 @@ package messagingPrompts
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	messagingLib "github.com/taubyte/tau/lib/messaging"
-	"github.com/taubyte/tau/prompts"
+	messagingLib "github.com/taubyte/tau-cli/lib/messaging"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

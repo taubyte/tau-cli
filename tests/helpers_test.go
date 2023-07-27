@@ -8,8 +8,8 @@ import (
 	"reflect"
 	"strings"
 
-	commonTest "github.com/taubyte/tau/common/test"
-	"github.com/taubyte/tau/singletons/session"
+	commonTest "github.com/taubyte/tau-cli/common/test"
+	"github.com/taubyte/tau-cli/singletons/session"
 	"github.com/taubyte/utils/x509"
 )
 

@@ -2,13 +2,13 @@ package smartops
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	resources "github.com/taubyte/tau/cli/commands/resources/common"
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/flags"
-	smartopsI18n "github.com/taubyte/tau/i18n/smartops"
-	smartopsLib "github.com/taubyte/tau/lib/smartops"
-	smartopsPrompts "github.com/taubyte/tau/prompts/smartops"
-	smartopsTable "github.com/taubyte/tau/table/smartops"
+	resources "github.com/taubyte/tau-cli/cli/commands/resources/common"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	smartopsI18n "github.com/taubyte/tau-cli/i18n/smartops"
+	smartopsLib "github.com/taubyte/tau-cli/lib/smartops"
+	smartopsPrompts "github.com/taubyte/tau-cli/prompts/smartops"
+	smartopsTable "github.com/taubyte/tau-cli/table/smartops"
 )
 
 func (link) Edit() common.Command {

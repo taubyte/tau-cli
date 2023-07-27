@@ -2,8 +2,8 @@ package domainPrompts
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	domainLib "github.com/taubyte/tau/lib/domain"
-	"github.com/taubyte/tau/prompts"
+	domainLib "github.com/taubyte/tau-cli/lib/domain"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

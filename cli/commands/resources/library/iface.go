@@ -2,8 +2,8 @@ package library
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	repositoryCommands "github.com/taubyte/tau/cli/commands/resources/repository"
-	repositoryLib "github.com/taubyte/tau/lib/repository"
+	repositoryCommands "github.com/taubyte/tau-cli/cli/commands/resources/repository"
+	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
 )
 
 type wrapped struct {

@@ -1,8 +1,8 @@
 package loginLib
 
 import (
-	loginI18n "github.com/taubyte/tau/i18n/login"
-	"github.com/taubyte/tau/states"
+	loginI18n "github.com/taubyte/tau-cli/i18n/login"
+	"github.com/taubyte/tau-cli/states"
 )
 
 func extractInfo(token, provider string) (name, email string, err error) {

@@ -5,13 +5,13 @@ import (
 	"path"
 
 	"github.com/pterm/pterm"
-	repositoryI18n "github.com/taubyte/tau/i18n/repository"
-	loginLib "github.com/taubyte/tau/lib/login"
-	projectLib "github.com/taubyte/tau/lib/project"
-	repositoryLib "github.com/taubyte/tau/lib/repository"
-	"github.com/taubyte/tau/prompts"
-	authClient "github.com/taubyte/tau/singletons/auth_client"
-	"github.com/taubyte/tau/singletons/config"
+	repositoryI18n "github.com/taubyte/tau-cli/i18n/repository"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
+	"github.com/taubyte/tau-cli/prompts"
+	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
+	"github.com/taubyte/tau-cli/singletons/config"
 	"github.com/urfave/cli/v2"
 )
 

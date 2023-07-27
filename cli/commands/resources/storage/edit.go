@@ -2,14 +2,14 @@ package storage
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	resources "github.com/taubyte/tau/cli/commands/resources/common"
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/flags"
-	storageFlags "github.com/taubyte/tau/flags/storage"
-	storageI18n "github.com/taubyte/tau/i18n/storage"
-	storageLib "github.com/taubyte/tau/lib/storage"
-	storagePrompts "github.com/taubyte/tau/prompts/storage"
-	storageTable "github.com/taubyte/tau/table/storage"
+	resources "github.com/taubyte/tau-cli/cli/commands/resources/common"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	storageFlags "github.com/taubyte/tau-cli/flags/storage"
+	storageI18n "github.com/taubyte/tau-cli/i18n/storage"
+	storageLib "github.com/taubyte/tau-cli/lib/storage"
+	storagePrompts "github.com/taubyte/tau-cli/prompts/storage"
+	storageTable "github.com/taubyte/tau-cli/table/storage"
 )
 
 func (link) Edit() common.Command {

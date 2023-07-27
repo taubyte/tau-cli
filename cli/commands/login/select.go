@@ -1,8 +1,8 @@
 package login
 
 import (
-	loginI18n "github.com/taubyte/tau/i18n/login"
-	loginLib "github.com/taubyte/tau/lib/login"
+	loginI18n "github.com/taubyte/tau-cli/i18n/login"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
 	"github.com/urfave/cli/v2"
 )
 

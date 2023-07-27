@@ -1,8 +1,8 @@
 package projectPrompts
 
 import (
-	projectLib "github.com/taubyte/tau/lib/project"
-	"github.com/taubyte/tau/prompts"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

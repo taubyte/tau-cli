@@ -3,8 +3,8 @@ package databasePrompts
 import (
 	"github.com/taubyte/go-project-schema/common"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	databaseLib "github.com/taubyte/tau/lib/database"
-	"github.com/taubyte/tau/prompts"
+	databaseLib "github.com/taubyte/tau-cli/lib/database"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

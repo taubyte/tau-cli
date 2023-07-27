@@ -6,8 +6,8 @@ import (
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/pterm/pterm"
-	"github.com/taubyte/tau/flags"
-	"github.com/taubyte/tau/validate"
+	"github.com/taubyte/tau-cli/flags"
+	"github.com/taubyte/tau-cli/validate"
 	"github.com/urfave/cli/v2"
 )
 

@@ -3,7 +3,7 @@ package session
 import (
 	"os"
 
-	singletonsI18n "github.com/taubyte/tau/i18n/singletons"
+	singletonsI18n "github.com/taubyte/tau-cli/i18n/singletons"
 )
 
 func Delete() error {

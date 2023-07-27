@@ -2,7 +2,7 @@ package functionTable_test
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	functionTable "github.com/taubyte/tau/table/function"
+	functionTable "github.com/taubyte/tau-cli/table/function"
 )
 
 func ExampleList() {

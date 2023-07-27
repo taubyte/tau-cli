@@ -3,7 +3,7 @@ package databaseTable_test
 import (
 	"github.com/alecthomas/units"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	databaseTable "github.com/taubyte/tau/table/database"
+	databaseTable "github.com/taubyte/tau-cli/table/database"
 )
 
 func ExampleQuery_key() {

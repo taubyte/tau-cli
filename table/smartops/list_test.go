@@ -2,7 +2,7 @@ package smartopsTable_test
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	smartopsTable "github.com/taubyte/tau/table/smartops"
+	smartopsTable "github.com/taubyte/tau-cli/table/smartops"
 )
 
 func ExampleList() {

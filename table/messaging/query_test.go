@@ -2,7 +2,7 @@ package messagingTable_test
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	messagingTable "github.com/taubyte/tau/table/messaging"
+	messagingTable "github.com/taubyte/tau-cli/table/messaging"
 )
 
 func ExampleQuery() {

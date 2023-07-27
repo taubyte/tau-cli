@@ -1,8 +1,8 @@
 package messagingPrompts
 
 import (
-	messagingFlags "github.com/taubyte/tau/flags/messaging"
-	"github.com/taubyte/tau/prompts"
+	messagingFlags "github.com/taubyte/tau-cli/flags/messaging"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

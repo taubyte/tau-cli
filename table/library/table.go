@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	structureSpec "github.com/taubyte/go-specs/structure"
-	repositoryLib "github.com/taubyte/tau/lib/repository"
+	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
 )
 
 func getTableData(library *structureSpec.Library, showId bool) (toRender [][]string) {

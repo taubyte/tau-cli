@@ -6,7 +6,7 @@ import (
 
 	commonSchema "github.com/taubyte/go-project-schema/common"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/common"
+	"github.com/taubyte/tau-cli/common"
 )
 
 func getTableData(function *structureSpec.Function, showId bool) (toRender [][]string) {

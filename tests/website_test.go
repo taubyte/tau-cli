@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"testing"
 
-	commonTest "github.com/taubyte/tau/common/test"
-	"github.com/taubyte/tau/constants"
-	websitePrompts "github.com/taubyte/tau/prompts/website"
+	commonTest "github.com/taubyte/tau-cli/common/test"
+	"github.com/taubyte/tau-cli/constants"
+	websitePrompts "github.com/taubyte/tau-cli/prompts/website"
 )
 
 func TestWebsiteAll(t *testing.T) {

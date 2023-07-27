@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/taubyte/tau/constants"
-	smartopsPrompts "github.com/taubyte/tau/prompts/smartops"
+	"github.com/taubyte/tau-cli/constants"
+	smartopsPrompts "github.com/taubyte/tau-cli/prompts/smartops"
 )
 
 // Define a method to test your monkey

@@ -1,8 +1,8 @@
 package cli
 
 import (
-	argsLib "github.com/taubyte/tau/cli/args"
-	"github.com/taubyte/tau/i18n"
+	argsLib "github.com/taubyte/tau-cli/cli/args"
+	"github.com/taubyte/tau-cli/i18n"
 )
 
 func Run(args ...string) error {

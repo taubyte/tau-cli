@@ -2,7 +2,7 @@ package domainTable_test
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	domainTable "github.com/taubyte/tau/table/domain"
+	domainTable "github.com/taubyte/tau-cli/table/domain"
 )
 
 func ExampleList() {

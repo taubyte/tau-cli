@@ -6,11 +6,11 @@ import (
 	"path"
 	"strings"
 
-	dreamI18n "github.com/taubyte/tau/i18n/dream"
-	websiteI18n "github.com/taubyte/tau/i18n/website"
-	applicationLib "github.com/taubyte/tau/lib/application"
-	dreamLib "github.com/taubyte/tau/lib/dream"
-	websitePrompts "github.com/taubyte/tau/prompts/website"
+	dreamI18n "github.com/taubyte/tau-cli/i18n/dream"
+	websiteI18n "github.com/taubyte/tau-cli/i18n/website"
+	applicationLib "github.com/taubyte/tau-cli/lib/application"
+	dreamLib "github.com/taubyte/tau-cli/lib/dream"
+	websitePrompts "github.com/taubyte/tau-cli/prompts/website"
 	"github.com/urfave/cli/v2"
 )
 

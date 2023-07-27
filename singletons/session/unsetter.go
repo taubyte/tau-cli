@@ -1,6 +1,6 @@
 package session
 
-import "github.com/taubyte/tau/constants"
+import "github.com/taubyte/tau-cli/constants"
 
 type unSetter struct{}
 

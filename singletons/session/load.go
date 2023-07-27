@@ -5,9 +5,9 @@ import (
 	"path"
 
 	"github.com/taubyte/go-seer"
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/constants"
-	singletonsI18n "github.com/taubyte/tau/i18n/singletons"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/constants"
+	singletonsI18n "github.com/taubyte/tau-cli/i18n/singletons"
 	"github.com/taubyte/utils/fs/file"
 )
 

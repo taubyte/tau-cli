@@ -1,9 +1,9 @@
 package domainPrompts
 
 import (
-	domainFlags "github.com/taubyte/tau/flags/domain"
-	"github.com/taubyte/tau/prompts"
-	"github.com/taubyte/tau/validate"
+	domainFlags "github.com/taubyte/tau-cli/flags/domain"
+	"github.com/taubyte/tau-cli/prompts"
+	"github.com/taubyte/tau-cli/validate"
 	"github.com/urfave/cli/v2"
 )
 

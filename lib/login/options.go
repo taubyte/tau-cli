@@ -1,7 +1,7 @@
 package loginLib
 
 import (
-	"github.com/taubyte/tau/singletons/config"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 func GetProfiles() (_default string, possible []string, err error) {

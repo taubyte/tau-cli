@@ -1,9 +1,9 @@
 package current
 
 import (
-	"github.com/taubyte/tau/common"
-	"github.com/taubyte/tau/env"
-	"github.com/taubyte/tau/prompts"
+	"github.com/taubyte/tau-cli/common"
+	"github.com/taubyte/tau-cli/env"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

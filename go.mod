@@ -1,4 +1,4 @@
-module github.com/taubyte/tau
+module github.com/taubyte/tau-cli
 
 go 1.19
 

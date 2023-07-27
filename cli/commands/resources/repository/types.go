@@ -1,8 +1,8 @@
 package repositoryCommands
 
 import (
-	"github.com/taubyte/tau/cli/common"
-	repositoryLib "github.com/taubyte/tau/lib/repository"
+	"github.com/taubyte/tau-cli/cli/common"
+	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
 	"github.com/urfave/cli/v2"
 )
 

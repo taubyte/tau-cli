@@ -1,8 +1,8 @@
 package storageFlags
 
 import (
-	"github.com/taubyte/tau/flags"
-	storageLib "github.com/taubyte/tau/lib/storage"
+	"github.com/taubyte/tau-cli/flags"
+	storageLib "github.com/taubyte/tau-cli/lib/storage"
 	"github.com/urfave/cli/v2"
 )
 

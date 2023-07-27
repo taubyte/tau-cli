@@ -2,8 +2,8 @@ package smartopsPrompts
 
 import (
 	structureSpec "github.com/taubyte/go-specs/structure"
-	smartopsLib "github.com/taubyte/tau/lib/smartops"
-	"github.com/taubyte/tau/prompts"
+	smartopsLib "github.com/taubyte/tau-cli/lib/smartops"
+	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
 )
 

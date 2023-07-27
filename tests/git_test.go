@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
-	commonTest "github.com/taubyte/tau/common/test"
-	"github.com/taubyte/tau/constants"
-	"github.com/taubyte/tau/singletons/session"
+	commonTest "github.com/taubyte/tau-cli/common/test"
+	"github.com/taubyte/tau-cli/constants"
+	"github.com/taubyte/tau-cli/singletons/session"
 )
 
 func TestGitAll(t *testing.T) {

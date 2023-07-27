@@ -6,7 +6,7 @@ import (
 	schemaCommon "github.com/taubyte/go-project-schema/common"
 	"github.com/taubyte/go-project-schema/project"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/lib/codefile"
+	"github.com/taubyte/tau-cli/lib/codefile"
 )
 
 func New(function *structureSpec.Function, templateURL string) error {

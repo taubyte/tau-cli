@@ -4,8 +4,8 @@ import (
 	"github.com/taubyte/go-project-schema/functions"
 	"github.com/taubyte/go-project-schema/project"
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/common"
-	applicationLib "github.com/taubyte/tau/lib/application"
+	"github.com/taubyte/tau-cli/common"
+	applicationLib "github.com/taubyte/tau-cli/lib/application"
 	"github.com/taubyte/utils/id"
 )
 

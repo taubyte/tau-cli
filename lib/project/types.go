@@ -2,7 +2,7 @@ package projectLib
 
 import (
 	git "github.com/taubyte/go-simple-git"
-	"github.com/taubyte/tau/singletons/config"
+	"github.com/taubyte/tau-cli/singletons/config"
 )
 
 type Project struct {

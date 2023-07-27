@@ -1,10 +1,10 @@
 package dream
 
 import (
-	dreamI18n "github.com/taubyte/tau/i18n/dream"
-	dreamLib "github.com/taubyte/tau/lib/dream"
-	loginLib "github.com/taubyte/tau/lib/login"
-	projectLib "github.com/taubyte/tau/lib/project"
+	dreamI18n "github.com/taubyte/tau-cli/i18n/dream"
+	dreamLib "github.com/taubyte/tau-cli/lib/dream"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
+	projectLib "github.com/taubyte/tau-cli/lib/project"
 	"github.com/urfave/cli/v2"
 )
 

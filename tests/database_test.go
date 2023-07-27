@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/taubyte/tau/constants"
-	databasePrompts "github.com/taubyte/tau/prompts/database"
+	"github.com/taubyte/tau-cli/constants"
+	databasePrompts "github.com/taubyte/tau-cli/prompts/database"
 )
 
 // Define a method to test your monkey

@@ -1,11 +1,11 @@
 package library
 
 import (
-	"github.com/taubyte/tau/cli/common"
-	"github.com/taubyte/tau/flags"
-	libraryLib "github.com/taubyte/tau/lib/library"
-	libraryPrompts "github.com/taubyte/tau/prompts/library"
-	libraryTable "github.com/taubyte/tau/table/library"
+	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/flags"
+	libraryLib "github.com/taubyte/tau-cli/lib/library"
+	libraryPrompts "github.com/taubyte/tau-cli/prompts/library"
+	libraryTable "github.com/taubyte/tau-cli/table/library"
 	"github.com/urfave/cli/v2"
 )
 

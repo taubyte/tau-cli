@@ -8,7 +8,7 @@ import (
 	"io"
 
 	structureSpec "github.com/taubyte/go-specs/structure"
-	"github.com/taubyte/tau/constants"
+	"github.com/taubyte/tau-cli/constants"
 	"github.com/taubyte/utils/uri"
 )
 
