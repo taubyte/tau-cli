@@ -30,7 +30,7 @@ func extractInfo(token, provider string) (name, email string, err error) {
 		return
 	}
 	if len(emails) == 0 {
-		err = loginI18n.NoEmailsFound
+		err = loginI18n.ErrorNoEmailsFound
 		return
 	}
 

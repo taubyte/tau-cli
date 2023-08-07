@@ -46,11 +46,11 @@ func (info *Info) Clone(project config.Project, url, branch string, embedded boo
 	if err == nil {
 		if info.Type == WebsiteRepositoryType {
 			websiteI18n.Help().WebsiteAlreadyCloned(repositoryPath)
-			return nil, websiteI18n.AlreadyCloned
+			return nil, websiteI18n.ErrorAlreadyCloned
 		}
 
 		libraryI18n.Help().LibraryAlreadyCloned(repositoryPath)
-		return nil, libraryI18n.AlreadyCloned
+		return nil, libraryI18n.ErrorAlreadyCloned
 	}
 
 	profile, err := loginLib.GetSelectedProfile()

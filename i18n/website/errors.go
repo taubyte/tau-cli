@@ -10,7 +10,7 @@ const (
 )
 
 var (
-	AlreadyCloned = errors.New("already cloned")
+	ErrorAlreadyCloned = errors.New("already cloned")
 )
 
 func SelectPromptFailed(err error) error {

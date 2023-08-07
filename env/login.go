@@ -44,7 +44,7 @@ func GetSelectedUser() (string, error) {
 	}
 
 	if len(profileName) == 0 {
-		return "", envI18n.UserNotFound
+		return "", envI18n.ErrorUserNotFound
 	}
 
 	return profileName, nil

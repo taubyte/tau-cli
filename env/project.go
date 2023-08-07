@@ -38,7 +38,7 @@ func GetSelectedProject() (string, error) {
 		return projectName, nil
 	}
 
-	return "", envI18n.ProjectNotFound
+	return "", envI18n.ErrorProjectNotFound
 }
 
 func projectFromCwd() (projectName string, exist bool) {
