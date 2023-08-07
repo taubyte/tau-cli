@@ -29,7 +29,7 @@ func cleanArgs(args []string) string {
 			newArgs += " "
 		}
 		// If it contains spaces, wrap it with ""
-		if strings.Contains(arg, " ") == true {
+		if strings.Contains(arg, " ") {
 			newArgs += fmt.Sprintf(`"%s"`, arg)
 		} else {
 			newArgs += arg

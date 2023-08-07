@@ -20,7 +20,7 @@ func TestPostfix(t *testing.T) {
 
 	gotArgs := argsLib.MovePostfixOptions(testArgs, parsedFlags)
 	expectedArgs := []string{"tau", "--env", "--color", "never", "login", "someName"}
-	if reflect.DeepEqual(gotArgs, expectedArgs) == false {
+	if !reflect.DeepEqual(gotArgs, expectedArgs) {
 		t.Errorf("\nExpected: %v\nGot     : %v", expectedArgs, gotArgs)
 	}
 }

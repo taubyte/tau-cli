@@ -8,7 +8,7 @@ import (
 )
 
 func getTableData(messaging *structureSpec.Messaging, showId bool) (toRender [][]string) {
-	if showId == true {
+	if showId {
 		toRender = [][]string{
 			{"ID", messaging.Id},
 		}

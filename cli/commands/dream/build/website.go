@@ -17,7 +17,7 @@ import (
 func buildWebsite(ctx *cli.Context) error {
 	if !dreamLib.IsRunning() {
 		dreamI18n.Help().IsDreamlandRunning()
-		return dreamI18n.DreamlandNotStarted
+		return dreamI18n.ErrorDreamlandNotStarted
 	}
 
 	website, err := websitePrompts.GetOrSelect(ctx)

@@ -57,7 +57,7 @@ func (h *New[T]) Action() func(ctx *cli.Context) error {
 		// Table.Confirm will display a table and wait for a confirmation based on the
 		// flag provided to `tau new -y` or offer a y\n selection
 		confirm := h.TableConfirm(ctx, resource, h.PromptsCreateThis)
-		if confirm == true {
+		if confirm {
 
 			// Lib.New handles the seer creation and id generation on selected project/application
 			err := h.LibNew(resource)

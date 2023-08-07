@@ -22,7 +22,7 @@ func cloneProjectAndPushConfig(clientProject *httpClient.Project, location, desc
 		location = path.Join(cwd, clientProject.Name)
 
 		// Check if user has already defined project name in given location
-	} else if strings.HasSuffix(strings.ToLower(location), strings.ToLower(clientProject.Name)) == false {
+	} else if !strings.HasSuffix(strings.ToLower(location), strings.ToLower(clientProject.Name)) {
 		location = path.Join(location, clientProject.Name)
 	}
 

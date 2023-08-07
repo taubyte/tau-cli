@@ -16,7 +16,7 @@ func SetSelectedNetwork(c *cli.Context, network string) error {
 
 func GetSelectedNetwork() (string, bool) {
 	network, isSet := LookupEnv(constants.CurrentSelectedNetworkName)
-	if isSet == true && len(network) > 0 {
+	if isSet && len(network) > 0 {
 		return network, isSet
 	}
 
@@ -33,7 +33,7 @@ func SetCustomNetworkUrl(c *cli.Context, network string) error {
 
 func GetCustomNetworkUrl() (string, bool) {
 	fqdn, isSet := LookupEnv(constants.CustomNetworkUrlName)
-	if isSet == true && len(fqdn) > 0 {
+	if isSet && len(fqdn) > 0 {
 		return fqdn, isSet
 	}
 

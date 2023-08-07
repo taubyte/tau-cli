@@ -26,7 +26,7 @@ func newMonkey(s *spiderTestContext, tm testMonkey) *monkeyTestContext {
 
 func newMonkeyRunContext(tm testMonkey, rr roadRunner, isChild bool) *monkeyRunContext {
 	prefix := "Command"
-	if isChild == true {
+	if isChild {
 		prefix = "Child-Command"
 	}
 
@@ -99,7 +99,7 @@ func (ctx *monkeyRunContext) Run(t *testing.T) {
 }
 
 func (tm *monkeyTestContext) setParallel(t *testing.T) {
-	if tm.spider.parallel == true {
+	if tm.spider.parallel {
 		t.Parallel()
 	}
 }
@@ -133,7 +133,7 @@ func (tm *monkeyTestContext) getOrCreateDir() (err error) {
 func (tm *monkeyTestContext) refreshTestFiles() error {
 	// Remove previous debug files, as they don't get removed
 	// when debugging
-	if tm.spider.debug == true {
+	if tm.spider.debug {
 		os.Remove(tm.configLoc)
 		os.Remove(tm.sessionLoc)
 		os.RemoveAll(tm.dir)
@@ -252,7 +252,7 @@ func (tm *monkeyTestContext) Run(t *testing.T) {
 	newMonkeyRunContext(tm.testMonkey, rr, false).Run(t)
 
 	// Cleanup
-	if tm.spider.debug == false {
+	if !tm.spider.debug {
 		os.Remove(tm.configLoc)
 		os.RemoveAll(tm.dir)
 	}
@@ -293,7 +293,7 @@ func (tm *monkeyTestContext) runPreRun(t *testing.T, rr roadRunner) {
 			return
 		}
 
-		if tm.debug == true {
+		if tm.debug {
 			pterm.FgLightYellow.Println("RunBefore args:")
 			fmt.Print(cleanArgs(_args), "\n\n")
 

@@ -10,7 +10,7 @@ import (
 
 func certificate(ctx *cli.Context, domain *structureSpec.Domain, new bool) (err error) {
 	defaultCertType := domainFlags.CertTypeAuto
-	if new == false {
+	if !new {
 		defaultCertType = domain.CertType
 	}
 
@@ -20,7 +20,7 @@ func certificate(ctx *cli.Context, domain *structureSpec.Domain, new bool) (err 
 	}
 
 	if domain.CertType == domainFlags.CertTypeInline {
-		if new == true {
+		if new {
 			domain.CertFile = GetOrRequireACertificate(ctx, CertificateFilePrompt)
 			domain.KeyFile = GetOrRequireAKey(ctx, KeyFilePrompt)
 		} else {
@@ -51,7 +51,7 @@ func getCertType(ctx *cli.Context, defaultCertType string) (certType string, err
 		return
 	}
 
-	if isSet == false {
+	if !isSet {
 		certType, err = prompts.SelectInterface(domainFlags.CertTypeOptions, CertificateTypePrompt, defaultCertType)
 		if err != nil {
 			return

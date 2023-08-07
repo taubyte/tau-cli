@@ -22,7 +22,7 @@ func GetColor(c *cli.Context) (color string, err error) {
 	if c.IsSet(Color.Name) {
 		color = c.String(Color.Name)
 
-		if slices.Contains(ColorOptions, color) == false {
+		if !slices.Contains(ColorOptions, color) {
 			return "", fmt.Errorf("color must be one of %s", strings.Join(ColorOptions, ", "))
 		}
 	}

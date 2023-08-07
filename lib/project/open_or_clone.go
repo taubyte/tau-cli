@@ -21,7 +21,7 @@ func (h *repositoryHandler) openOrCloneProject(profile config.Profile, tauProjec
 	codeUrl := git.URL(CleanGitURL(repoData.Code.Url))
 
 	var tokenOption git.Option
-	if embedToken == true {
+	if embedToken {
 		tokenOption = git.EmbeddedToken(profile.Token)
 	} else {
 		tokenOption = git.Token(profile.Token)

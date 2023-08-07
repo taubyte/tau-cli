@@ -60,7 +60,7 @@ func SelectATemplate(ctx *cli.Context, templateMap map[string]templates.Template
 	}
 
 	selection, ok := selector(selected)
-	if ok == false {
+	if !ok {
 		return "", fmt.Errorf("selecting `%s` failed with not OK", selected)
 	}
 
@@ -81,7 +81,7 @@ func buildTemplateOptions(templateMap map[string]templates.TemplateInfo, prev ..
 	var idx int
 	for name, template := range templateMap {
 		var option string
-		if template.HideURL == true {
+		if template.HideURL {
 			if len(template.Description) > 0 {
 				option = fmt.Sprintf("( %s ): %s", name, template.Description)
 			} else {
@@ -124,7 +124,7 @@ func SelectARepository(ctx *cli.Context, prev *repositoryLib.Info) (*repositoryL
 			Type:     prev.Type,
 		}
 
-		if strings.Contains(info.FullName, "/") == true {
+		if strings.Contains(info.FullName, "/") {
 			return info, nil
 		}
 
@@ -143,7 +143,7 @@ func SelectARepository(ctx *cli.Context, prev *repositoryLib.Info) (*repositoryL
 	}
 
 	var err error
-	if repoIdSet == true {
+	if repoIdSet {
 		info.ID = ctx.String(flags.RepositoryId.Name)
 
 		err = info.GetNameFromID()
@@ -152,9 +152,9 @@ func SelectARepository(ctx *cli.Context, prev *repositoryLib.Info) (*repositoryL
 		}
 
 		return info, err
-	} else if repoNameSet == true {
+	} else if repoNameSet {
 		info.FullName = ctx.String(flags.RepositoryName.Name)
-		if strings.Contains(info.FullName, "/") == false {
+		if !strings.Contains(info.FullName, "/") {
 			profile, err := loginLib.GetSelectedProfile()
 			if err != nil {
 				return nil, err
@@ -214,7 +214,7 @@ func SelectARepositoryFromGithub() (common.Repository, error) {
 	}
 
 	repo, ok := optionMap[selected]
-	if ok == false {
+	if !ok {
 		return nil, fmt.Errorf("selecting `%s` failed with not OK", selected)
 	}
 

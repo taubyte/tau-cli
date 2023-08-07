@@ -180,7 +180,7 @@ func TestArgs(t *testing.T) {
 				t.Errorf("Expected %d args, got %d", len(testCase.expectedArgs), len(gotArgs))
 			}
 
-			if reflect.DeepEqual(gotArgs, testCase.expectedArgs) == false {
+			if !reflect.DeepEqual(gotArgs, testCase.expectedArgs) {
 				t.Errorf("\nExpected: %v\ngot     : %v", testCase.expectedArgs, gotArgs)
 			}
 		})

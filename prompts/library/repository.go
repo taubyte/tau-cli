@@ -14,7 +14,7 @@ import (
 )
 
 func RepositoryInfo(ctx *cli.Context, library *structureSpec.Library, new bool) (interface{}, error) {
-	if new == true && prompts.GetGenerateRepository(ctx) {
+	if new && prompts.GetGenerateRepository(ctx) {
 		return repositoryInfoGenerate(ctx, library)
 	}
 
@@ -35,7 +35,7 @@ func RepositoryInfo(ctx *cli.Context, library *structureSpec.Library, new bool) 
 		return nil, err
 	}
 
-	if selectedRepository.HasBeenCloned(projectConfig, library.Provider) == false {
+	if !selectedRepository.HasBeenCloned(projectConfig, library.Provider) {
 		selectedRepository.DoClone = prompts.GetClone(ctx)
 	}
 
@@ -47,7 +47,7 @@ func repositoryInfoGenerate(ctx *cli.Context, library *structureSpec.Library) (*
 	repositoryName := fmt.Sprintf(common.LibraryRepoPrefix, library.Name)
 
 	// Skipping prompt for repository name unless set, using generated name
-	if ctx.IsSet(flags.RepositoryName.Name) == true {
+	if ctx.IsSet(flags.RepositoryName.Name) {
 		repositoryName = prompts.GetOrRequireARepositoryName(ctx)
 	}
 

@@ -59,7 +59,7 @@ func copyFiles(src, dst string, filter func(f os.DirEntry) bool) error {
 	}
 
 	for _, f := range files {
-		if filter(f) == false {
+		if !filter(f) {
 			continue
 		}
 

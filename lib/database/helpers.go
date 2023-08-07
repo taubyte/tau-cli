@@ -50,7 +50,7 @@ func set(database *structureSpec.Database, new bool) error {
 		return err
 	}
 
-	if new == true {
+	if new {
 		database.Id = id.Generate(info.project.Get().Id(), database.Name)
 	}
 

@@ -51,7 +51,7 @@ func set(function *structureSpec.Function, new bool) (info getter, err error) {
 		return
 	}
 
-	if new == true {
+	if new {
 		function.Id = id.Generate(info.project.Get().Id(), function.Name)
 	} else if function.Type != info.function.Get().Type() {
 		err = info.function.Delete("trigger", "domains")

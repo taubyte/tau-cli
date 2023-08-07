@@ -50,7 +50,7 @@ func set(messaging *structureSpec.Messaging, new bool) error {
 		return err
 	}
 
-	if new == true {
+	if new {
 		messaging.Id = id.Generate(info.project.Get().Id(), messaging.Name)
 	}
 

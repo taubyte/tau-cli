@@ -24,4 +24,4 @@ func GettingCwdFailed(err error) error {
 	return fmt.Errorf(gettingCwdFailed, err)
 }
 
-var Time0Invalid = errors.New("0 time is invalid")
+var ErrorTime0Invalid = errors.New("0 time is invalid")

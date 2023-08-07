@@ -29,7 +29,7 @@ func ValidateCertificateKeyPairAndHostname(domain *structureSpec.Domain) ([]byte
 	}
 
 	// Runs in testing only!
-	if constants.SelfSignedOkay == true {
+	if constants.SelfSignedOkay {
 		if len(pair.Certificate) == 0 {
 			return nil, nil, errors.New("No cert pairs found")
 		}

@@ -10,7 +10,7 @@ import (
 
 func (link) Base() (*cli.Command, []common.Option) {
 	selected, exist := env.GetSelectedApplication()
-	if exist == false {
+	if !exist {
 		selected = "selected"
 	}
 

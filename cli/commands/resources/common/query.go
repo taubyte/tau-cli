@@ -41,7 +41,7 @@ func (h *Query[T]) Action() func(ctx *cli.Context) error {
 		}
 
 		// will call list if the --list flag is set
-		if ctx.Bool(flags.List.Name) == true {
+		if ctx.Bool(flags.List.Name) {
 			return h.list(ctx)
 		}
 

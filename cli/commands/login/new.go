@@ -29,7 +29,7 @@ func New(ctx *cli.Context, options []string) error {
 		return loginI18n.CreateFailed(name, err)
 	}
 
-	if setDefault == true {
+	if setDefault {
 		loginI18n.CreatedDefault(name)
 	} else {
 		loginI18n.Created(name)

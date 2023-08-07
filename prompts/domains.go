@@ -29,7 +29,7 @@ func NeedGenerateDomain(ctx *cli.Context) error {
 	selectedApp, _ := env.GetSelectedApplication()
 	local, global := project.Get().Domains(selectedApp)
 	if len(local)+len(global) == 0 {
-		if GetOrAskForBoolDefaultTrue(ctx, domainFlags.Generated.Name, NoDomainGeneratePrompt) == true {
+		if GetOrAskForBoolDefaultTrue(ctx, domainFlags.Generated.Name, NoDomainGeneratePrompt) {
 			fqdn, err := domainLib.NewGeneratedFQDN("")
 			if err != nil {
 				return err
@@ -47,7 +47,7 @@ func NeedGenerateDomain(ctx *cli.Context) error {
 			return ctx.Set(flags.Domains.Name, common.DefaultGeneratedDomainName)
 		}
 
-		return NoValidDomains
+		return ErrorNoValidDomains
 	}
 
 	return nil

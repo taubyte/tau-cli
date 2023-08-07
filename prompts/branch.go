@@ -25,7 +25,7 @@ func SelectABranch(c *cli.Context, repo *git.Repository) (branch string, err err
 		return
 	}
 
-	if c.IsSet(flags.Branch.Name) == true {
+	if c.IsSet(flags.Branch.Name) {
 		branchLC := strings.ToLower(c.String(flags.Branch.Name))
 
 		for _, _branch := range branchOptions {

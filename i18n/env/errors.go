@@ -3,6 +3,6 @@ package envI18n
 import "errors"
 
 var (
-	UserNotFound    = errors.New("user not found")
-	ProjectNotFound = errors.New("project not found")
+	ErrorUserNotFound    = errors.New("user not found")
+	ErrorProjectNotFound = errors.New("project not found")
 )

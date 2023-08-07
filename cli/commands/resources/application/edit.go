@@ -26,7 +26,7 @@ func (link) Edit() common.Command {
 
 func edit(ctx *cli.Context) error {
 	// If --select is set we should not check the user's currently selected application
-	checkEnv := ctx.Bool(flags.Select.Name) == false
+	checkEnv := !ctx.Bool(flags.Select.Name)
 
 	application, err := applicationPrompts.GetOrSelect(ctx, checkEnv)
 	if err != nil {
@@ -36,8 +36,7 @@ func edit(ctx *cli.Context) error {
 	applicationPrompts.Edit(ctx, application)
 
 	confirm := applicationTable.Confirm(ctx, application, applicationPrompts.EditThis)
-	if confirm == true {
-
+	if confirm {
 		err = applicationLib.Set(application)
 		if err != nil {
 			return err

@@ -7,7 +7,7 @@ import (
 )
 
 func getTableData(domain *structureSpec.Domain, showId bool) (toRender [][]string) {
-	if showId == true {
+	if showId {
 		toRender = [][]string{
 			{"ID", domain.Id},
 		}

@@ -6,7 +6,7 @@ import "strings"
 type Source string
 
 func (s Source) Inline() bool {
-	return len(s) > 0 && strings.HasPrefix(s.String(), SourceLibraryPrefix) == false
+	return len(s) > 0 && !strings.HasPrefix(s.String(), SourceLibraryPrefix)
 }
 
 func (s Source) String() string {

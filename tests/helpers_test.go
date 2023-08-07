@@ -92,7 +92,7 @@ func certWriteFilesInDir(hostName string, pathArgs ...string) func(dir string) {
 // TODO Move to utils
 func stringContainsAll(query string, items []string) bool {
 	for _, s := range items {
-		if strings.Contains(query, s) == false {
+		if !strings.Contains(query, s) {
 			return false
 		}
 	}
@@ -102,7 +102,7 @@ func stringContainsAll(query string, items []string) bool {
 // TODO Move to utils
 func stringContainsAny(query string, items []string) bool {
 	for _, s := range items {
-		if strings.Contains(query, s) == true {
+		if strings.Contains(query, s) {
 			return true
 		}
 	}
@@ -191,7 +191,7 @@ func isEmpty(val interface{}) bool {
 
 func ConfirmEmpty(values ...any) error {
 	for _, val := range values {
-		if isEmpty(val) == false {
+		if !isEmpty(val) {
 			return fmt.Errorf("%T (%#v) is not empty", val, val)
 		}
 	}

@@ -30,12 +30,12 @@ func LookupEnv(key string) (string, bool) {
 	defer _cache.Unlock()
 
 	value, exist := _cache.values[key]
-	if exist == true {
+	if exist {
 		return value, true
 	}
 
 	value, exist = os.LookupEnv(key)
-	if exist == true {
+	if exist {
 		_cache.values[key] = value
 	}
 

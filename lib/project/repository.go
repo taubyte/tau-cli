@@ -23,7 +23,7 @@ func (h *repositoryHandler) Config() (*git.Repository, error) {
 		return h.config, nil
 	}
 
-	return nil, projectI18n.ConfigRepositoryNotFound
+	return nil, projectI18n.ErrorConfigRepositoryNotFound
 }
 
 func (h *repositoryHandler) Code() (*git.Repository, error) {
@@ -31,7 +31,7 @@ func (h *repositoryHandler) Code() (*git.Repository, error) {
 		return h.code, nil
 	}
 
-	return nil, projectI18n.CodeRepositoryNotFound
+	return nil, projectI18n.ErrorCodeRepositoryNotFound
 }
 
 func (h *repositoryHandler) openOrClone(profile config.Profile, loc string, ops ...git.Option) (*git.Repository, error) {

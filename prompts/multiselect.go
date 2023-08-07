@@ -36,7 +36,7 @@ func MultiSelect(c *cli.Context, cnf MultiSelectConfig) (ret []string) {
 
 	formattedOptions := strings.ToLower(strings.Join(cnf.Options, ","))
 	for _, selection := range ret {
-		if strings.Contains(formattedOptions, strings.ToLower(selection)) == false {
+		if !strings.Contains(formattedOptions, strings.ToLower(selection)) {
 			pterm.Warning.Printfln(DoubleStringNotFound, cnf.Field, selection)
 			multiselectPrompt(&ret, cnf)
 			return

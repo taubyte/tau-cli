@@ -11,7 +11,7 @@ func getKey[T any](key string) (value T, exist bool) {
 		return
 	}
 
-	if slices.Contains(keys, key) == false {
+	if !slices.Contains(keys, key) {
 		return
 	}
 

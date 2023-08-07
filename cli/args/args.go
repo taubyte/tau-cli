@@ -11,7 +11,7 @@ func parseCommandArguments(commands []*cli.Command, args ...string) []string {
 	}
 	// We need to also parse sub commands
 	for _, cmd := range commands {
-		if slices.Contains(args, cmd.Name) == true {
+		if slices.Contains(args, cmd.Name) {
 			// parse arguments after cmd.Name so that `login testprofile -provider github` becomes `login -provider github testprofile`
 			// and `login -provider github testprofile` becomes `login -provider github testprofile`
 			idx := IndexOf(args, cmd.Name)

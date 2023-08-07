@@ -33,7 +33,7 @@ func (link) Clone() common.Command {
 }
 
 func clone(c *cli.Context) error {
-	checkEnv := c.Bool(flags.Select.Name) == false
+	checkEnv := !c.Bool(flags.Select.Name)
 
 	// TODO should select offer projects that are already cloned?
 	project, err := projectPrompts.GetOrSelect(c, checkEnv)
@@ -46,7 +46,7 @@ func clone(c *cli.Context) error {
 	}
 
 	// Check location flag, otherwise clone into cwd
-	if c.IsSet(projectFlags.Loc.Name) == true {
+	if c.IsSet(projectFlags.Loc.Name) {
 		configProject.Location = c.String(projectFlags.Loc.Name)
 	} else {
 		cwd, err := os.Getwd()

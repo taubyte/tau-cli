@@ -22,7 +22,7 @@ func TestCloneWebsite(t *testing.T) {
 	}
 
 	websiteInfo, ok := websites["Angular"]
-	if ok == false {
+	if !ok {
 		t.Error("website not found")
 		return
 	}

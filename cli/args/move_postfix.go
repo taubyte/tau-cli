@@ -28,7 +28,7 @@ func MovePostfixOptions(args []string, validFlags []ParsedFlag) []string {
 	var skip bool
 
 	for idx, arg := range args {
-		if skip == true {
+		if skip {
 			skip = false
 			continue
 		}
@@ -40,9 +40,9 @@ func MovePostfixOptions(args []string, validFlags []ParsedFlag) []string {
 
 		if arg[:1] == "-" {
 			flagIsBool, ok := flagBoolMap[arg]
-			if ok == true {
-				if flagIsBool == true || strings.Contains(arg, "=") || len(args) == idx+1 {
-					if flagIsBool == true {
+			if ok {
+				if flagIsBool || strings.Contains(arg, "=") || len(args) == idx+1 {
+					if flagIsBool {
 
 						// if next idx exists and strings.ToLower(next idx) == "true" || "false" remove and skip
 						if len(args) > idx+1 {

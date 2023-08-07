@@ -114,7 +114,7 @@ func cleanArgsForDocs(args []string) string {
 
 		var new string
 		// If it contains spaces, wrap it with ""
-		if strings.Contains(arg, " ") == true {
+		if strings.Contains(arg, " ") {
 			new = fmt.Sprintf(`"%s"`, arg)
 		} else {
 			new = arg

@@ -39,7 +39,7 @@ func (p *profileHandler) Set(name string, profile Profile) error {
 func (p *profileHandler) List(loginCommand bool) (profiles map[string]Profile) {
 	// Ignoring error here as it will just return an empty map
 	err := p.Root().Value(&profiles)
-	if err != nil && loginCommand == false {
+	if err != nil && !loginCommand {
 		i18n.Help().HaveYouLoggedIn()
 	}
 

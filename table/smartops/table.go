@@ -8,7 +8,7 @@ import (
 )
 
 func getTableData(smartops *structureSpec.SmartOp, showId bool) (toRender [][]string) {
-	if showId == true {
+	if showId {
 		toRender = [][]string{
 			{"ID", smartops.Id},
 		}
