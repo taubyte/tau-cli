@@ -11,7 +11,7 @@ import (
 )
 
 func (r *commandResult) printDebugInfo() {
-	if r.debug == true {
+	if r.debug {
 		// NOTE: Showing output for debugging
 		pterm.FgLightYellow.Println(r.prefix, "args:")
 		fmt.Print(cleanArgs(r.args), "\n\n")
@@ -31,7 +31,7 @@ func (r *commandResult) printDebugInfo() {
 
 func (r *commandResult) checkError(t *testing.T) {
 	if r.err != nil {
-		if r.errOut == nil || stringContainsAll(r.out2, r.errOut) == false {
+		if r.errOut == nil || !stringContainsAll(r.out2, r.errOut) {
 			r.Error(t, "failed with")
 			if r.errOut != nil {
 				t.Errorf("Wanted error to contain:\n%s\n", strings.Join(r.errOut, "\n"))
@@ -53,12 +53,12 @@ func (r *commandResult) Error(t *testing.T, message string) {
 }
 
 func (r *commandResult) checkWantOut(t *testing.T) {
-	if stringContainsAll(r.out1, r.wantOut) == false {
+	if !stringContainsAll(r.out1, r.wantOut) {
 		t.Errorf("\ntest `%s` in dir: `%s` failed:\n\nOut1:\n%s\nWanted:\n%s\n\t", r.name, r.rr.dir, r.out1, strings.Join(r.wantOut, "\n"))
 	}
 
 	// Check reverse
-	if stringContainsAny(r.out1, r.dontWantOut) == true {
+	if stringContainsAny(r.out1, r.dontWantOut) {
 		t.Errorf("\ntest `%s` in dir: `%s` failed:\n\nOut1:\n%s\nDid not want any of:\n%s\n\t", r.name, r.rr.dir, r.out1, strings.Join(r.dontWantOut, "\n"))
 	}
 }

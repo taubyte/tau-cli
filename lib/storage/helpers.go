@@ -55,7 +55,7 @@ func set(storage *structureSpec.Storage, new bool) error {
 
 	storage.Type = strings.ToLower(storage.Type)
 
-	if new == true {
+	if new {
 		storage.Id = id.Generate(info.project.Get().Id(), storage.Name)
 	} else if info.storage.Get().Type() != storage.Type {
 		err = info.storage.Delete(info.storage.Get().Type())

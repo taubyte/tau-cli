@@ -19,7 +19,7 @@ func New(ctx *cli.Context) (*structureSpec.Domain, error) {
 	domain.Description = prompts.GetOrAskForADescription(ctx)
 	domain.Tags = prompts.GetOrAskForTags(ctx)
 
-	if GetGeneratedFQDN(ctx) == true {
+	if GetGeneratedFQDN(ctx) {
 		generatedPrefix := GetGeneratedFQDNPrefix(ctx)
 
 		domain.Fqdn, err = domainLib.NewGeneratedFQDN(generatedPrefix)

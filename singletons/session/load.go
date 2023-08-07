@@ -13,7 +13,7 @@ import (
 
 func loadSession() (err error) {
 	loc, isSet := os.LookupEnv(constants.TauSessionLocationEnvVarName)
-	if isSet == false {
+	if !isSet {
 		loc, err = discoverOrCreateConfigFileLoc()
 		if err != nil {
 			return singletonsI18n.SessionCreateFailed(loc, err)
@@ -21,7 +21,7 @@ func loadSession() (err error) {
 	} else {
 		sessionFileLoc := path.Join(loc, sessionFileName+".yaml")
 
-		if file.Exists(sessionFileLoc) == false {
+		if !file.Exists(sessionFileLoc) {
 			err = os.MkdirAll(loc, common.DefaultDirPermission)
 			if err != nil {
 				return singletonsI18n.CreatingSessionFileFailed(err)

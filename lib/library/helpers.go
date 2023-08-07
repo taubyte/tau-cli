@@ -50,7 +50,7 @@ func set(_library *structureSpec.Library, new bool) error {
 		return err
 	}
 
-	if new == true {
+	if new {
 		_library.Id = id.Generate(info.project.Get().Id(), _library.Name)
 	}
 

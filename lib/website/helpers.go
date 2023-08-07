@@ -50,7 +50,7 @@ func set(_website *structureSpec.Website, new bool) error {
 		return err
 	}
 
-	if new == true {
+	if new {
 		_website.Id = id.Generate(info.project.Get().Id(), _website.Name)
 	}
 

@@ -38,7 +38,7 @@ func SelectInterfaceField(ctx *cli.Context, options []string, field string, prom
 		_default = prev[0]
 	}
 
-	if ctx.IsSet(field) == true {
+	if ctx.IsSet(field) {
 		method := strings.ToLower(ctx.String(field))
 		for _, optMethod := range options {
 			if method == strings.ToLower(optMethod) {

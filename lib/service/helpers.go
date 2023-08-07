@@ -50,7 +50,7 @@ func set(service *structureSpec.Service, new bool) error {
 		return err
 	}
 
-	if new == true {
+	if new {
 		service.Id = id.Generate(info.project.Get().Id(), service.Name)
 	}
 

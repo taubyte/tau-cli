@@ -29,7 +29,7 @@ func (link) List() common.Command {
 }
 
 func query(ctx *cli.Context) error {
-	if ctx.Bool(flags.List.Name) == true {
+	if ctx.Bool(flags.List.Name) {
 		return list(ctx)
 	}
 

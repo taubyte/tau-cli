@@ -39,10 +39,10 @@ var (
 
 func GetCertType(c *cli.Context) (certType string, isSet bool, err error) {
 	isSet = c.IsSet(CertType.Name)
-	if c.IsSet(CertType.Name) == true {
+	if c.IsSet(CertType.Name) {
 		certType = c.String(CertType.Name)
 
-		if slices.Contains(CertTypeOptions, certType) == false {
+		if !slices.Contains(CertTypeOptions, certType) {
 			return "", false, fmt.Errorf("cert-type must be one of %s", strings.Join(CertTypeOptions, ", "))
 		}
 	}

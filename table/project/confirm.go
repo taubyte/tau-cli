@@ -9,7 +9,7 @@ import (
 
 func Confirm(ctx *cli.Context, project *projectLib.Project, prompt string) bool {
 	var visibilityString string
-	if project.Public == true {
+	if project.Public {
 		visibilityString = projectPrompts.Public
 	} else {
 		visibilityString = projectPrompts.Private

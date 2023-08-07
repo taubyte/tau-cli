@@ -41,7 +41,7 @@ func GetOrSelect(ctx *cli.Context) (*structureSpec.Database, error) {
 
 	if len(name) != 0 {
 		for _, database := range resources {
-			if strings.EqualFold(name, database.Name) == true {
+			if strings.EqualFold(name, database.Name) {
 				return database, nil
 			}
 		}

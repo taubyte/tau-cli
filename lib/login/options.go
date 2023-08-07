@@ -15,7 +15,7 @@ func GetProfiles() (_default string, possible []string, err error) {
 		possible[x] = name
 		x++
 
-		if profile.Default == true {
+		if profile.Default {
 			_default = name
 		}
 	}

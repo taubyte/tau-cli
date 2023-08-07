@@ -18,25 +18,25 @@ func SetSelectedUser(c *cli.Context, profileName string) error {
 
 func GetSelectedUser() (string, error) {
 	profileName, isSet := LookupEnv(constants.CurrentSelectedProfileNameEnvVarName)
-	if isSet == true && len(profileName) > 0 {
+	if isSet && len(profileName) > 0 {
 		return profileName, nil
 	}
 
 	// Try to get profile from current session
 	profileName, exist := session.Get().ProfileName()
-	if exist == true && len(profileName) > 0 {
+	if exist && len(profileName) > 0 {
 		return profileName, nil
 	}
 
 	// Try to get profile from selected project
 	profileName, exist = profileFromProject()
-	if exist == true && len(profileName) > 0 {
+	if exist && len(profileName) > 0 {
 		return profileName, nil
 	}
 
 	// Try to get default profile if env variable not set
 	for _profileName, profile := range config.Profiles().List(false) {
-		if profile.Default == true {
+		if profile.Default {
 			profileName = _profileName
 
 			break

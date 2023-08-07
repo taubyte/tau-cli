@@ -20,7 +20,7 @@ func (tm *monkeyTestContext) validateBabyMonkey(bm testMonkey) error {
 		return fmt.Errorf("A baby monkey `%s` does not support attribute: env", bm.name)
 	}
 
-	if tm.mock == false && bm.mock == true {
+	if !tm.mock && bm.mock {
 		return fmt.Errorf("A baby monkey `%s` does not support attribute: mock, define it on the parent", bm.name)
 	}
 

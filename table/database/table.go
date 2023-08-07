@@ -9,7 +9,7 @@ import (
 )
 
 func getNetworkDisplay(local bool) []string {
-	if local == true {
+	if local {
 		return []string{"\tNetwork", "host"}
 	}
 
@@ -17,7 +17,7 @@ func getNetworkDisplay(local bool) []string {
 }
 
 func getTableData(database *structureSpec.Database, showId bool) (toRender [][]string) {
-	if showId == true {
+	if showId {
 		toRender = [][]string{
 			{"ID", database.Id},
 		}

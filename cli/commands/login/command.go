@@ -34,16 +34,16 @@ func Run(ctx *cli.Context) error {
 	}
 
 	// New: if --new or no selectable profiles
-	if ctx.Bool(loginFlags.New.Name) == true || len(options) == 0 {
+	if ctx.Bool(loginFlags.New.Name) || len(options) == 0 {
 		return New(ctx, options)
 	}
 
 	// Selection
 	var name string
-	if ctx.IsSet(flags.Name.Name) == true {
+	if ctx.IsSet(flags.Name.Name) {
 		name = ctx.String(flags.Name.Name)
 
-		if slices.Contains(options, name) == false {
+		if !slices.Contains(options, name) {
 			return loginI18n.DoesNotExistIn(name, options)
 		}
 	} else {

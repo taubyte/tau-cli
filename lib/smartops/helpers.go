@@ -50,7 +50,7 @@ func set(smartops *structureSpec.SmartOp, new bool) (info getter, err error) {
 		return
 	}
 
-	if new == true {
+	if new {
 		smartops.Id = id.Generate(info.project.Get().Id(), smartops.Name)
 	}
 

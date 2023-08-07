@@ -41,7 +41,7 @@ func new(ctx *cli.Context) error {
 
 	// Check location flag, otherwise clone into cwd
 	var location string
-	if ctx.IsSet(projectFlags.Loc.Name) == true {
+	if ctx.IsSet(projectFlags.Loc.Name) {
 		location = ctx.String(projectFlags.Loc.Name)
 	} else {
 		cwd, err := os.Getwd()
@@ -52,7 +52,7 @@ func new(ctx *cli.Context) error {
 		location = path.Join(cwd, project.Name)
 	}
 
-	if projectTable.Confirm(ctx, project, projectPrompts.CreateThisProject) == true {
+	if projectTable.Confirm(ctx, project, projectPrompts.CreateThisProject) {
 		err = projectLib.New(project, location, embedToken)
 		if err != nil {
 			return err

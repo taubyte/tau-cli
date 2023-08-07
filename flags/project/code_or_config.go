@@ -22,12 +22,12 @@ func ParseConfigCodeFlags(ctx *cli.Context) (config bool, code bool, err error) 
 	code = ctx.Bool(CodeOnly.Name)
 
 	// Cannot clone only code and only config
-	if config == true && code == true {
+	if config && code {
 		return false, false, projectI18n.BothFlagsCannotBeTrue(ConfigOnly.Name, CodeOnly.Name)
 	}
 
 	// Neither only option is selected so both are true
-	if config == false && code == false {
+	if !config && !code {
 		return true, true, nil
 	}
 

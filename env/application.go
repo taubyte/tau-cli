@@ -17,7 +17,7 @@ func SetSelectedApplication(c *cli.Context, name string) error {
 // Only returns an error if not found
 func GetSelectedApplication() (name string, exist bool) {
 	name, isSet := LookupEnv(constants.CurrentApplicationEnvVarName)
-	if isSet == true && len(name) > 0 {
+	if isSet && len(name) > 0 {
 		return
 	}
 

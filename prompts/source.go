@@ -52,7 +52,7 @@ func GetOrSelectSource(ctx *cli.Context, prev ...string) (common.Source, error) 
 		sources = append(sources, path.Join(librarySpec.PathVariable.String(), lib))
 	}
 
-	if common.Source(sourceLC).Inline() == true {
+	if common.Source(sourceLC).Inline() {
 		return common.SelectionInline, nil
 	}
 

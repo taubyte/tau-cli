@@ -30,7 +30,7 @@ func loadTemplates() error {
 	}
 
 	err = _templates.repository.Pull()
-	if err != nil && strings.Contains(err.Error(), "already up-to-date") == false {
+	if err != nil && !strings.Contains(err.Error(), "already up-to-date") {
 		// TODO verbose
 		return err
 	}

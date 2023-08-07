@@ -7,7 +7,7 @@ import (
 )
 
 func VariableFQDN(s string) error {
-	if govalidator.IsDNSName(s) == false {
+	if !govalidator.IsDNSName(s) {
 		return fmt.Errorf(NotAValidFQDN, s)
 	}
 

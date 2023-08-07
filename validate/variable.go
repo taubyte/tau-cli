@@ -58,7 +58,7 @@ func VariableTagsValidator(val []string) error {
 
 func VariablePathValidator(path string) error {
 	if path != "" {
-		if strings.HasPrefix(path, "/") == false {
+		if !strings.HasPrefix(path, "/") {
 			return fmt.Errorf(PathMustStartWithSlash, path)
 		}
 	}
@@ -121,7 +121,7 @@ func VariableIntValidator(val string) error {
 
 func SizeUnitValidator(val string) error {
 	if val != "" {
-		if SliceContains(common.SizeUnitTypes, strings.ToUpper(val)) == false {
+		if !SliceContains(common.SizeUnitTypes, strings.ToUpper(val)) {
 			return fmt.Errorf(InvalidSizeUnit, val, common.SizeUnitTypes)
 		}
 	}
@@ -131,7 +131,7 @@ func SizeUnitValidator(val string) error {
 
 func FQDNValidator(val string) error {
 	if val != "" {
-		if govalidator.IsDNSName(val) == false {
+		if !govalidator.IsDNSName(val) {
 			return fmt.Errorf(InvalidFqdn, val)
 		}
 	}
@@ -151,7 +151,7 @@ func RequiredNoCharLimit(val string) error {
 
 func ApiMethodValidator(val string) error {
 	if val != "" {
-		if SliceContains(common.HTTPMethodTypes, strings.ToLower(val)) == false {
+		if !SliceContains(common.HTTPMethodTypes, strings.ToLower(val)) {
 			return fmt.Errorf(InvalidMethodType, val, common.HTTPMethodTypes)
 		}
 	}
@@ -161,7 +161,7 @@ func ApiMethodValidator(val string) error {
 
 func MethodTypeValidator(val string) error {
 	if val != "" {
-		if SliceContains(common.FunctionTypes, strings.ToLower(val)) == false {
+		if !SliceContains(common.FunctionTypes, strings.ToLower(val)) {
 			return fmt.Errorf(InvalidApiMethodType, val, common.FunctionTypes)
 		}
 	}
@@ -172,7 +172,7 @@ func MethodTypeValidator(val string) error {
 func CodeTypeValidator(val string) error {
 	var types = constants.CodeTypes
 	if val != "" {
-		if SliceContains(types, strings.ToLower(val)) == false {
+		if !SliceContains(types, strings.ToLower(val)) {
 			return fmt.Errorf(InvalidCodeType, val, types)
 		}
 	}
@@ -182,7 +182,7 @@ func CodeTypeValidator(val string) error {
 
 func BucketTypeValidator(val string) error {
 	if val != "" {
-		if SliceContains(common.BucketTypes, val) == false {
+		if !SliceContains(common.BucketTypes, val) {
 			return fmt.Errorf(InvalidBucketType, val, common.BucketTypes)
 		}
 	}
@@ -192,7 +192,7 @@ func BucketTypeValidator(val string) error {
 
 func VariableSizeValidator(val string) error {
 	if val != "" {
-		if IsAny(val, IsInt, IsBytes) == false {
+		if !IsAny(val, IsInt, IsBytes) {
 			return fmt.Errorf(InvalidSize, val)
 		}
 	}

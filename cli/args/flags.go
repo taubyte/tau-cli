@@ -30,7 +30,7 @@ func ParseFlag(flag cli.Flag) ParsedFlag {
 
 	_, isBoolFlag := flag.(*cli.BoolFlag)
 
-	if isBoolFlag == false {
+	if !isBoolFlag {
 		_, isBoolFlag = flag.(*flags.BoolWithInverseFlag)
 	}
 

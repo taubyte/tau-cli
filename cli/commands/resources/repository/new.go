@@ -39,7 +39,7 @@ func (lib *repositoryCommands) New(ctx *cli.Context) error {
 		}
 
 	case *repositoryLib.Info:
-		if info.DoClone == true {
+		if info.DoClone {
 			cloneMethod = func() error {
 				_, err := info.Clone(project, resource.Get().RepositoryURL(), resource.Get().Branch(), prompts.GetOrAskForEmbedToken(ctx))
 				if err != nil {
@@ -54,7 +54,7 @@ func (lib *repositoryCommands) New(ctx *cli.Context) error {
 		return fmt.Errorf("unknown return type: %T", info)
 	}
 
-	if lib.TableConfirm(ctx, resource, lib.PromptsCreateThis) == true {
+	if lib.TableConfirm(ctx, resource, lib.PromptsCreateThis) {
 		if cloneMethod != nil {
 			err = cloneMethod()
 			if err != nil {
@@ -63,7 +63,7 @@ func (lib *repositoryCommands) New(ctx *cli.Context) error {
 		}
 
 		// Register the repository
-		if doRegistration == true {
+		if doRegistration {
 			err = repositoryLib.Register(resource.Get().RepoID())
 			if err != nil {
 				// should not fail on registration as it could already be registered

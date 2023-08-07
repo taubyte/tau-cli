@@ -22,7 +22,7 @@ func (p CodePath) Write(templateURL, nameForMd string) error {
 	if len(templateURL) > 0 {
 		var err0 error
 		err := filepath.WalkDir(templateURL, func(path string, d fs.DirEntry, err error) error {
-			if d.Name() != "config.yaml" && d.IsDir() == false {
+			if d.Name() != "config.yaml" && !d.IsDir() {
 				toWrite[d.Name()], err0 = os.ReadFile(path)
 				if err0 != nil {
 					return err0

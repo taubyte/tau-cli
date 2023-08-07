@@ -8,7 +8,7 @@ import (
 )
 
 func newSpider(s *testSpider, parallel bool, debug ...bool) *spiderTestContext {
-	debuggingMode := (len(debug) > 0 && debug[0] == true)
+	debuggingMode := (len(debug) > 0 && debug[0])
 	for _, ti := range s.tests {
 		if ti.debug {
 			debuggingMode = true
@@ -49,7 +49,7 @@ func (s *spiderTestContext) Run(t *testing.T) {
 		// Credits: parallel
 		// https://gist.github.com/posener/92a55c4cd441fc5e5e85f27bca008721
 		tm := ti
-		if s.debug && tm.debug == false {
+		if s.debug && !tm.debug {
 			continue
 		}
 

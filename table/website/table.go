@@ -8,7 +8,7 @@ import (
 )
 
 func getTableData(website *structureSpec.Website, showId bool) (toRender [][]string) {
-	if showId == true {
+	if showId {
 		toRender = [][]string{
 			{"ID", website.Id},
 		}

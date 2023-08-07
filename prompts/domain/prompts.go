@@ -12,7 +12,7 @@ func GetGeneratedFQDN(ctx *cli.Context, prev ...bool) bool {
 }
 
 func GetGeneratedFQDNPrefix(ctx *cli.Context, prev ...string) string {
-	if prompts.PromptEnabled == false {
+	if !prompts.PromptEnabled {
 		return ctx.String(domainFlags.GeneratedPrefix.Name)
 	}
 

@@ -45,7 +45,7 @@ func (h *dualRepoHandler) Run() error {
 
 	var wg sync.WaitGroup
 
-	if config == true {
+	if config {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
@@ -64,7 +64,7 @@ func (h *dualRepoHandler) Run() error {
 		}()
 	}
 
-	if code == true {
+	if code {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()

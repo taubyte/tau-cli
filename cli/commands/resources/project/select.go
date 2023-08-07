@@ -22,7 +22,7 @@ func _select(ctx *cli.Context) error {
 		return err
 	}
 
-	if deselect == true {
+	if deselect {
 		err = projectLib.Deselect(ctx, project.Name)
 		if err != nil {
 			return err

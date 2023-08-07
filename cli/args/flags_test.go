@@ -49,7 +49,7 @@ func TestFlags(t *testing.T) {
 	var foundBoolFlag bool
 	var foundStringFlag bool
 	for _, flag := range parsedFlags {
-		if flag.IsBoolFlag == true {
+		if flag.IsBoolFlag {
 			foundBoolFlag = true
 			if fmt.Sprintf("%v", flag.Options) != fmt.Sprintf("%v", expectedBoolOptions) {
 				t.Errorf("Expected %v, got %v", expectedBoolOptions, flag.Options)
@@ -62,11 +62,11 @@ func TestFlags(t *testing.T) {
 		}
 	}
 
-	if foundBoolFlag == false {
+	if !foundBoolFlag {
 		t.Errorf("Expected to find a bool flag")
 	}
 
-	if foundStringFlag == false {
+	if !foundStringFlag {
 		t.Errorf("Expected to find a string flag")
 	}
 }
