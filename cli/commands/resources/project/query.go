@@ -32,12 +32,12 @@ func (link) List() common.Command {
 }
 
 func query(ctx *cli.Context) error {
-	if ctx.Bool(flags.List.Name) == true {
+	if ctx.Bool(flags.List.Name) {
 		return list(ctx)
 	}
 
 	// If --select is set we should not check the user's currently selected project
-	checkEnv := ctx.Bool(flags.Select.Name) == false
+	checkEnv := !ctx.Bool(flags.Select.Name)
 
 	project, err := projectPrompts.GetOrSelect(ctx, checkEnv)
 	if err != nil {

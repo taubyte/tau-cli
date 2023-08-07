@@ -117,7 +117,7 @@ func SelectAServiceWithProtocol(ctx *cli.Context, field string, prompt string, p
 	}
 
 	if len(options) == 0 {
-		return "", NoServicesDefined
+		return "", ErrorNoServicesDefined
 	}
 
 	// Display an error if no matches found for flag
@@ -131,7 +131,7 @@ func SelectAServiceWithProtocol(ctx *cli.Context, field string, prompt string, p
 	}
 
 	service, ok := optionMap[selected]
-	if ok == false {
+	if !ok {
 		// Should never get here, as options are generated
 		return "", fmt.Errorf("unable to find service for selection: %s", selected)
 	}

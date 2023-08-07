@@ -14,7 +14,7 @@ import (
 
 // Should only be used in new, will overwrite values.
 func checkTemplate(ctx *cli.Context, smartops *structureSpec.SmartOp) (templateURL string, err error) {
-	if ctx.IsSet(flags.Template.Name) == false && prompts.GetUseACodeTemplate(ctx) == false {
+	if !ctx.IsSet(flags.Template.Name) && !prompts.GetUseACodeTemplate(ctx) {
 		return
 	}
 

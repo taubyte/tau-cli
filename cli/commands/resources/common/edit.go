@@ -66,7 +66,7 @@ func (h *Edit[T]) Action() func(ctx *cli.Context) error {
 		// Table.Confirm will display a table and wait for a confirmation based on the
 		// flag provided to `tau edit -y` or offer a y\n selection
 		confirm := h.TableConfirm(ctx, resource, h.PromptsEditThis)
-		if confirm == true {
+		if confirm {
 
 			// Lib.Set handles the seer set based on selected project/application
 			err = h.LibSet(resource)

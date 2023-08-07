@@ -41,7 +41,7 @@ func RequiredTags(c *cli.Context, prev ...[]string) (ret []string) {
 
 	var firstRun bool
 	for checkEmpty(ret) {
-		if firstRun == false {
+		if !firstRun {
 			firstRun = true
 		} else {
 			pterm.Warning.Println(Required)

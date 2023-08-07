@@ -12,7 +12,7 @@ func New(name, provider, token string, setDefault bool) error {
 
 	// Remove current default:
 	for _name, profile := range _profiles {
-		if profile.Default == true {
+		if profile.Default {
 			profile.Default = false
 
 			err := profiles.Set(_name, profile)

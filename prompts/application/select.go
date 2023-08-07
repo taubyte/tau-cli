@@ -23,7 +23,7 @@ func GetOrSelect(ctx *cli.Context, checkEnv bool) (*structureSpec.App, error) {
 	name := ctx.String(flags.Name.Name)
 
 	// Try to get selected application
-	if len(name) == 0 && checkEnv == true {
+	if len(name) == 0 && checkEnv {
 		name, _ = env.GetSelectedApplication()
 	}
 

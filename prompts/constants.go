@@ -9,8 +9,8 @@ import (
 
 // Errors
 var (
-	NoServicesDefined = errors.New("no services defined in project config")
-	NoValidDomains    = errors.New("no valid domains")
+	ErrorNoServicesDefined = errors.New("no services defined in project config")
+	ErrorNoValidDomains    = errors.New("no valid domains")
 )
 
 const (
@@ -58,7 +58,7 @@ const (
 	DoubleStringNotFound       = "%s %s not found"
 	StringIsRequired           = "%s is required"
 	StringIsNotAValidSelection = "`%s` not a valid selection: %v"
-	InvalidSize                = "Invalid size: %s Ex:(10, 10GB, 10PB)"
+	InvalidSize                = "invalid size: %s Ex:(10, 10GB, 10PB)"
 	SelectPromptNoOptions      = "no options to select from for prompt: %s"
 	NoServiceFromFlag          = "unable to find service with selection: (--%s %s)"
 
@@ -75,21 +75,21 @@ func PanicIfPromptNotEnabled(prompt string) {
 }
 
 func panicIfPromptNotEnabled(prompt string) {
-	if PromptEnabled == false {
+	if !PromptEnabled {
 		pterm.Warning.Printfln("Failed to prompt: %s", prompt)
 		panic("Prompting when prompt not enabled")
 	}
 }
 
 func panicIfPromptNotEnabledSelection(val string, prompt string, opts []string) {
-	if PromptEnabled == false {
+	if !PromptEnabled {
 		pterm.Warning.Printfln("%s not a valid selection %v", val, opts)
 		panic(fmt.Sprintf("Prompt with prompt disabled, %s", prompt))
 	}
 }
 
 func panicIfPromptNotEnabledError(err error) {
-	if PromptEnabled == false {
+	if !PromptEnabled {
 		panic(fmt.Sprintf("Prompt with prompt disabled: %s", err))
 	}
 }

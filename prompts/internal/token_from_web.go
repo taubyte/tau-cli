@@ -15,7 +15,7 @@ var WebTokenCommand = &cli.Command{
 	},
 	Action: func(ctx *cli.Context) (err error) {
 		var provider string
-		if ctx.IsSet(flags.Provider.Name) == true {
+		if ctx.IsSet(flags.Provider.Name) {
 			provider = ctx.String(flags.Provider.Name)
 		}
 

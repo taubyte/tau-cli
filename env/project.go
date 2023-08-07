@@ -22,23 +22,23 @@ func SetSelectedProject(c *cli.Context, projectName string) error {
 
 func GetSelectedProject() (string, error) {
 	projectName, isSet := LookupEnv(constants.CurrentProjectEnvVarName)
-	if isSet == true && len(projectName) > 0 {
+	if isSet && len(projectName) > 0 {
 		return projectName, nil
 	}
 
 	// Try to get project from current session
 	projectName, exist := session.Get().SelectedProject()
-	if exist == true && len(projectName) > 0 {
+	if exist && len(projectName) > 0 {
 		return projectName, nil
 	}
 
 	// Try to get project from cwd
 	projectName, exist = projectFromCwd()
-	if exist == true && len(projectName) > 0 {
+	if exist && len(projectName) > 0 {
 		return projectName, nil
 	}
 
-	return "", envI18n.ProjectNotFound
+	return "", envI18n.ErrorProjectNotFound
 }
 
 func projectFromCwd() (projectName string, exist bool) {
@@ -48,7 +48,7 @@ func projectFromCwd() (projectName string, exist bool) {
 	}
 
 	for name, project := range config.Projects().List() {
-		if strings.HasPrefix(cwd, filepath.Clean(project.Location)) == true {
+		if strings.HasPrefix(cwd, filepath.Clean(project.Location)) {
 			return name, true
 		}
 	}

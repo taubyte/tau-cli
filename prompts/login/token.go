@@ -11,9 +11,9 @@ import (
 )
 
 func SelectAProvider(ctx *cli.Context) (provider string, err error) {
-	if ctx.IsSet(flags.Provider.Name) == true {
+	if ctx.IsSet(flags.Provider.Name) {
 		provider = ctx.String(flags.Provider.Name)
-		if slices.Contains(Providers, provider) == true {
+		if slices.Contains(Providers, provider) {
 			return
 		}
 	}
@@ -28,11 +28,11 @@ func SelectAProvider(ctx *cli.Context) (provider string, err error) {
 }
 
 func GetOrRequireAProviderAndToken(ctx *cli.Context) (provider, token string, err error) {
-	if ctx.IsSet(flags.Token.Name) == true {
+	if ctx.IsSet(flags.Token.Name) {
 		token = ctx.String(flags.Token.Name)
 	}
 
-	if ctx.IsSet(flags.Provider.Name) == true {
+	if ctx.IsSet(flags.Provider.Name) {
 		provider = ctx.String(flags.Provider.Name)
 	}
 

@@ -18,7 +18,7 @@ import (
 )
 
 func RepositoryInfo(ctx *cli.Context, website *structureSpec.Website, new bool) (interface{}, error) {
-	if new == true && prompts.GetGenerateRepository(ctx) {
+	if new && prompts.GetGenerateRepository(ctx) {
 		return repositoryInfoGenerate(ctx, website)
 	}
 
@@ -39,7 +39,7 @@ func RepositoryInfo(ctx *cli.Context, website *structureSpec.Website, new bool) 
 		return nil, err
 	}
 
-	if selectedRepository.HasBeenCloned(projectConfig, website.Provider) == false {
+	if !selectedRepository.HasBeenCloned(projectConfig, website.Provider) {
 		selectedRepository.DoClone = prompts.GetClone(ctx)
 	}
 
@@ -72,7 +72,7 @@ func isRepositoryNameTaken(client *httpClient.Client, name string) (bool, error)
 // Only called by new
 func repositoryInfoGenerate(ctx *cli.Context, website *structureSpec.Website) (*repositoryLib.InfoTemplate, error) {
 	var repositoryName string
-	if ctx.IsSet(flags.RepositoryName.Name) == true {
+	if ctx.IsSet(flags.RepositoryName.Name) {
 		repositoryName = ctx.String(flags.RepositoryName.Name)
 	} else {
 		repositoryName = fmt.Sprintf(common.WebsiteRepoPrefix, website.Name)
@@ -85,7 +85,7 @@ func repositoryInfoGenerate(ctx *cli.Context, website *structureSpec.Website) (*
 	}
 
 	// Skipping prompt for repository name unless set, or generated name is already taken
-	for taken, err := isRepositoryNameTaken(client, repositoryName); taken == true; {
+	for taken, err := isRepositoryNameTaken(client, repositoryName); taken; {
 		if err != nil {
 			return nil, err
 		}

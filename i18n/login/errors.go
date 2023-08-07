@@ -23,7 +23,7 @@ const (
 )
 
 var (
-	NoEmailsFound = errors.New("no emails found")
+	ErrorNoEmailsFound = errors.New("no emails found")
 )
 
 func CreateFailed(login string, err error) error {

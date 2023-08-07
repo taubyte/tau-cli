@@ -23,12 +23,12 @@ func GetOrRequireACall(c *cli.Context, source common.Source, prev ...string) str
 			}
 
 			// TODO REGEX
-			if strings.HasSuffix(s, ".") == true {
+			if strings.HasSuffix(s, ".") {
 				return errors.New("cannot end with `.`")
 			}
 
 			// TODO REGEX
-			if strings.Contains(s, " ") == true {
+			if strings.Contains(s, " ") {
 				return errors.New("does not except spaces")
 			}
 

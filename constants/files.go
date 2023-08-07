@@ -1,7 +1,6 @@
 package constants
 
 import (
-	"fmt"
 	"os"
 	"path"
 )
@@ -15,7 +14,7 @@ func init() {
 	if TauConfigFileName == "" {
 		home, err := os.UserHomeDir()
 		if err != nil {
-			panic(fmt.Errorf("Who are you anyways! Trying to find your home directory failed with %s", err.Error()))
+			panic("trying to find your home directory failed with:" + err.Error())
 		}
 
 		TauConfigFileName = path.Join(home, "tau")

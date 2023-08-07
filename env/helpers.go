@@ -8,7 +8,7 @@ import (
 )
 
 func justDisplayExport(c *cli.Context, key, value string) bool {
-	if c.Bool(flags.Env.Name) == true {
+	if c.Bool(flags.Env.Name) {
 		fmt.Printf("export %s=%s\n", key, value)
 		return true
 	}

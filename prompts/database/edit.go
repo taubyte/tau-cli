@@ -15,7 +15,7 @@ func Edit(ctx *cli.Context, prev *structureSpec.Database) error {
 	prev.Match = GetOrRequireAMatch(ctx, prev.Match)
 	prev.Local = prompts.GetOrAskForLocal(ctx, prev.Local)
 
-	if GetEncryption(ctx, len(prev.Key) > 0) == true {
+	if GetEncryption(ctx, len(prev.Key) > 0) {
 		prev.Key = GetOrRequireAnEncryptionKey(ctx, prev.Key)
 	} else {
 		prev.Key = ""

@@ -14,7 +14,7 @@ func matchAllString(val string, expressions [][]string) error {
 	var match bool
 	for _, exp := range expressions {
 		match, _ = regexp.MatchString(exp[1], val)
-		if match == false {
+		if !match {
 			return errors.New(exp[0])
 		}
 	}

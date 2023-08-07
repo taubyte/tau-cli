@@ -22,7 +22,7 @@ func (info *Info) Open(project config.Project, url string) (*git.Repository, err
 		return nil, err
 	}
 
-	if info.isCloned(repositoryPath) == false {
+	if !info.isCloned(repositoryPath) {
 		switch info.Type {
 		case "website":
 			websiteI18n.Help().BeSureToCloneWebsite()

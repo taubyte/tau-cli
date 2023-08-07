@@ -32,7 +32,7 @@ func new(ctx *cli.Context) error {
 	name := application.Name
 
 	confirm := applicationTable.Confirm(ctx, application, applicationPrompts.CreateThis)
-	if confirm == true {
+	if confirm {
 		err := applicationLib.New(application)
 		if err != nil {
 			return err

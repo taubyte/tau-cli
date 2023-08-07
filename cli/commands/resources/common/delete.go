@@ -49,7 +49,7 @@ func (h *Delete[T]) Action() func(ctx *cli.Context) error {
 		// Table.Confirm will display a table and wait for a confirmation based on the
 		// flag provided to `tau delete -y` or offer a y\n selection
 		confirm := h.TableConfirm(ctx, resource, h.PromptsDeleteThis)
-		if confirm == true {
+		if confirm {
 
 			// Lib.Delete handles the seer deletion based on selected project/application
 			err = h.LibDelete(resource.GetName())

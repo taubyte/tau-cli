@@ -18,7 +18,7 @@ func getLanguage(ctx *cli.Context) string {
 
 	langLowerCase := strings.ToLower(lang)
 	for _lang, aliases := range wasm.LanguageAliases() {
-		if slices.Contains(aliases, langLowerCase) == true {
+		if slices.Contains(aliases, langLowerCase) {
 			return string(_lang)
 		}
 	}

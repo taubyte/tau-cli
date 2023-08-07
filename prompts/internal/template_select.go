@@ -16,7 +16,7 @@ var templateTypeFlag = &cli.StringFlag{
 }
 
 func GetTemplateType(ctx *cli.Context) string {
-	if ctx.IsSet(templateTypeFlag.Name) == false {
+	if !ctx.IsSet(templateTypeFlag.Name) {
 		selected, err := prompts.SelectInterface([]string{functionSpec.PathVariable.String(), websiteSpec.PathVariable.String(), smartopsSpec.PathVariable.String()}, "Template type:", "")
 		if err != nil {
 			panic(err)

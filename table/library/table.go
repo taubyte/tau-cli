@@ -8,7 +8,7 @@ import (
 )
 
 func getTableData(library *structureSpec.Library, showId bool) (toRender [][]string) {
-	if showId == true {
+	if showId {
 		toRender = [][]string{
 			{"ID", library.Id},
 		}

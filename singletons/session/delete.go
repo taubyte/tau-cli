@@ -8,7 +8,7 @@ import (
 
 func Delete() error {
 	processDir, found := nearestProcessDirectory(os.Getppid())
-	if found == false || len(processDir) == 0 {
+	if !found || len(processDir) == 0 {
 		return singletonsI18n.SessionNotFound()
 	}
 

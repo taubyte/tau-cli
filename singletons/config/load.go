@@ -11,7 +11,7 @@ import (
 )
 
 func loadConfig() error {
-	if file.Exists(constants.TauConfigFileName) == false {
+	if !file.Exists(constants.TauConfigFileName) {
 		_, err := os.Create(constants.TauConfigFileName)
 		if err != nil {
 			return singletonsI18n.CreatingConfigFileFailed(err)

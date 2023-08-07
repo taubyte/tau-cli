@@ -24,7 +24,7 @@ func New(ctx *cli.Context) (*structureSpec.Database, error) {
 	database.Match = GetOrRequireAMatch(ctx)
 	database.Local = prompts.GetOrAskForLocal(ctx)
 
-	if GetEncryption(ctx) == true {
+	if GetEncryption(ctx) {
 		database.Key = GetOrRequireAnEncryptionKey(ctx)
 	}
 

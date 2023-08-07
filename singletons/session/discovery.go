@@ -29,7 +29,7 @@ func discoverOrCreateConfigFileLoc() (string, error) {
 	}
 
 	processDir, found := nearestProcessDirectory(grandPid)
-	if found == false {
+	if !found {
 		processDir, err = createProcessDirectory(grandPid)
 		if err != nil {
 			return "", err

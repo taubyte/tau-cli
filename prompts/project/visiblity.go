@@ -16,11 +16,11 @@ func GetOrRequireVisibility(ctx *cli.Context) (visible bool, err error) {
 		public, private bool
 	)
 
-	if ctx.IsSet(projectFlags.Private.Name) == true {
+	if ctx.IsSet(projectFlags.Private.Name) {
 		private = ctx.Bool(projectFlags.Private.Name)
 	}
 
-	if ctx.IsSet(projectFlags.Public.Name) == true {
+	if ctx.IsSet(projectFlags.Public.Name) {
 		public = ctx.Bool(projectFlags.Public.Name)
 	}
 
@@ -28,7 +28,7 @@ func GetOrRequireVisibility(ctx *cli.Context) (visible bool, err error) {
 		return false, projectI18n.BothFlagsCannotBeTrue(projectFlags.Private.Name, projectFlags.Public.Name)
 	}
 
-	if public == false && private == false {
+	if !public && !private {
 		selectedVisibility, err := prompts.SelectInterface(VisibilityOptions, ProjectVisibility, Public)
 		if err != nil {
 			return false, projectI18n.SelectingVisibilityFailed(err)

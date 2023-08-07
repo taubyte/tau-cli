@@ -30,7 +30,7 @@ func (lib *repositoryCommands) Edit(ctx *cli.Context) error {
 	var cloneMethod func() error
 	switch info := infoIface.(type) {
 	case *repositoryLib.Info:
-		if info.DoClone == true {
+		if info.DoClone {
 			cloneMethod = func() error {
 				_, err = info.Clone(project, resource.Get().RepositoryURL(), resource.Get().Branch(), prompts.GetOrAskForEmbedToken(ctx))
 				if err != nil {
@@ -43,7 +43,7 @@ func (lib *repositoryCommands) Edit(ctx *cli.Context) error {
 	}
 
 	confirm := lib.TableConfirm(ctx, resource, lib.PromptsEditThis)
-	if confirm == true {
+	if confirm {
 		if cloneMethod != nil {
 			err = cloneMethod()
 			if err != nil {

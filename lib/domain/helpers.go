@@ -50,7 +50,7 @@ func set(domain *structureSpec.Domain, new bool) (Validator, error) {
 		return nil, err
 	}
 
-	if new == true {
+	if new {
 		domain.Id = id.Generate(info.project.Get().Id(), domain.Name)
 	}
 

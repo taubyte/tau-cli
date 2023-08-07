@@ -46,7 +46,7 @@ func getClientUrl() (url string) {
 
 func loadClient() (config.Profile, *client.Client, error) {
 	profileName, exist := session.Get().ProfileName()
-	if exist == false {
+	if !exist {
 		// Check for a default if no profiles are selected
 		profileName, _, _ = loginLib.GetProfiles()
 		if len(profileName) == 0 {

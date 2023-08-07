@@ -8,7 +8,7 @@ import (
 
 func ConfirmData(c *cli.Context, label string, data [][]string) bool {
 	confirm := c.Bool(flags.Yes.Name)
-	if confirm == false {
+	if !confirm {
 		RenderTable(data)
 		AskOne(&survey.Confirm{
 			Message: label,
@@ -20,7 +20,7 @@ func ConfirmData(c *cli.Context, label string, data [][]string) bool {
 
 func ConfirmDataWithMerge(c *cli.Context, label string, data [][]string) bool {
 	confirm := c.Bool(flags.Yes.Name)
-	if confirm == false {
+	if !confirm {
 		RenderTableWithMerge(data)
 		AskOne(&survey.Confirm{
 			Message: label,

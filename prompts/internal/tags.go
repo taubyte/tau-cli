@@ -33,7 +33,7 @@ var TagsRequiredCommand = &cli.Command{
 
 func tagsPrompt(ctx *cli.Context, required bool) {
 	var tags []string
-	if required == true {
+	if required {
 		// New
 		tags = prompts.RequiredTags(ctx)
 

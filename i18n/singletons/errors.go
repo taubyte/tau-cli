@@ -6,34 +6,34 @@ import (
 
 const (
 	// Common
-	creatingSeerAtLocFailed = "creating seer at `%s` failed with %s:"
+	creatingSeerAtLocFailed = "creating seer at `%s` failed with: %w"
 
 	// Session
 	sessionFileLocationEmpty  = "session file location is empty and could not discover or create"
-	sessionSettingKeyFailed   = "setting session key `%s` to `%s` failed with: %s"
-	sessionDeletingKeyFailed  = "deleting session key `%s`  failed with: %s"
-	sessionDeleteFailed       = "deleting session at %s failed with: %s"
-	sessionListFailed         = "getting session items failed with: %s"
+	sessionSettingKeyFailed   = "setting session key `%s` to `%s` failed with: %w"
+	sessionDeletingKeyFailed  = "deleting session key `%s`  failed with: %w"
+	sessionDeleteFailed       = "deleting session at %s failed with: %w"
+	sessionListFailed         = "getting session items failed with: %w"
 	sessionNotFound           = "no session found"
-	sessionCreateFailed       = "creating session file at `%s` failed with: %s"
-	creatingSessionFileFailed = "creating session file failed with %s:"
+	sessionCreateFailed       = "creating session file at `%s` failed with: %w"
+	creatingSessionFileFailed = "creating session file failed with: %w"
 
 	// Config
-	creatingConfigFileFailed = "creating config file failed with %s:"
-	gettingProfileFailedWith = "getting profile `%s` from config failed with %s:"
-	settingProfileFailedWith = "setting profile `%s` in config failed with %s:"
+	creatingConfigFileFailed = "creating config file failed with: %w"
+	gettingProfileFailedWith = "getting profile `%s` from config failed with: %w"
+	settingProfileFailedWith = "setting profile `%s` in config failed with: %w"
 
-	gettingProjectFailedWith   = "getting project `%s` from config failed with %s:"
-	settingProjectFailedWith   = "setting project `%s` in config failed with %s:"
-	deletingProjectFailedWith  = "deleting project `%s` from config failed with %s:"
+	gettingProjectFailedWith   = "getting project `%s` from config failed with: %w"
+	settingProjectFailedWith   = "setting project `%s` in config failed with: %w"
+	deletingProjectFailedWith  = "deleting project `%s` from config failed with: %w"
 	projectLocationNotFound    = "project `%s` location not found"
-	openingProjectConfigFailed = "opening project config at `%s` failed with: %s"
+	openingProjectConfigFailed = "opening project config at `%s` failed with: %w"
 	projectAlreadyCloned       = "project `%s` already cloned in: `%s`"
 
 	// Auth_client
 	profileDoesNotExist      = "profile does not exist"
-	creatingAuthClientFailed = "creating auth client failed with: %s"
-	loadingAuthClientFailed  = "loading auth client failed with: %s"
+	creatingAuthClientFailed = "creating auth client failed with: %w"
+	loadingAuthClientFailed  = "loading auth client failed with: %w"
 
 	//Network
 	noNetworkSelected = "no network selected"

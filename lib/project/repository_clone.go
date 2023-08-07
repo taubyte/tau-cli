@@ -19,12 +19,12 @@ func (h *repositoryHandler) Clone(tauProject config.Project, embedToken bool) (P
 
 	if len(tauProject.Location) == 0 {
 		tauProject.Location = path.Join(cwd, tauProject.Name)
-	} else if filepath.IsAbs(tauProject.Location) == false {
+	} else if !filepath.IsAbs(tauProject.Location) {
 		tauProject.Location = path.Join(cwd, tauProject.Location)
 	}
 
 	// Check if user has already defined project name in given location
-	if strings.HasSuffix(strings.ToLower(tauProject.Location), strings.ToLower(tauProject.Name)) == false {
+	if !strings.HasSuffix(strings.ToLower(tauProject.Location), strings.ToLower(tauProject.Name)) {
 		tauProject.Location = path.Join(tauProject.Location, tauProject.Name)
 	}
 

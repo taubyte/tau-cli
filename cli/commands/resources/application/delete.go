@@ -24,7 +24,7 @@ func (link) Delete() common.Command {
 
 func delete(ctx *cli.Context) error {
 	// If --select is set we should not check the user's currently selected application
-	checkEnv := ctx.Bool(flags.Select.Name) == false
+	checkEnv := !ctx.Bool(flags.Select.Name)
 
 	application, err := applicationPrompts.GetOrSelect(ctx, checkEnv)
 	if err != nil {
@@ -32,7 +32,7 @@ func delete(ctx *cli.Context) error {
 	}
 
 	confirm := applicationTable.Confirm(ctx, application, applicationPrompts.DeleteThis)
-	if confirm == true {
+	if confirm {
 		err = applicationLib.Delete(application)
 		if err != nil {
 			return err
