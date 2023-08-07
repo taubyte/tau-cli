@@ -5,16 +5,9 @@ import (
 )
 
 type link struct {
+	common.UnimplementedBasic
 }
 
 func New() common.Basic {
 	return link{}
-}
-
-func (link) Edit() common.Command {
-	return common.NotImplemented
-}
-
-func (link) Delete() common.Command {
-	return common.NotImplemented
 }

@@ -4,8 +4,6 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-var NotImplemented Command = nil
-
 type Option func(Linker)
 
 type Command interface {
