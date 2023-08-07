@@ -4,24 +4,10 @@ import (
 	"github.com/taubyte/tau-cli/cli/common"
 )
 
-type link struct{}
+type link struct {
+	common.UnimplementedBasic
+}
 
 func New() common.Basic {
 	return link{}
-}
-
-func (link) Clone() common.Command {
-	return common.NotImplemented
-}
-
-func (link) Push() common.Command {
-	return common.NotImplemented
-}
-
-func (link) Pull() common.Command {
-	return common.NotImplemented
-}
-
-func (link) Checkout() common.Command {
-	return common.NotImplemented
 }
