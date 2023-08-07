@@ -22,5 +22,4 @@ var (
 	_push     = newBaseCommand("push")
 	_pull     = newBaseCommand("pull")
 	_checkout = newBaseCommand("checkout")
-	_import   = newBaseCommand("import")
 )

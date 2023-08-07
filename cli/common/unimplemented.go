@@ -17,5 +17,4 @@ func (UnimplementedBasic) Clone() Command                 { return NotImplemente
 func (UnimplementedBasic) Push() Command                  { return NotImplemented }
 func (UnimplementedBasic) Pull() Command                  { return NotImplemented }
 func (UnimplementedBasic) Checkout() Command              { return NotImplemented }
-func (UnimplementedBasic) Import() Command                { return NotImplemented }
 func (UnimplementedBasic) Base() (*cli.Command, []Option) { return nil, nil }

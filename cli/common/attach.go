@@ -41,7 +41,6 @@ func attachCommand(cmd Basic) {
 		_query:    cmd.Query,
 		_list:     cmd.List,
 		_select:   cmd.Select,
-		_import:   cmd.Import,
 		_clone:    cmd.Clone,
 		_push:     cmd.Push,
 		_pull:     cmd.Pull,

@@ -24,7 +24,6 @@ type Basic interface {
 	Push() Command
 	Pull() Command
 	Checkout() Command
-	Import() Command
 
 	// Sets the following in the command if not already set:
 	// Name
