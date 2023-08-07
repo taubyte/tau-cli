@@ -4,8 +4,6 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-var NotImplemented Command = nil
-
 type Option func(Linker)
 
 type Command interface {
@@ -26,6 +24,7 @@ type Basic interface {
 	Push() Command
 	Pull() Command
 	Checkout() Command
+	Import() Command
 
 	// Sets the following in the command if not already set:
 	// Name

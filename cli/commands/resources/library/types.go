@@ -12,6 +12,7 @@ import (
 )
 
 type link struct {
+	common.UnimplementedBasic
 	cmd repositoryCommands.Commands
 }
 
@@ -55,8 +56,4 @@ func New() common.Basic {
 	})
 
 	return l
-}
-
-func (link) Select() common.Command {
-	return common.NotImplemented
 }
