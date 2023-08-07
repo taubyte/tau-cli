@@ -24,6 +24,7 @@ func Attach(app *cli.App, commands ...basicFunction) {
 		_push,
 		_pull,
 		_checkout,
+		_import,
 	} {
 		if len(cmd.Subcommands) > 0 {
 			app.Commands = append(app.Commands, cmd)
