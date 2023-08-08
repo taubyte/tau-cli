@@ -52,6 +52,7 @@ fakeroot/
 _fakeroot/
 tests/tau
 tmp
+tests/tau-cli
 
 cover.out
 
