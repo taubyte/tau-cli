@@ -2,8 +2,6 @@ module github.com/taubyte/tau-cli
 
 go 1.19
 
-replace github.com/taubyte/go-simple-git => ../go-simple-git
-
 // Direct Taubyte imports
 require (
 	github.com/taubyte/go-auth-http v0.9.0

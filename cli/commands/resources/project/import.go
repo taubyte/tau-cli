@@ -1,11 +1,13 @@
 package project
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
+	"net/http"
 	"strings"
 
 	httpClient "github.com/taubyte/go-auth-http"
-	git "github.com/taubyte/go-simple-git"
 	"github.com/taubyte/tau-cli/cli/common"
 	"github.com/taubyte/tau-cli/flags"
 	"github.com/taubyte/tau-cli/i18n"
@@ -38,15 +40,15 @@ func (link) Import() common.Command {
 func _import(ctx *cli.Context) error {
 	profile, err := loginLib.GetSelectedProfile()
 	if err != nil {
-		return fmt.Errorf("getting selected profile failed with: %w", err)
+		return err
 	}
 
-	repos, err := git.List(profile.GitUsername, profile.Token)
+	repos, err := listRepos(profile.GitUsername, profile.Token)
 	if err != nil {
 		return fmt.Errorf("listing `%s` repos failed with: %w", profile.GitUsername, err)
 	}
 
-	repoMap := make(map[string]*git.GitRepo, len(repos))
+	repoMap := make(map[string]*gitRepo, len(repos))
 	configRepos := make([]string, 0, len(repos))
 	codeRepos := make([]string, 0, len(repos))
 	for _, repo := range repos {
@@ -125,4 +127,44 @@ func _import(ctx *cli.Context) error {
 	}
 
 	return nil
+}
+
+type gitRepo struct {
+	FullName string `json:"full_name"`
+	HTMLURL  string `json:"html_url"`
+	Name     string `json:"name"`
+	ID       int64  `json:"id"`
+}
+
+func listRepos(user, token string) ([]*gitRepo, error) {
+	if len(user) < 1 {
+		return nil, fmt.Errorf("user must be defined")
+	}
+
+	endpoint := fmt.Sprintf("https://api.github.com/users/%s/repos", user)
+	req, err := http.NewRequest("GET", endpoint, nil)
+	if err != nil {
+		return nil, fmt.Errorf("creating GET request for `%s` failed with: %w", endpoint, err)
+	}
+
+	if len(token) > 1 {
+		req.Header.Add("Authorization", "token "+token)
+	}
+
+	res, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("GET on `%s` failed with: %w", endpoint, err)
+	}
+
+	data, err := io.ReadAll(res.Body)
+	if err != nil {
+		return nil, fmt.Errorf("reading response body from `%s` failed with: %w", endpoint, err)
+	}
+
+	var repos []*gitRepo
+	if err = json.Unmarshal(data, &repos); err != nil {
+		return nil, fmt.Errorf("unmarshaling response %s failed with: %w", string(data), err)
+	}
+
+	return repos, nil
 }

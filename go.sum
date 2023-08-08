@@ -428,6 +428,8 @@ github.com/taubyte/go-seer v1.0.6 h1:7T6rUTlnQDsON/eUQBTgsmAzpP7gE2SFcBsgsQr9bZc
 github.com/taubyte/go-seer v1.0.6/go.mod h1:eei5Dvqusx9VPQXPMBBmxhjxODL9FNPOpe6U89GUtQ4=
 github.com/taubyte/go-simple-container v0.4.2 h1:WMC/kgubrQiiDzMfLs3X0WcAMl9hkVOyxpOHjMPXjtg=
 github.com/taubyte/go-simple-container v0.4.2/go.mod h1:7nFas4yr17+jFUWmQLBNZ//s40Y+7/iiJhJkXAJDGiY=
+github.com/taubyte/go-simple-git v0.2.5 h1:ESwhDVHGF0oVPFtZvCS5SzrugjCpK0KKaQIQC6AxzDE=
+github.com/taubyte/go-simple-git v0.2.5/go.mod h1:tPUTQo7GPNEYOV1kRMqWLv3cihLN4MKyK1kW36xr9wk=
 github.com/taubyte/go-specs v0.10.0 h1:P4wf8U51Rn7GhL9KXQSfHoruXJ3TedV0xIflGjWccPU=
 github.com/taubyte/go-specs v0.10.0/go.mod h1:OLj64wgg6hEf/xa5v/yWFPNoNQSK2Pf99e6KnEMW2ZI=
 github.com/taubyte/http v0.9.0 h1:hI+9Jax8vEZhmpVhCgRZDAeORLf/qjJHIvWo658wOfk=
