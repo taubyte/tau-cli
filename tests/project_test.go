@@ -3,7 +3,15 @@ package tests
 import (
 	"testing"
 
+	commonTest "github.com/taubyte/tau-cli/common/test"
 	"github.com/taubyte/tau-cli/constants"
+)
+
+var (
+	configRepoName     = "tb_Repo"
+	configRepoFullName = commonTest.GitUser + "/" + configRepoName
+	codeRepoName       = "tb_code_Repo"
+	codeRepoFullName   = commonTest.GitUser + "/" + codeRepoName
 )
 
 func TestProjectAll(t *testing.T) {
@@ -11,7 +19,6 @@ func TestProjectAll(t *testing.T) {
 }
 
 func createProjectMonkey() *testSpider {
-	// userName := "taf-test"
 	network := "Test"
 	beforeEach := func(tt testMonkey) [][]string {
 		tt.env[constants.CurrentSelectedNetworkName] = network
@@ -102,6 +109,14 @@ func createProjectMonkey() *testSpider {
 			},
 			mock:            true,
 			evaluateSession: expectSelectedProject(projectName),
+		},
+		{
+			name: "Import project",
+			args: []string{
+				"import", "project",
+				"-config", configRepoFullName, "-code", codeRepoFullName, "-y",
+			},
+			mock: true,
 		},
 	}
 	return &testSpider{"some_project", tests, beforeEach, nil, "project"}

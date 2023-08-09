@@ -1,16 +1,20 @@
 package project
 
 import (
+	"context"
 	"sync"
 
+	"github.com/google/go-github/v53/github"
 	"github.com/pterm/pterm"
 	git "github.com/taubyte/go-simple-git"
 	projectFlags "github.com/taubyte/tau-cli/flags/project"
 	"github.com/taubyte/tau-cli/i18n"
 	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	repositoryI18n "github.com/taubyte/tau-cli/i18n/repository"
 	projectLib "github.com/taubyte/tau-cli/lib/project"
 	"github.com/taubyte/tau-cli/singletons/config"
 	"github.com/urfave/cli/v2"
+	"golang.org/x/oauth2"
 )
 
 // See if they have cloned the project, if not show help
@@ -89,4 +93,21 @@ func (h *dualRepoHandler) Run() error {
 	}
 
 	return nil
+}
+
+// Var to allow override in tests
+var ListRepos = func(ctx context.Context, token, user string) ([]*github.Repository, error) {
+	ts := oauth2.StaticTokenSource(
+		&oauth2.Token{AccessToken: token},
+	)
+
+	tc := oauth2.NewClient(ctx, ts)
+	client := github.NewClient(tc)
+
+	repos, _, err := client.Repositories.List(ctx, user, nil)
+	if err != nil {
+		return nil, repositoryI18n.ErrorListRepositories(user, err)
+	}
+
+	return repos, nil
 }

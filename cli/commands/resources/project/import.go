@@ -1,7 +1,6 @@
 package project
 
 import (
-	"context"
 	"fmt"
 	"strings"
 
@@ -18,7 +17,6 @@ import (
 	"github.com/taubyte/tau-cli/singletons/session"
 	slices "github.com/taubyte/utils/slices/string"
 	"github.com/urfave/cli/v2"
-	"golang.org/x/oauth2"
 )
 
 func (link) Import() common.Command {
@@ -44,7 +42,7 @@ func _import(ctx *cli.Context) error {
 		return err
 	}
 
-	repos, err := listRepos(ctx.Context, profile.GitUsername, profile.Token)
+	repos, err := ListRepos(ctx.Context, profile.GitUsername, profile.Token)
 	if err != nil {
 		return err
 	}
@@ -125,20 +123,4 @@ func _import(ctx *cli.Context) error {
 	}
 
 	return nil
-}
-
-func listRepos(ctx context.Context, token, user string) ([]*github.Repository, error) {
-	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: token},
-	)
-
-	tc := oauth2.NewClient(ctx, ts)
-	client := github.NewClient(tc)
-
-	repos, _, err := client.Repositories.List(ctx, user, nil)
-	if err != nil {
-		return nil, repositoryI18n.ErrorListRepositories(user, err)
-	}
-
-	return repos, nil
 }

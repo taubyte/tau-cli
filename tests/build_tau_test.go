@@ -23,7 +23,7 @@ var (
 	// Note this should only be used for debugging as other tests could get stuck looping
 	promptingEnabled bool
 
-	buildTags = "localAuthClient,projectCreateable,localPatrick"
+	buildTags = "localAuthClient,projectCreateable,localPatrick,mockGithub"
 )
 
 func internalBuildTau() error {
@@ -61,7 +61,7 @@ func internalBuildTau() error {
 	// Display buildStartTime
 	pterm.Info.Printf("tau built in %s\n", time.Since(buildStartTime))
 
-	_, err = os.Stat("./tau")
+	_, err = os.Stat("./tau-cli")
 	if err != nil {
 		return fmt.Errorf("building tau for tests failed with: %s", err)
 	}
