@@ -7,32 +7,23 @@ import (
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	"github.com/taubyte/tau-cli/singletons/config"
 	"github.com/taubyte/tau-cli/singletons/session"
+	"gotest.tools/v3/assert"
 )
 
 func TestClient(t *testing.T) {
 	profiles := config.Profiles()
 	testProfileName := "prof1"
 	testProfile := config.Profile{
-		Provider: "github",
-		Token:    commonTest.GitToken(),
-		Default:  false,
+		Provider:    "github",
+		Token:       commonTest.GitToken(),
+		Default:     false,
+		NetworkType: "Remote",
+		Network:     "sandbox.taubyte.com",
 	}
 
-	err := profiles.Set(testProfileName, testProfile)
-	if err != nil {
-		t.Error(err)
-		return
-	}
+	assert.NilError(t, profiles.Set(testProfileName, testProfile))
+	assert.NilError(t, session.Set().ProfileName(testProfileName))
 
-	err = session.Set().ProfileName(testProfileName)
-	if err != nil {
-		t.Error(err)
-		return
-	}
-
-	_, err = authClient.Load()
-	if err != nil {
-		t.Error(err)
-		return
-	}
+	_, err := authClient.Load()
+	assert.NilError(t, err)
 }

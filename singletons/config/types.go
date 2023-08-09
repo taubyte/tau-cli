@@ -22,8 +22,8 @@ type Profile struct {
 	// may need to fake in tests
 	GitUsername string `yaml:"git_username"`
 	GitEmail    string `yaml:"git_email"`
+	NetworkType string `yaml:"type,omitempty"`
 	Network     string `yaml:"network"`
-	FQDN        string `yaml:"fqdn,omitempty"`
 }
 
 type Project struct {

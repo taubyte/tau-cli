@@ -48,6 +48,8 @@ const (
 	TimeoutPrompt          = "Time To Live:"
 
 	NetworkPrompts = "Network:"
+	FQDN           = "FQDN:"
+	Universe       = "Universe:"
 
 	NoDomainGeneratePrompt = "No domains found, generate one?"
 

@@ -23,7 +23,8 @@ profiles:
     default: true
     git_username: taubyte-test
     git_email: taubytetest@gmail.com
-    network: Sandbox Network [Deprecated]
+    type: Remote
+    network: sandbox.taubyte.com
 projects:
   ` + projectName + `:
     defaultprofile: ` + profileName + `
@@ -41,7 +42,8 @@ profiles:
     default: true
     git_username: ` + commonTest.GitUser + `
     git_email: taubytetest@gmail.com
-    network: Sandbox Network [Deprecated]
+    type: Remote
+    network: sandbox.taubyte.com
 projects:
   ` + projectName + `:
     defaultprofile: ` + profileName + `
@@ -148,14 +150,14 @@ func expectedSelectedNetwork(expected string) func(g session.Getter) error {
 // evaluateSession helper
 func expectedSelectedCustomNetwork(expectedNetwork, expectedFQDN string) func(g session.Getter) error {
 	return func(g session.Getter) error {
-		network, _ := g.SelectedNetwork()
-		if network != expectedNetwork {
-			return fmt.Errorf("Network does not match, %s != %s", expectedNetwork, network)
+		fqdn, _ := g.CustomNetworkUrl()
+		if expectedFQDN != fqdn {
+			return fmt.Errorf("FQDN does not match, %s != %s", expectedFQDN, fqdn)
 		}
 
-		fqdn, _ := g.CustomNetworkUrl()
-		if fqdn != expectedFQDN {
-			return fmt.Errorf("FQDN does not match, %s != %s", expectedFQDN, fqdn)
+		network, _ := g.SelectedNetwork()
+		if expectedNetwork != network {
+			return fmt.Errorf("Network does not match, %s != %s", expectedNetwork, network)
 		}
 
 		return nil

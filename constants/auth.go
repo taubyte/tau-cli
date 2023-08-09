@@ -2,6 +2,6 @@
 
 package constants
 
-const ClientURL = "https://auth.taubyte.com"
+const ClientURL = "https://auth.tau.sandbox.taubyte.com"
 
 const SelfSignedOkay = false

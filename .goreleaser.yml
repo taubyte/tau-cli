@@ -4,7 +4,7 @@ release:
   # Default is extracted from the origin remote URL or empty if its private hosted.
   github:
     owner: taubyte
-    name: tau
+    name: tau-cli
 
   # If set to true, will not auto-publish the release.
   # Available only for GitHub and Gitea.

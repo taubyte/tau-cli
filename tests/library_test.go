@@ -1,14 +1,16 @@
 package tests
 
 import (
+	"context"
 	"fmt"
 	"io"
-	"net/http"
 	"testing"
 
+	"github.com/google/go-github/v53/github"
 	commonTest "github.com/taubyte/tau-cli/common/test"
 	"github.com/taubyte/tau-cli/constants"
 	libraryPrompts "github.com/taubyte/tau-cli/prompts/library"
+	"golang.org/x/oauth2"
 )
 
 func basicNewLibrary(name string) []string {
@@ -83,16 +85,16 @@ func createLibraryMonkey() *testSpider {
 				"--no-embed-token",
 			},
 			cleanUp: func() error {
-				// delete https://github.com/taubyte-test/tb_empty_template
-				url := fmt.Sprintf("https://api.github.com/repos/%s/tb_library_someLibrary", commonTest.GitUser)
-				req, err := http.NewRequest(http.MethodDelete, url, nil)
-				if err != nil {
-					return err
-				}
-				req.Header.Add("Accept", "application/vnd.github.v3+json")
-				req.Header.Add("Authorization", "token "+commonTest.GitToken())
+				ts := oauth2.StaticTokenSource(
+					&oauth2.Token{AccessToken: commonTest.GitToken()},
+				)
+				tc := oauth2.NewClient(context.Background(), ts)
+				client := github.NewClient(tc)
 
-				resp, err := http.DefaultClient.Do(req)
+				resp, err := client.Repositories.Delete(context.Background(), commonTest.GitUser, "tb_library_someLibrary")
+				if err != nil {
+					return fmt.Errorf("req do failed with: %w", err)
+				}
 				if resp != nil {
 					defer resp.Body.Close()
 
@@ -103,9 +105,6 @@ func createLibraryMonkey() *testSpider {
 						}
 						fmt.Println("Delete repository response", string(body))
 					}
-				}
-				if err != nil {
-					return err
 				}
 
 				return nil

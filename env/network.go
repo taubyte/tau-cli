@@ -23,7 +23,7 @@ func GetSelectedNetwork() (string, bool) {
 	return session.Get().SelectedNetwork()
 }
 
-func SetCustomNetworkUrl(c *cli.Context, network string) error {
+func SetNetworkUrl(c *cli.Context, network string) error {
 	if justDisplayExport(c, constants.CustomNetworkUrlName, network) {
 		return nil
 	}

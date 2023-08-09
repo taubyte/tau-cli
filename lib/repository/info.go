@@ -9,12 +9,12 @@ import (
 func (info *Info) GetNameFromID() error {
 	client, err := authClient.Load()
 	if err != nil {
-		return err
+		return fmt.Errorf("loading auth client failed with: %w", err)
 	}
 
 	repo, err := client.GetRepositoryById(info.ID)
 	if err != nil {
-		return err
+		return fmt.Errorf("getting repo by id failed with: %w", err)
 	}
 
 	info.FullName = repo.Get().Fullname()
