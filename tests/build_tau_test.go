@@ -61,7 +61,7 @@ func internalBuildTau() error {
 	// Display buildStartTime
 	pterm.Info.Printf("tau built in %s\n", time.Since(buildStartTime))
 
-	_, err = os.Stat("./tau")
+	_, err = os.Stat("./tau-cli")
 	if err != nil {
 		return fmt.Errorf("building tau for tests failed with: %s", err)
 	}

@@ -25,7 +25,7 @@ func (r *roadRunner) Run(args ...string) (error, int, string, string) {
 		return fmt.Errorf("getting cwd failed with: %s", err), 1, "", ""
 	}
 
-	_cmd := exec.Command(path.Join(cwd, "tau"), args...)
+	_cmd := exec.Command(path.Join(cwd, "tau-cli"), args...)
 	_cmd.Dir, _ = filepath.Abs(r.dir)
 	r.env[constants.TauConfigFileNameEnvVarName] = r.configFile
 	r.env[constants.TauSessionLocationEnvVarName] = r.sessionFile

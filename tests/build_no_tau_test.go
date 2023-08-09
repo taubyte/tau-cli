@@ -8,7 +8,7 @@ import (
 
 // Only build if not found
 func buildTau() error {
-	_, err := os.Stat("./tau")
+	_, err := os.Stat("./tau-cli")
 	if err != nil {
 		return internalBuildTau()
 	}
