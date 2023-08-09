@@ -29,8 +29,8 @@ require (
 	github.com/spf13/afero v1.9.2
 	github.com/urfave/cli/v2 v2.25.0
 	golang.org/x/exp v0.0.0-20230118134722-a68e582fa157
-	golang.org/x/oauth2 v0.4.0
-	golang.org/x/text v0.6.0
+	golang.org/x/oauth2 v0.8.0
+	golang.org/x/text v0.9.0
 	gopkg.in/yaml.v3 v3.0.1
 	gotest.tools/v3 v3.5.0
 )
@@ -41,7 +41,7 @@ require (
 	atomicgo.dev/keyboard v0.2.8 // indirect
 	github.com/CAFxX/httpcompression v0.0.8 // indirect
 	github.com/Microsoft/go-winio v0.5.2 // indirect
-	github.com/ProtonMail/go-crypto v0.0.0-20220407094043-a94812496cf5 // indirect
+	github.com/ProtonMail/go-crypto v0.0.0-20230217124315-7d5c6f04bbb8 // indirect
 	github.com/acomagu/bufpipe v1.0.3 // indirect
 	github.com/andybalholm/brotli v1.0.4 // indirect
 	github.com/avast/retry-go v3.0.0+incompatible // indirect
@@ -104,10 +104,10 @@ require (
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	go.uber.org/zap v1.19.1 // indirect
-	golang.org/x/crypto v0.5.0 // indirect
-	golang.org/x/net v0.5.0 // indirect
-	golang.org/x/sys v0.4.0 // indirect
-	golang.org/x/term v0.4.0 // indirect
+	golang.org/x/crypto v0.7.0 // indirect
+	golang.org/x/net v0.10.0 // indirect
+	golang.org/x/sys v0.8.0 // indirect
+	golang.org/x/term v0.8.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20220222213610-43724f9ea8cf // indirect
 	google.golang.org/grpc v1.45.0 // indirect
@@ -117,7 +117,10 @@ require (
 	lukechampine.com/blake3 v1.1.6 // indirect
 )
 
+require github.com/google/go-github/v53 v53.2.0
+
 require (
+	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/ipfs/go-cid v0.0.7 // indirect
 	github.com/multiformats/go-base32 v0.0.3 // indirect

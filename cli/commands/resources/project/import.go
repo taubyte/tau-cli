@@ -1,23 +1,24 @@
 package project
 
 import (
-	"encoding/json"
+	"context"
 	"fmt"
-	"io"
-	"net/http"
 	"strings"
 
+	"github.com/google/go-github/v53/github"
 	httpClient "github.com/taubyte/go-auth-http"
 	"github.com/taubyte/tau-cli/cli/common"
 	"github.com/taubyte/tau-cli/flags"
 	"github.com/taubyte/tau-cli/i18n"
 	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	repositoryI18n "github.com/taubyte/tau-cli/i18n/repository"
 	loginLib "github.com/taubyte/tau-cli/lib/login"
 	"github.com/taubyte/tau-cli/prompts"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	"github.com/taubyte/tau-cli/singletons/session"
 	slices "github.com/taubyte/utils/slices/string"
 	"github.com/urfave/cli/v2"
+	"golang.org/x/oauth2"
 )
 
 func (link) Import() common.Command {
@@ -43,31 +44,28 @@ func _import(ctx *cli.Context) error {
 		return err
 	}
 
-	repos, err := listRepos(profile.GitUsername, profile.Token)
+	repos, err := listRepos(ctx.Context, profile.GitUsername, profile.Token)
 	if err != nil {
-		return fmt.Errorf("listing `%s` repos failed with: %w", profile.GitUsername, err)
+		return err
 	}
 
-	repoMap := make(map[string]*gitRepo, len(repos))
+	repoMap := make(map[string]*github.Repository, len(repos))
 	configRepos := make([]string, 0, len(repos))
 	codeRepos := make([]string, 0, len(repos))
 	for _, repo := range repos {
-		splitName := strings.SplitN(repo.Name, "_", 3)
-		switch splitName[0] {
-		case "tb":
-			switch splitName[1] {
-			case "library", "website":
-				continue
-			case "code":
-				codeRepos = append(codeRepos, repo.FullName)
-			default:
-				configRepos = append(configRepos, repo.FullName)
-			}
-		default:
+		splitName := strings.SplitN(repo.GetName(), "_", 3)
+		if len(splitName) < 2 || splitName[0] != "tb" || splitName[1] == "library" || splitName[1] == "website" {
 			continue
 		}
 
-		repoMap[repo.FullName] = repo
+		fullName := repo.GetFullName()
+		switch splitName[1] {
+		case "code":
+			codeRepos = append(codeRepos, fullName)
+		default:
+			configRepos = append(configRepos, fullName)
+		}
+		repoMap[fullName] = repo
 	}
 
 	configRepoName := prompts.GetOrAskForSelection(ctx, "config", "Config:", configRepos)
@@ -83,12 +81,12 @@ func _import(ctx *cli.Context) error {
 	codeRepoName = prompts.GetOrAskForSelection(ctx, "code", "Code:", codeRepos, prev...)
 	codeRepo, ok := repoMap[codeRepoName]
 	if !ok {
-		return fmt.Errorf("selected code repo `%s` does not exist", codeRepoName)
+		return i18n.ErrorDoesNotExist("code repo", codeRepoName)
 	}
 
 	configRepo, ok := repoMap[configRepoName]
 	if !ok {
-		return fmt.Errorf("selected config repo `%s` does not exist", configRepoName)
+		return i18n.ErrorDoesNotExist("config repo", configRepoName)
 	}
 
 	clientProject := &httpClient.Project{
@@ -97,29 +95,29 @@ func _import(ctx *cli.Context) error {
 
 	auth, err := authClient.Load()
 	if err != nil {
-		return fmt.Errorf("loading auth client failed with: %w", err)
+		return err
 	}
 
 	codeId := fmt.Sprintf("%d", codeRepo.ID)
 	configId := fmt.Sprintf("%d", configRepo.ID)
 
 	if err = auth.RegisterRepository(codeId); err != nil {
-		return fmt.Errorf("registering code repo `%s` failed with: %w", codeRepo.FullName, err)
+		return repositoryI18n.RegisteringRepositoryFailed(codeRepoName, err)
 	}
 
 	if err = auth.RegisterRepository(configId); err != nil {
-		return fmt.Errorf("registering config repo `%s` failed with: %w", configRepo.FullName, err)
+		return repositoryI18n.RegisteringRepositoryFailed(configRepoName, err)
 	}
 
 	if err = clientProject.Create(auth, configId, codeId); err != nil {
-		return fmt.Errorf("creating new project `%s` failed with: %w", clientProject.Name, err)
+		return projectI18n.CreatingProjectFailed(err)
 	}
 
 	projectI18n.ImportedProject(clientProject.Name, profile.FQDN)
 
 	if prompts.ConfirmPrompt(ctx, fmt.Sprintf("select `%s` as current project?", clientProject.Name)) {
 		if err = session.Set().SelectedProject(clientProject.Name); err != nil {
-			return fmt.Errorf("setting `%s` as current project failed with: %w", clientProject.Name, err)
+			return projectI18n.SelectingAProjectPromptFailed(err)
 		}
 
 		projectI18n.SelectedProject(clientProject.Name)
@@ -129,41 +127,17 @@ func _import(ctx *cli.Context) error {
 	return nil
 }
 
-type gitRepo struct {
-	FullName string `json:"full_name"`
-	HTMLURL  string `json:"html_url"`
-	Name     string `json:"name"`
-	ID       int64  `json:"id"`
-}
+func listRepos(ctx context.Context, token, user string) ([]*github.Repository, error) {
+	ts := oauth2.StaticTokenSource(
+		&oauth2.Token{AccessToken: token},
+	)
 
-func listRepos(user, token string) ([]*gitRepo, error) {
-	if len(user) < 1 {
-		return nil, fmt.Errorf("user must be defined")
-	}
+	tc := oauth2.NewClient(ctx, ts)
+	client := github.NewClient(tc)
 
-	endpoint := fmt.Sprintf("https://api.github.com/users/%s/repos", user)
-	req, err := http.NewRequest("GET", endpoint, nil)
+	repos, _, err := client.Repositories.List(ctx, user, nil)
 	if err != nil {
-		return nil, fmt.Errorf("creating GET request for `%s` failed with: %w", endpoint, err)
-	}
-
-	if len(token) > 1 {
-		req.Header.Add("Authorization", "token "+token)
-	}
-
-	res, err := http.DefaultClient.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("GET on `%s` failed with: %w", endpoint, err)
-	}
-
-	data, err := io.ReadAll(res.Body)
-	if err != nil {
-		return nil, fmt.Errorf("reading response body from `%s` failed with: %w", endpoint, err)
-	}
-
-	var repos []*gitRepo
-	if err = json.Unmarshal(data, &repos); err != nil {
-		return nil, fmt.Errorf("unmarshaling response %s failed with: %w", string(data), err)
+		return nil, repositoryI18n.ErrorListRepositories(user, err)
 	}
 
 	return repos, nil

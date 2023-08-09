@@ -7,6 +7,10 @@ import (
 	client "github.com/taubyte/go-auth-http"
 	"github.com/taubyte/tau-cli/cli/common"
 	"github.com/taubyte/tau-cli/flags"
+	"github.com/taubyte/tau-cli/i18n"
+	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	repositoryI18n "github.com/taubyte/tau-cli/i18n/repository"
+	loginLib "github.com/taubyte/tau-cli/lib/login"
 	projectLib "github.com/taubyte/tau-cli/lib/project"
 	"github.com/taubyte/tau-cli/prompts"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
@@ -25,9 +29,14 @@ func (link) Delete() common.Command {
 }
 
 func _delete(ctx *cli.Context) error {
+	profile, err := loginLib.GetSelectedProfile()
+	if err != nil {
+		return err
+	}
+
 	projects, err := projectLib.ListResources()
 	if err != nil {
-		return fmt.Errorf("listing projects failed with %w", err)
+		return err
 	}
 
 	projectMap := make(map[string]*client.Project, len(projects))
@@ -40,41 +49,44 @@ func _delete(ctx *cli.Context) error {
 	projectName := prompts.GetOrAskForSelection(ctx, "name", "Project:", projectList)
 	project, ok := projectMap[projectName]
 	if !ok {
-		return fmt.Errorf("project `%s` does not exist", projectName)
+		return i18n.ErrorDoesNotExist("project", projectName)
 	}
 
 	repoList, err := project.Repositories()
 	if err != nil {
-		return fmt.Errorf("getting project repos failed with: %w", err)
+		return projectI18n.GettingRepositoriesFailed(projectName, err)
 	}
 
 	codeRepoName := repoList.Code.Fullname
 	configRepoName := repoList.Configuration.Fullname
+
+	printBullet := func(name string) string {
+		return fmt.Sprint("  \u2022" + pterm.FgCyan.Sprint(name))
+	}
 	if prompts.ConfirmPrompt(
 		ctx,
-		fmt.Sprintf("Continue with removing project %s, un-registering config: %s code: %s?",
+		fmt.Sprintf("Removing project `%s` will unregister the following repositories:\n%s\n%s\nProceed?",
 			pterm.FgCyan.Sprint(projectName),
-			pterm.FgCyan.Sprint(codeRepoName),
-			pterm.FgCyan.Sprint(configRepoName),
-		),
-	) {
+			printBullet(codeRepoName),
+			printBullet(configRepoName),
+		)) {
 		if _, err = project.Delete(); err != nil {
-			return fmt.Errorf("deleting project `%s` failed with: %w", project.Name, err)
+			return projectI18n.ErrorDeleteProject(project.Name, err)
 		}
 
 		auth, err := authClient.Load()
 		if err != nil {
-			return fmt.Errorf("loading auth client failed with: %w", err)
+			return err
 		}
 
 		codeRepo, err := auth.GetRepositoryByName(codeRepoName)
 		if err != nil {
-			return fmt.Errorf("getting code repo `%s` from auth failed with: %w", codeRepoName, err)
+			return projectI18n.ErrorGettingRepositoryFailed(codeRepoName, err)
 		}
 
 		configRepo, err := auth.GetRepositoryByName(configRepoName)
 		if err != nil {
-			return fmt.Errorf("getting config repo `%s` from auth failed with: %w", configRepoName, err)
+			return projectI18n.ErrorGettingRepositoryFailed(configRepoName, err)
 		}
 
 		err = auth.UnregisterRepository(codeRepo.Get().ID())
@@ -86,10 +98,10 @@ func _delete(ctx *cli.Context) error {
 			}
 		}
 		if err != nil {
-			return fmt.Errorf("un-registering repos failed with: %w", err)
+			return repositoryI18n.ErrorUnregisterRepositories(err)
 		}
 
-		pterm.Success.Printfln("project: %s removed", projectName)
+		projectI18n.RemovedProject(projectName, profile.FQDN)
 	}
 
 	return nil
