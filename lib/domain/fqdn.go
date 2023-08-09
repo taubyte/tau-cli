@@ -62,15 +62,10 @@ func NewGeneratedFQDN(prefix string) (string, error) {
 	// Generate fqdn
 	var fqdn string
 	selectedNetwork, _ := env.GetSelectedNetwork()
-
 	switch selectedNetwork {
-	case common.DefaultNetwork:
-		fqdn = parseFqdn(GeneratedFqdnSuffix)
-	case common.DeprecatedNetwork:
-		fqdn = parseFqdn(DeprecatedGeneratedFqdnSuffix)
-	case common.PythonTestNetwork:
-		fqdn = parseFqdn(DeprecatedGeneratedFqdnSuffix)
-	case common.CustomNetwork:
+	case common.DreamlandNetwork, common.PythonTestNetwork:
+		fqdn = parseFqdn(DefaultGeneratedFqdnSuffix)
+	case common.RemoteNetwork:
 		customNetworkUrl, _ := env.GetCustomNetworkUrl()
 		customGeneratedFqdn, err := FetchCustomNetworkGeneratedFqdn(customNetworkUrl)
 		if err != nil {
@@ -91,9 +86,9 @@ func NewGeneratedFQDN(prefix string) (string, error) {
 func IsAGeneratedFQDN(fqdn string) (bool, error) {
 	selectedNetwork, _ := env.GetSelectedNetwork()
 	switch selectedNetwork {
-	case common.DeprecatedNetwork:
-		return strings.HasSuffix(fqdn, DeprecatedGeneratedFqdnSuffix), nil
-	case common.CustomNetwork:
+	case common.DreamlandNetwork, common.PythonTestNetwork:
+		return strings.HasSuffix(fqdn, DefaultGeneratedFqdnSuffix), nil
+	case common.RemoteNetwork:
 		customNetworkUrl, _ := env.GetCustomNetworkUrl()
 		customGeneratedFqdn, err := FetchCustomNetworkGeneratedFqdn(customNetworkUrl)
 		if err != nil {
@@ -102,7 +97,7 @@ func IsAGeneratedFQDN(fqdn string) (bool, error) {
 
 		return strings.HasSuffix(fqdn, customGeneratedFqdn), nil
 	default:
-		return strings.HasSuffix(fqdn, GeneratedFqdnSuffix), nil
+		return false, fmt.Errorf("%s is not a valid network type", selectedNetwork)
 	}
 }
 

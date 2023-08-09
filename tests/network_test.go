@@ -16,10 +16,7 @@ func createNetworkMonkey() *testSpider {
 	// Define shared variables
 	profileName := "test"
 	projectName := "test_project"
-	customNetwork := common.CustomNetwork
-	deprecatedNetwork := common.DeprecatedNetwork
-	defaultNetwork := common.DefaultNetwork
-	fqdn := "aron.lol"
+	fqdn := "sandbox.taubyte.com"
 
 	// The config that will be written
 	getConfigString := basicGetConfigString(profileName, projectName)
@@ -30,35 +27,23 @@ func createNetworkMonkey() *testSpider {
 		return nil
 	}
 
+	// TODO: Add a dreamland test that starts and stop a dreamland instance
 	tests := []testMonkey{
 		{
-			name: "Select default network",
-			args: []string{"select", "network", "--default"},
-			wantOut: []string{
-				pterm.Success.Sprintf("Connected to %s", pterm.FgCyan.Sprintf(defaultNetwork)),
-			},
-			evaluateSession: expectedSelectedNetwork(defaultNetwork),
-		},
-		{
-			name: "Select deprecated network",
-			args: []string{"select", "network", "--deprecated"},
-			wantOut: []string{
-				pterm.Success.Sprintf("Connected to %s", pterm.FgCyan.Sprintf(deprecatedNetwork)),
-			},
-			evaluateSession: expectedSelectedNetwork(deprecatedNetwork),
-		},
-		{
-			name: "Select custom network with FQDN",
+			// FIXME: this test passes with debug being true for some reason
+			name: "Select Remote network",
 			args: []string{"select", "network", "--fqdn", fqdn},
 			wantOut: []string{
-				pterm.Success.Sprintf("Connected to custom network fqdn: %s", pterm.FgCyan.Sprintf(fqdn)),
+				pterm.Success.Sprintf("Connected to %s", pterm.FgCyan.Sprintf(fqdn)),
 			},
-			evaluateSession: expectedSelectedCustomNetwork(customNetwork, fqdn),
+			evaluateSession: expectedSelectedCustomNetwork(common.RemoteNetwork, fqdn),
+			debug:           true,
 		},
+
 		{
 			name:            "Select login with network saved",
 			args:            []string{"login", "--name", profileName},
-			evaluateSession: expectedSelectedNetwork(deprecatedNetwork),
+			evaluateSession: expectedSelectedNetwork(common.RemoteNetwork),
 		},
 	}
 

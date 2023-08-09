@@ -55,7 +55,7 @@ func New(p *Project, location string, embedToken bool) error {
 
 	client, err := authClient.Load()
 	if err != nil {
-		return err
+		return fmt.Errorf("loading auth client failed with: %w", err)
 	}
 
 	// Create config repository
