@@ -871,6 +871,8 @@ github.com/taubyte/domain-validation v1.0.0 h1:yUt6y7b/3PC9aocvl7s8cBKG4ieN35zQq
 github.com/taubyte/domain-validation v1.0.0/go.mod h1:/X3yd7sBjnE323rA8I9PiUt5+NlKU4I02nQik25Vqe8=
 github.com/taubyte/dreamland v1.0.0 h1:pnMb4J7oc9tYJ9VePkC6PckVeNivYDfpkig3OcXdw+w=
 github.com/taubyte/dreamland v1.0.0/go.mod h1:qdvkCYItk4YBY8Ie8c9bVXWotw3EKBvDpYOI8A+zbTg=
+github.com/taubyte/go-auth-http v0.9.1 h1:eeJ02N13ovYsreBZcHyxEOb0A+0CmVqStb4eQdM1PQQ=
+github.com/taubyte/go-auth-http v0.9.1/go.mod h1:eesX64eHSRdPDqsT0VeXwCVOEBqAEUnJtwUj0UWHaW0=
 github.com/taubyte/go-interfaces v0.2.11 h1:39ixGdOXM7BNplGGfHdPJpN1mOuPB9h5IHNaxazLGf4=
 github.com/taubyte/go-interfaces v0.2.11/go.mod h1:G5ZCOs2lbR39T9+6gkV4jYTgAnLx9P/uRIJXkT/ix6E=
 github.com/taubyte/go-project-schema v0.9.3 h1:2H0ClUZq7f97OgtL0FUe9tv2v12wOmnTAIiJGLei/gU=
