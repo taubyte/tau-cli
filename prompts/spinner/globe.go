@@ -10,5 +10,5 @@ func Globe() (stop func()) {
 	s := spinner.New(spinner.CharSets[39], 100*time.Millisecond)
 	s.Start()
 
-	return s.Stop
+	return s.Disable
 }

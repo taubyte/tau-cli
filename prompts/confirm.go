@@ -1,12 +1,19 @@
 package prompts
 
-import "github.com/AlecAivazis/survey/v2"
+import (
+	"github.com/AlecAivazis/survey/v2"
+	"github.com/taubyte/tau-cli/flags"
+	"github.com/urfave/cli/v2"
+)
 
-func ConfirmPrompt(label string) bool {
-	confirm := false
-	AskOne(&survey.Confirm{
-		Message: label,
-	}, &confirm)
+func ConfirmPrompt(c *cli.Context, label string) bool {
+	confirm := c.Bool(flags.Yes.Name)
+	if !confirm {
+		AskOne(&survey.Confirm{
+			Message: label,
+		}, &confirm)
+
+	}
 
 	return confirm
 }

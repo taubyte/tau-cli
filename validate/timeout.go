@@ -12,7 +12,7 @@ func Time(s string) error {
 	}
 
 	if val == 0 {
-		return i18n.ErrorTime0Invalid
+		return i18n.ErrorTime0Invalid()
 	}
 
 	return nil

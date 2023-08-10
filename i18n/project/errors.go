@@ -12,11 +12,13 @@ const (
 	selectingAProjectPromptFailed = "selecting a project prompt failed with: %s"
 	gettingRepositoriesFailed     = "getting repositories of `%s` failed with: %s"
 	projectNotFound               = "project `%s` not found"
+	gettingRepositoryFailed       = "getting repository `%s` failed with: %w"
 	gettingRepositoryURLsFailed   = "getting repository URLs for `%s` failed with: %s"
 	cloningProjectFailed          = "cloning project `%s` failed with: %s"
 	pullingProjectFailed          = "pulling project `%s` failed"
 	pushingProjectFailed          = "pushing project `%s` failed"
 	checkoutProjectFailed         = "checkout project `%s` failed"
+	deleteProjectFailed           = "deleting project `%s` failed with: %w"
 
 	configRepoCreateFailed   = "creating config repository failed with: %s"
 	codeRepoCreateFailed     = "creating code repository failed with: %s"
@@ -33,6 +35,7 @@ var (
 	ErrorProjectLocationEmpty     = errors.New("project location is empty")
 	ErrorConfigRepositoryNotFound = errors.New("config repository is not found")
 	ErrorCodeRepositoryNotFound   = errors.New("code repository is not found")
+	ErrorNoProjectsFound          = errors.New("no projects found")
 )
 
 func BothFlagsCannotBeTrue(flag1, flag2 string) error {
@@ -57,6 +60,10 @@ func GettingRepositoriesFailed(project string, err error) error {
 
 func ProjectNotFound(project string) error {
 	return fmt.Errorf(projectNotFound, project)
+}
+
+func ErrorGettingRepositoryFailed(repository string, err error) error {
+	return fmt.Errorf(gettingRepositoryFailed, repository, err)
 }
 
 func GettingRepositoryURLsFailed(project string, err error) error {
@@ -101,4 +108,8 @@ func CreatingProjectFailed(err error) error {
 
 func ProjectBranchesNotEqual(branch1, branch2 string) error {
 	return fmt.Errorf(projectBranchesNotEqual, branch1, branch2)
+}
+
+func ErrorDeleteProject(project string, err error) error {
+	return fmt.Errorf(deleteProjectFailed, project, err)
 }

@@ -1,8 +1,6 @@
 package projectPrompts
 
 import (
-	"errors"
-	"fmt"
 	"strings"
 
 	client "github.com/taubyte/go-auth-http"
@@ -39,7 +37,7 @@ func GetOrSelect(ctx *cli.Context, checkEnv bool) (*client.Project, error) {
 			projectOptions[idx] = p.Name
 		}
 
-		name, err = prompts.SelectInterface(projectOptions, SelectAProject, projectOptions[0])
+		name, err = prompts.SelectInterface(projectOptions, selectAProject, projectOptions[0])
 		if err != nil {
 			return nil, projectI18n.SelectingAProjectPromptFailed(err)
 		}
@@ -54,7 +52,7 @@ func GetOrSelect(ctx *cli.Context, checkEnv bool) (*client.Project, error) {
 		return project, nil
 	}
 
-	return nil, errors.New(NoProjectsFound)
+	return nil, projectI18n.ErrorNoProjectsFound
 }
 
 func GetSelectOrDeselect(ctx *cli.Context) (project *client.Project, deselect bool, err error) {
@@ -78,8 +76,8 @@ func GetSelectOrDeselect(ctx *cli.Context) (project *client.Project, deselect bo
 	options[len(options)-1] = prompts.SelectionNone
 
 	// Try to select a project
-	if len(name) == 0 && len(options) > 0 {
-		name, err = prompts.SelectInterface(options, SelectAProject, currentlySelected)
+	if len(name) == 0 && len(options) > 1 {
+		name, err = prompts.SelectInterface(options, selectAProject, currentlySelected)
 		if err != nil {
 			err = projectI18n.SelectingAProjectPromptFailed(err)
 			return
@@ -101,7 +99,7 @@ func GetSelectOrDeselect(ctx *cli.Context) (project *client.Project, deselect bo
 		return project, deselect, nil
 	}
 
-	return nil, false, errors.New(NoProjectsFound)
+	return nil, false, projectI18n.ErrorNoProjectsFound
 }
 
 func matchLowercase(name string, projects []*client.Project) (*client.Project, error) {
@@ -113,5 +111,5 @@ func matchLowercase(name string, projects []*client.Project) (*client.Project, e
 		}
 	}
 
-	return nil, fmt.Errorf(NoProjectsWithNameFound, name)
+	return nil, projectI18n.ProjectNotFound(name)
 }

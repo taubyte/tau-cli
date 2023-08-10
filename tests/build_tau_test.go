@@ -23,7 +23,7 @@ var (
 	// Note this should only be used for debugging as other tests could get stuck looping
 	promptingEnabled bool
 
-	buildTags = "localAuthClient,projectCreateable,localPatrick"
+	buildTags = "localAuthClient,projectCreateable,localPatrick,mockGithub"
 )
 
 func internalBuildTau() error {

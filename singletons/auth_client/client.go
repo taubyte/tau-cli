@@ -12,6 +12,7 @@ import (
 	"github.com/taubyte/tau-cli/constants"
 	"github.com/taubyte/tau-cli/env"
 	"github.com/taubyte/tau-cli/i18n"
+	networkI18n "github.com/taubyte/tau-cli/i18n/network"
 	singletonsI18n "github.com/taubyte/tau-cli/i18n/singletons"
 	loginLib "github.com/taubyte/tau-cli/lib/login"
 	"github.com/taubyte/tau-cli/singletons/config"
@@ -26,24 +27,27 @@ func Clear() {
 	_client = nil
 }
 
-func getClientUrl() (url string) {
-	selectedNetwork, _ := env.GetSelectedNetwork()
-	switch selectedNetwork {
+func getClientUrl() (url string, err error) {
+	profile, err := loginLib.GetSelectedProfile()
+	if err != nil {
+		return "", err
+	}
+
+	switch profile.NetworkType {
 	case common.DreamlandNetwork:
 		url = fmt.Sprintf("http://localhost:%d", getDreamlandAuthUrl())
 	case common.RemoteNetwork:
-		customNetworkUrl, _ := env.GetCustomNetworkUrl()
-		url = fmt.Sprintf("https://auth.tau.%s", customNetworkUrl)
+		url = fmt.Sprintf("https://auth.tau.%s", profile.Network)
 	case common.PythonTestNetwork:
 		url = os.Getenv(constants.AuthURLEnvVarName)
 		if url == "" {
 			url = constants.ClientURL
 		}
 	default:
-		url = ""
+		err = networkI18n.ErrorUnknownNetwork(profile.NetworkType)
 	}
 
-	return url
+	return
 }
 
 func loadClient() (config.Profile, *client.Client, error) {
@@ -68,9 +72,14 @@ func loadClient() (config.Profile, *client.Client, error) {
 		return config.Profile{}, nil, singletonsI18n.NoNetworkSelected()
 	}
 
+	url, err := getClientUrl()
+	if err != nil {
+		return config.Profile{}, nil, err
+	}
+
 	client, err := client.New(
 		states.Context,
-		client.URL(getClientUrl()),
+		client.URL(url),
 		client.Auth(profile.Token),
 		client.Provider(profile.Provider),
 	)
