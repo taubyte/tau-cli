@@ -76,11 +76,7 @@ func _delete(ctx *cli.Context) error {
 		prjHandler := config.Projects()
 		prj, err := prjHandler.Get(projectName)
 		if err != nil {
-			return err
-		}
-
-		if err := os.RemoveAll(prj.Location); err != nil {
-			pterm.Error.Println(err)
+			os.RemoveAll(prj.Location)
 		}
 
 		if _, err = project.Delete(); err != nil {
