@@ -119,7 +119,7 @@ func _import(ctx *cli.Context) error {
 		}
 
 		projectI18n.SelectedProject(clientProject.Name)
-		i18n.Help().BeSureToCloneProject()
+		checkProjectClonedHelp(clientProject.Name)
 	}
 
 	return nil
