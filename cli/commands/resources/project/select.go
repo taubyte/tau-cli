@@ -1,6 +1,9 @@
 package project
 
 import (
+	"errors"
+
+	"github.com/pterm/pterm"
 	"github.com/taubyte/tau-cli/cli/common"
 	projectI18n "github.com/taubyte/tau-cli/i18n/project"
 	projectLib "github.com/taubyte/tau-cli/lib/project"
@@ -19,6 +22,11 @@ func (link) Select() common.Command {
 func _select(ctx *cli.Context) error {
 	project, deselect, err := projectPrompts.GetSelectOrDeselect(ctx)
 	if err != nil {
+		if errors.Is(err, projectI18n.ErrorNoProjectsFound) {
+			pterm.Info.Printf("%s \n  Create new project: %s\n  Import existing project: %s\n", err, pterm.FgGreen.Sprintf("$ tau new project"), pterm.FgGreen.Sprintf("$ tau import project"))
+			return nil
+		}
+
 		return err
 	}
 

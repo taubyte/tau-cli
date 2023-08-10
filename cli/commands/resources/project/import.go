@@ -42,7 +42,7 @@ func _import(ctx *cli.Context) error {
 		return err
 	}
 
-	repos, err := ListRepos(ctx.Context, profile.GitUsername, profile.Token)
+	repos, err := ListRepos(ctx.Context, profile.Token, profile.GitUsername)
 	if err != nil {
 		return err
 	}
@@ -96,8 +96,8 @@ func _import(ctx *cli.Context) error {
 		return err
 	}
 
-	codeId := fmt.Sprintf("%d", codeRepo.ID)
-	configId := fmt.Sprintf("%d", configRepo.ID)
+	codeId := fmt.Sprintf("%d", codeRepo.GetID())
+	configId := fmt.Sprintf("%d", configRepo.GetID())
 
 	if err = auth.RegisterRepository(codeId); err != nil {
 		return repositoryI18n.RegisteringRepositoryFailed(codeRepoName, err)

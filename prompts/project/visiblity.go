@@ -29,7 +29,7 @@ func GetOrRequireVisibility(ctx *cli.Context) (visible bool, err error) {
 	}
 
 	if !public && !private {
-		selectedVisibility, err := prompts.SelectInterface(VisibilityOptions, ProjectVisibility, Public)
+		selectedVisibility, err := prompts.SelectInterface(VisibilityOptions, projectVisibility, Public)
 		if err != nil {
 			return false, projectI18n.SelectingVisibilityFailed(err)
 		}

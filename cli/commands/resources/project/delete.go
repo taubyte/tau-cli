@@ -1,6 +1,7 @@
 package project
 
 import (
+	"errors"
 	"fmt"
 
 	"github.com/pterm/pterm"
@@ -57,8 +58,8 @@ func _delete(ctx *cli.Context) error {
 		return projectI18n.GettingRepositoriesFailed(projectName, err)
 	}
 
-	codeRepoName := repoList.Code.Fullname
-	configRepoName := repoList.Configuration.Fullname
+	codeRepoFullName := repoList.Code.Fullname
+	configRepoFullName := repoList.Configuration.Fullname
 
 	printBullet := func(name string) string {
 		return fmt.Sprint("  \u2022" + pterm.FgCyan.Sprint(name))
@@ -67,8 +68,8 @@ func _delete(ctx *cli.Context) error {
 		ctx,
 		fmt.Sprintf("Removing project `%s` will unregister the following repositories:\n%s\n%s\nProceed?",
 			pterm.FgCyan.Sprint(projectName),
-			printBullet(codeRepoName),
-			printBullet(configRepoName),
+			printBullet(codeRepoFullName),
+			printBullet(configRepoFullName),
 		)) {
 		if _, err = project.Delete(); err != nil {
 			return projectI18n.ErrorDeleteProject(project.Name, err)
@@ -79,14 +80,14 @@ func _delete(ctx *cli.Context) error {
 			return err
 		}
 
-		codeRepo, err := auth.GetRepositoryByName(codeRepoName)
+		codeRepo, err := auth.GetRepositoryByName(codeRepoFullName)
 		if err != nil {
-			return projectI18n.ErrorGettingRepositoryFailed(codeRepoName, err)
+			return projectI18n.ErrorGettingRepositoryFailed(codeRepoFullName, err)
 		}
 
-		configRepo, err := auth.GetRepositoryByName(configRepoName)
+		configRepo, err := auth.GetRepositoryByName(configRepoFullName)
 		if err != nil {
-			return projectI18n.ErrorGettingRepositoryFailed(configRepoName, err)
+			return projectI18n.ErrorGettingRepositoryFailed(configRepoFullName, err)
 		}
 
 		err = auth.UnregisterRepository(codeRepo.Get().ID())
@@ -102,6 +103,25 @@ func _delete(ctx *cli.Context) error {
 		}
 
 		projectI18n.RemovedProject(projectName, profile.Network)
+
+		if prompts.ConfirmPrompt(ctx, "Remove from github?") {
+			err = deleteRepo(ctx.Context, profile.Token, profile.GitUsername, repoList.Code.Name)
+			if _err := deleteRepo(ctx.Context, profile.Token, profile.GitUsername, repoList.Configuration.Name); _err != nil {
+				if err != nil {
+					err = fmt.Errorf("%s:%w", err, _err)
+				} else {
+					err = _err
+				}
+			}
+			if err != nil {
+				if errors.Is(err, repositoryI18n.ErrorAdminRights) {
+					pterm.Info.Println("Delete repositories manually")
+					return nil
+				}
+
+				return err
+			}
+		}
 	}
 
 	return nil

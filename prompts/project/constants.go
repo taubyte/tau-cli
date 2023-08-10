@@ -1,15 +1,13 @@
 package projectPrompts
 
 const (
-	ProjectName       = "Project Name:"
-	ProjectVisibility = "Visibility:"
-	SelectAProject    = "Select a Project:"
+	projectName       = "Project Name:"
+	projectVisibility = "Visibility:"
+	selectAProject    = "Select a Project:"
 
-	CreateThisProject       = "Create this project?"
-	Public                  = "public"
-	Private                 = "private"
-	NoProjectsFound         = "no projects found"
-	NoProjectsWithNameFound = "no projects with name `%s` found"
+	CreateThisProject = "Create this project?"
+	Public            = "public"
+	Private           = "private"
 )
 
 var (

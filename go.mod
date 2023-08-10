@@ -5,13 +5,13 @@ go 1.19
 // Direct Taubyte imports
 require (
 	github.com/google/go-github/v53 v53.2.0
-	github.com/taubyte/dreamland v1.0.0
+	github.com/taubyte/dreamland v1.0.1
 	github.com/taubyte/go-auth-http v0.9.1
 	github.com/taubyte/go-project-schema v0.9.3
 	github.com/taubyte/go-seer v1.0.6
 	github.com/taubyte/go-simple-git v0.2.5
 	github.com/taubyte/go-specs v0.10.6
-	github.com/taubyte/http v0.10.3
+	github.com/taubyte/http v0.10.4
 	github.com/taubyte/utils v0.1.6
 )
 
@@ -118,6 +118,8 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	lukechampine.com/blake3 v1.2.1 // indirect
 )
+
+require github.com/gmlewis/go-httpdebug v0.0.7
 
 require (
 	atomicgo.dev/schedule v0.0.2 // indirect
@@ -230,9 +232,9 @@ require (
 	github.com/raulk/go-watchdog v1.3.0 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/taubyte/domain-validation v1.0.0 // indirect
-	github.com/taubyte/go-interfaces v0.2.11 // indirect
+	github.com/taubyte/go-interfaces v0.2.12 // indirect
 	github.com/taubyte/p2p v0.9.1 // indirect
-	github.com/taubyte/tau v1.0.0 // indirect
+	github.com/taubyte/tau v1.0.3 // indirect
 	github.com/whyrusleeping/cbor-gen v0.0.0-20230126041949-52956bd4c9aa // indirect
 	github.com/whyrusleeping/chunker v0.0.0-20181014151217-fe64bd25879f // indirect
 	github.com/whyrusleeping/go-keyspace v0.0.0-20160322163242-5b898ac5add1 // indirect

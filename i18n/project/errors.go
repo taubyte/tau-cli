@@ -35,6 +35,7 @@ var (
 	ErrorProjectLocationEmpty     = errors.New("project location is empty")
 	ErrorConfigRepositoryNotFound = errors.New("config repository is not found")
 	ErrorCodeRepositoryNotFound   = errors.New("code repository is not found")
+	ErrorNoProjectsFound          = errors.New("no projects found")
 )
 
 func BothFlagsCannotBeTrue(flag1, flag2 string) error {
