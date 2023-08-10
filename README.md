@@ -45,7 +45,7 @@ go build -o ~/go/bin/otau -tags=localAuthClient
 - `TAUBYTE_PROFILE` Selected profile
 - `TAUBYTE_APPLICATION` Selected application
 - `TAUBYTE_CONFIG (default: ~/tau.yaml)` Config location
-- `TAUBYTE_SESSION (default: /tmp/tau-<ppid>)` Session location
+- `TAUBYTE_SESSION (default: /tmp/tau-<shell-pid>)` Session location
 - `DREAM_BINARY (default: $GOPATH/dream)` Dream binary location
 
 ## Testing
@@ -53,20 +53,18 @@ go build -o ~/go/bin/otau -tags=localAuthClient
 ### All tests
 `go test -v ./...`
 
-### Hot reload Spider tests
+### Hot reload tests
 `$ cd tests`
 
 Edit [air config](tests/.air.toml#L8) `cmd = "go test -v --run <Function|Database|...> [-tags=no_rebuild]`
 
-(Optional) Add `debug: true,` to an individual testMonkey
+(Optional) Add `debug: true,` to an individual test
 
 `$ air`
-
 
 ## Running Individual Prompts
 
 `go run ./prompts/internal`
-
 
 ## Measuring Coverage:
 
@@ -81,11 +79,5 @@ go tool cover -html=cover.out
 go tool cover -func=cover.out
 ```
 
-
 # Documentation
 For documentation head to [tau.how](https://tau.how/docs/tau)
-
-
-# Maintainers
- - Sam Stoltenberg @skelouse
- - Tafseer Khan @tafseer-khan
