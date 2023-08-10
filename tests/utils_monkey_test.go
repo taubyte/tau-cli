@@ -231,7 +231,7 @@ func (tm *monkeyTestContext) Run(t *testing.T) {
 			time.Sleep(500 * time.Millisecond)
 		}()
 	} else {
-		tm.authUrl = "https://auth.taubyte.com"
+		tm.authUrl = "https://auth.tau.sandbox.taubyte.com"
 	}
 
 	rr := roadRunner{

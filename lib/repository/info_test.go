@@ -8,25 +8,20 @@ import (
 	commonTest "github.com/taubyte/tau-cli/common/test"
 	repositoryLib "github.com/taubyte/tau-cli/lib/repository"
 	"github.com/taubyte/tau-cli/singletons/session"
+	"gotest.tools/v3/assert"
 )
 
 func TestInfo(t *testing.T) {
-	err := session.Set().ProfileName("taubytetest")
-	if err != nil {
-		t.Error(err)
-		return
-	}
+	assert.NilError(t, session.Set().ProfileName("taubytetest"))
+	assert.NilError(t, session.Set().SelectedNetwork("Remote"))
+	assert.NilError(t, session.Set().CustomNetworkUrl("sandbox.taubyte.com"))
 
 	info := &repositoryLib.Info{
 		ID:   strconv.Itoa(commonTest.ConfigRepo.ID),
 		Type: repositoryLib.WebsiteRepositoryType,
 	}
 
-	err = info.GetNameFromID()
-	if err != nil {
-		t.Error(err)
-		return
-	}
+	assert.NilError(t, info.GetNameFromID())
 
 	expectedFullName := fmt.Sprintf("%s/%s", commonTest.GitUser, commonTest.ConfigRepo.Name)
 
@@ -36,11 +31,7 @@ func TestInfo(t *testing.T) {
 	}
 
 	info.ID = ""
-	err = info.GetIDFromName()
-	if err != nil {
-		t.Error(err)
-		return
-	}
+	assert.NilError(t, info.GetIDFromName())
 
 	expectedID := commonTest.ConfigRepo.ID
 	if info.ID != strconv.Itoa(expectedID) {

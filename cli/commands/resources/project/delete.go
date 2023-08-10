@@ -101,7 +101,7 @@ func _delete(ctx *cli.Context) error {
 			return repositoryI18n.ErrorUnregisterRepositories(err)
 		}
 
-		projectI18n.RemovedProject(projectName, profile.FQDN)
+		projectI18n.RemovedProject(projectName, profile.Network)
 	}
 
 	return nil

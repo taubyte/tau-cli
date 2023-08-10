@@ -1,7 +1,6 @@
 package current
 
 import (
-	"github.com/taubyte/tau-cli/common"
 	"github.com/taubyte/tau-cli/env"
 	"github.com/taubyte/tau-cli/prompts"
 	"github.com/urfave/cli/v2"
@@ -33,11 +32,8 @@ func Run(c *cli.Context) error {
 		{"Profile", parseIfEmpty(selectedProfile)},
 		{"Project", parseIfEmpty(selectedProject)},
 		{"Application", parseIfEmpty(selectedApplication)},
-		{"Network", parseIfEmpty(selectedNetwork)},
-	}
-
-	if selectedNetwork == common.CustomNetwork {
-		toRender = append(toRender, []string{"FQDN", parseIfEmpty(customNetworkUrl)})
+		{"Network Type", parseIfEmpty(selectedNetwork)},
+		{"Network", parseIfEmpty(customNetworkUrl)},
 	}
 
 	prompts.RenderTableWithMerge(toRender)
