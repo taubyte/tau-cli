@@ -73,8 +73,8 @@ func _delete(ctx *cli.Context) error {
 			printBullet(codeRepoFullName),
 			printBullet(configRepoFullName),
 		)) {
-		prjHandler := config.Projects()
-		prj, err := prjHandler.Get(projectName)
+
+		prj, err := config.Projects().Get(projectName)
 		if err != nil {
 			os.RemoveAll(prj.Location)
 		}
