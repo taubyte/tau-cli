@@ -78,7 +78,12 @@ func _select(ctx *cli.Context) error {
 			networkSelections = append(networkSelections, common.DreamlandNetwork)
 		}
 
-		profile.NetworkType = prompts.GetOrAskForSelection(ctx, "", prompts.NetworkPrompts, networkSelections, profile.NetworkType)
+		prev := []string{}
+		if len(profile.NetworkType) > 0 {
+			prev = append(prev, profile.NetworkType)
+		}
+
+		profile.NetworkType = prompts.GetOrAskForSelection(ctx, "Network", prompts.NetworkPrompts, networkSelections, prev...)
 		if profile.NetworkType == common.RemoteNetwork {
 			profile.Network = prompts.GetOrRequireAString(ctx, "", prompts.FQDN, validate.FQDNValidator, profile.Network)
 			if err := validate.SeerFQDN(ctx.Context, profile.Network); err != nil {

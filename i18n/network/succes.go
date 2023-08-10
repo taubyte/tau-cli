@@ -1,4 +1,4 @@
-package network
+package networkI18n
 
 import (
 	"github.com/pterm/pterm"
