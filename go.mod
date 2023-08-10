@@ -119,8 +119,6 @@ require (
 	lukechampine.com/blake3 v1.2.1 // indirect
 )
 
-require github.com/gmlewis/go-httpdebug v0.0.7
-
 require (
 	atomicgo.dev/schedule v0.0.2 // indirect
 	github.com/DataDog/zstd v1.5.2 // indirect
