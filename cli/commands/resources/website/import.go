@@ -1,4 +1,4 @@
-package library
+package website
 
 import (
 	"github.com/taubyte/tau-cli/cli/common"

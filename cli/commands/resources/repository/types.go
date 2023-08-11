@@ -57,6 +57,7 @@ type repositoryCommands struct {
 type Commands interface {
 	New(ctx *cli.Context) error
 	Edit(ctx *cli.Context) error
+	Import(ctx *cli.Context) error
 	CheckoutCmd() common.Command
 	CloneCmd() common.Command
 	PushCmd() common.Command
