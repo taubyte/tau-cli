@@ -120,9 +120,8 @@ var ListRepos = func(ctx context.Context, token, user string) ([]*github.Reposit
 	return repos, nil
 }
 
-func deleteRepo(ctx context.Context, token, user, name string) error {
+func removeFromGithub(ctx context.Context, token, user, name string) error {
 	client := newGithubClient(ctx, token)
-
 	if res, err := client.Repositories.Delete(ctx, user, name); err != nil {
 		var deleteRes deleteRes
 		data, err := io.ReadAll(res.Body)
