@@ -6,11 +6,11 @@ import (
 	"testing"
 
 	"github.com/pterm/pterm"
-	httpClient "github.com/taubyte/go-auth-http"
 	projectLib "github.com/taubyte/tau-cli/lib/project"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	"github.com/taubyte/tau-cli/singletons/config"
 	"github.com/taubyte/tau-cli/states"
+	httpClient "github.com/taubyte/tau/clients/http/auth"
 	"gotest.tools/v3/assert"
 )
 

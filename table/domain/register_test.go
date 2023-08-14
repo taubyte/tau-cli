@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	client "github.com/taubyte/go-auth-http"
 	domainTable "github.com/taubyte/tau-cli/table/domain"
+	client "github.com/taubyte/tau/clients/http/auth"
 )
 
 var _ = ` Domain Registration                             

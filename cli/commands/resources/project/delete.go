@@ -7,8 +7,6 @@ import (
 	"strings"
 
 	"github.com/pterm/pterm"
-	client "github.com/taubyte/go-auth-http"
-	authCommon "github.com/taubyte/go-auth-http/git/common"
 	"github.com/taubyte/go-project-schema/libraries"
 	"github.com/taubyte/go-project-schema/project"
 	"github.com/taubyte/go-project-schema/website"
@@ -22,6 +20,8 @@ import (
 	"github.com/taubyte/tau-cli/prompts"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	"github.com/taubyte/tau-cli/singletons/config"
+	client "github.com/taubyte/tau/clients/http/auth"
+	authCommon "github.com/taubyte/tau/clients/http/auth/git/common"
 	"github.com/urfave/cli/v2"
 )
 

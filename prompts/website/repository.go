@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/pterm/pterm"
-	httpClient "github.com/taubyte/go-auth-http"
 	structureSpec "github.com/taubyte/go-specs/structure"
 	"github.com/taubyte/tau-cli/common"
 	"github.com/taubyte/tau-cli/flags"
@@ -14,6 +13,7 @@ import (
 	"github.com/taubyte/tau-cli/prompts"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	"github.com/taubyte/tau-cli/singletons/templates"
+	httpClient "github.com/taubyte/tau/clients/http/auth"
 	"github.com/urfave/cli/v2"
 )
 

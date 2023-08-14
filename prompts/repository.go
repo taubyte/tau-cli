@@ -6,7 +6,6 @@ import (
 	"strings"
 
 	"github.com/pterm/pterm"
-	"github.com/taubyte/go-auth-http/git/common"
 	"github.com/taubyte/tau-cli/flags"
 	repositoryI18n "github.com/taubyte/tau-cli/i18n/repository"
 	loginLib "github.com/taubyte/tau-cli/lib/login"
@@ -15,6 +14,7 @@ import (
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	"github.com/taubyte/tau-cli/singletons/templates"
 	"github.com/taubyte/tau-cli/validate"
+	"github.com/taubyte/tau/clients/http/auth/git/common"
 	"github.com/urfave/cli/v2"
 )
 
@@ -181,7 +181,7 @@ func SelectARepository(ctx *cli.Context, prev *repositoryLib.Info) (*repositoryL
 	}
 
 	info.ID = repo.Get().ID()
-	info.FullName = repo.Get().Fullname()
+	info.FullName = repo.Get().FullName()
 
 	return info, nil
 }
@@ -202,10 +202,10 @@ func SelectARepositoryFromGithub() (common.Repository, error) {
 	optionMap := make(map[string]common.Repository, len(repos))
 	options := make([]string, len(repos))
 	for idx, repo := range repos {
-		fullname := repo.Get().Fullname()
+		fullName := repo.Get().FullName()
 
-		optionMap[fullname] = repo
-		options[idx] = fullname
+		optionMap[fullName] = repo
+		options[idx] = fullName
 	}
 
 	selected, err := SelectInterface(options, RepositorySelectPrompt, "")

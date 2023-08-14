@@ -6,13 +6,13 @@ import (
 	"os"
 
 	"github.com/pterm/pterm"
-	httpClient "github.com/taubyte/go-auth-http"
 	"github.com/taubyte/tau-cli/common"
 	"github.com/taubyte/tau-cli/env"
 	projectI18n "github.com/taubyte/tau-cli/i18n/project"
 	"github.com/taubyte/tau-cli/prompts/spinner"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	"github.com/taubyte/tau-cli/singletons/session"
+	httpClient "github.com/taubyte/tau/clients/http/auth"
 )
 
 /*

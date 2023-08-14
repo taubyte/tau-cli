@@ -6,12 +6,12 @@ import (
 	"net/http"
 	"strings"
 
-	client "github.com/taubyte/go-auth-http"
 	"github.com/taubyte/tau-cli/common"
 	"github.com/taubyte/tau-cli/env"
 	domainI18n "github.com/taubyte/tau-cli/i18n/domain"
 	projectLib "github.com/taubyte/tau-cli/lib/project"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
+	client "github.com/taubyte/tau/clients/http/auth"
 )
 
 type validator struct {

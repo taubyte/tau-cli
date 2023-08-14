@@ -7,9 +7,9 @@ import (
 	"path"
 	"strings"
 
-	httpClient "github.com/taubyte/go-auth-http"
 	"github.com/taubyte/go-project-schema/project"
 	"github.com/taubyte/tau-cli/singletons/config"
+	httpClient "github.com/taubyte/tau/clients/http/auth"
 )
 
 func cloneProjectAndPushConfig(clientProject *httpClient.Project, location, description, user string, embedToken bool) error {
