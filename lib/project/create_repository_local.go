@@ -5,7 +5,7 @@ package projectLib
 import (
 	"fmt"
 
-	client "github.com/taubyte/go-auth-http"
+	client "github.com/taubyte/tau/clients/http/auth"
 )
 
 var repoNum = 100000

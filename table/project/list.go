@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/jedib0t/go-pretty/v6/table"
-	client "github.com/taubyte/go-auth-http"
+	client "github.com/taubyte/tau/clients/http/auth"
 )
 
 // Takes a project and returns a description

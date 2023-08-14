@@ -6,7 +6,7 @@ import (
 
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/pterm/pterm"
-	client "github.com/taubyte/go-auth-http"
+	client "github.com/taubyte/tau/clients/http/auth"
 )
 
 func Registered(fqdn string, resp client.DomainResponse) {

@@ -3,12 +3,12 @@ package projectPrompts
 import (
 	"strings"
 
-	client "github.com/taubyte/go-auth-http"
 	"github.com/taubyte/tau-cli/env"
 	"github.com/taubyte/tau-cli/flags"
 	projectI18n "github.com/taubyte/tau-cli/i18n/project"
 	projectLib "github.com/taubyte/tau-cli/lib/project"
 	"github.com/taubyte/tau-cli/prompts"
+	client "github.com/taubyte/tau/clients/http/auth"
 
 	"github.com/urfave/cli/v2"
 )

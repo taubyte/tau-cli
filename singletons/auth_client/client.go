@@ -7,7 +7,6 @@ import (
 	"strings"
 	"time"
 
-	client "github.com/taubyte/go-auth-http"
 	"github.com/taubyte/tau-cli/common"
 	"github.com/taubyte/tau-cli/constants"
 	"github.com/taubyte/tau-cli/env"
@@ -19,6 +18,7 @@ import (
 	"github.com/taubyte/tau-cli/singletons/dreamland"
 	"github.com/taubyte/tau-cli/singletons/session"
 	"github.com/taubyte/tau-cli/states"
+	client "github.com/taubyte/tau/clients/http/auth"
 )
 
 var _client *client.Client

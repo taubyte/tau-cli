@@ -17,7 +17,7 @@ func (info *Info) GetNameFromID() error {
 		return fmt.Errorf("getting repo by id failed with: %w", err)
 	}
 
-	info.FullName = repo.Get().Fullname()
+	info.FullName = repo.Get().FullName()
 	if len(info.FullName) == 0 {
 		return fmt.Errorf("could not find repository with id `%s`", info.ID)
 	}

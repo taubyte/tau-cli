@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/google/go-github/v53/github"
-	httpClient "github.com/taubyte/go-auth-http"
 	"github.com/taubyte/tau-cli/cli/common"
 	"github.com/taubyte/tau-cli/flags"
 	"github.com/taubyte/tau-cli/i18n"
@@ -15,6 +14,7 @@ import (
 	"github.com/taubyte/tau-cli/prompts"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	"github.com/taubyte/tau-cli/singletons/session"
+	httpClient "github.com/taubyte/tau/clients/http/auth"
 	slices "github.com/taubyte/utils/slices/string"
 	"github.com/urfave/cli/v2"
 )

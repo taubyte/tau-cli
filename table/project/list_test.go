@@ -3,8 +3,8 @@ package projectTable_test
 import (
 	"fmt"
 
-	client "github.com/taubyte/go-auth-http"
 	projectTable "github.com/taubyte/tau-cli/table/project"
+	client "github.com/taubyte/tau/clients/http/auth"
 )
 
 func ExampleList() {
