@@ -74,15 +74,15 @@ func _delete(ctx *cli.Context) error {
 			)
 		}
 
+		if _, err = project.Delete(); err != nil {
+			return projectI18n.ErrorDeleteProject(project.Name, err)
+		}
+
 		prj, err := config.Projects().Get(project.Name)
 		if err == nil {
 			if err = os.RemoveAll(prj.Location); err == nil {
 				pterm.Success.Println("Removed", prj.Location)
 			}
-		}
-
-		if _, err = project.Delete(); err != nil {
-			return projectI18n.ErrorDeleteProject(project.Name, err)
 		}
 
 		auth, err := authClient.Load()
@@ -210,7 +210,7 @@ func resources(schema project.Project) ([]libraries.Library, []website.Website, 
 }
 
 func resourceNames(websites []website.Website, libraries []libraries.Library) []string {
-	var names []string
+	names := make([]string, 0, len(websites)+len(libraries))
 	for _, website := range websites {
 		_, _, name := website.Get().Git()
 		names = append(names, name)
