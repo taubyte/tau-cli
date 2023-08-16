@@ -11,7 +11,7 @@ require (
 	github.com/taubyte/go-simple-git v0.2.5
 	github.com/taubyte/go-specs v0.10.6
 	github.com/taubyte/http v0.10.4
-	github.com/taubyte/tau v1.0.7
+	github.com/taubyte/tau v1.0.8
 	github.com/taubyte/utils v0.1.6
 )
 
@@ -118,6 +118,8 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	lukechampine.com/blake3 v1.2.1 // indirect
 )
+
+require github.com/taubyte/go-interfaces v0.2.12
 
 require (
 	atomicgo.dev/schedule v0.0.2 // indirect
@@ -230,7 +232,6 @@ require (
 	github.com/raulk/go-watchdog v1.3.0 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/taubyte/domain-validation v1.0.0 // indirect
-	github.com/taubyte/go-interfaces v0.2.12 // indirect
 	github.com/taubyte/p2p v0.9.1 // indirect
 	github.com/whyrusleeping/cbor-gen v0.0.0-20230126041949-52956bd4c9aa // indirect
 	github.com/whyrusleeping/chunker v0.0.0-20181014151217-fe64bd25879f // indirect

@@ -1,14 +1,12 @@
-package authClient
+package patrickClient
 
 import (
 	"context"
 	"fmt"
-	"os"
 	"strings"
 	"time"
 
 	"github.com/taubyte/tau-cli/common"
-	"github.com/taubyte/tau-cli/constants"
 	"github.com/taubyte/tau-cli/env"
 	"github.com/taubyte/tau-cli/i18n"
 	networkI18n "github.com/taubyte/tau-cli/i18n/network"
@@ -19,7 +17,7 @@ import (
 	"github.com/taubyte/tau-cli/singletons/session"
 	"github.com/taubyte/tau-cli/states"
 	"github.com/taubyte/tau/clients/http"
-	client "github.com/taubyte/tau/clients/http/auth"
+	client "github.com/taubyte/tau/clients/http/patrick"
 )
 
 var _client *client.Client
@@ -36,14 +34,9 @@ func getClientUrl() (url string, err error) {
 
 	switch profile.NetworkType {
 	case common.DreamlandNetwork:
-		url = fmt.Sprintf("http://localhost:%d", getDreamlandAuthUrl())
+		url = fmt.Sprintf("http://localhost:%d", getDreamlandPatrickPort())
 	case common.RemoteNetwork:
-		url = fmt.Sprintf("https://auth.tau.%s", profile.Network)
-	case common.PythonTestNetwork:
-		url = os.Getenv(constants.AuthURLEnvVarName)
-		if url == "" {
-			url = constants.ClientURL
-		}
+		url = fmt.Sprintf("https://patrick.tau.%s", profile.Network)
 	default:
 		err = networkI18n.ErrorUnknownNetwork(profile.NetworkType)
 	}
@@ -84,13 +77,13 @@ func loadClient() (config.Profile, *client.Client, error) {
 		http.Auth(profile.Token),
 	)
 	if err != nil {
-		return profile, nil, singletonsI18n.CreatingAuthClientFailed(err)
+		return profile, nil, singletonsI18n.CreatingPatrickClientFailed(err)
 	}
 
 	return profile, client, nil
 }
 
-func getDreamlandAuthUrl() int {
+func getDreamlandPatrickPort() int {
 	ctx, ctxC := context.WithTimeout(context.Background(), 30*time.Second)
 	defer ctxC()
 
@@ -107,7 +100,7 @@ func getDreamlandAuthUrl() int {
 	}
 
 	for _, node := range echart.Nodes {
-		if strings.Contains(node.Name, "auth") {
+		if strings.Contains(node.Name, "patrick") {
 			httpPort, ok := node.Value["http"]
 			if !ok {
 				return 0

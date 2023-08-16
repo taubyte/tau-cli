@@ -29,7 +29,12 @@ func SelectedProjectConfig() (configProject config.Project, err error) {
 		return
 	}
 
-	return config.Projects().Get(selectedProject)
+	configProject, err = config.Projects().Get(selectedProject)
+	if err != nil {
+		i18n.Help().BeSureToCloneProject()
+	}
+
+	return
 }
 
 func ConfirmSelectedProject() error {
