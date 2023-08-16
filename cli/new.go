@@ -8,10 +8,10 @@ import (
 	"github.com/taubyte/tau-cli/cli/commands/exit"
 	"github.com/taubyte/tau-cli/cli/commands/login"
 	"github.com/taubyte/tau-cli/cli/commands/resources/application"
+	"github.com/taubyte/tau-cli/cli/commands/resources/builds"
 	"github.com/taubyte/tau-cli/cli/commands/resources/database"
 	"github.com/taubyte/tau-cli/cli/commands/resources/domain"
 	"github.com/taubyte/tau-cli/cli/commands/resources/function"
-	"github.com/taubyte/tau-cli/cli/commands/resources/jobs"
 	"github.com/taubyte/tau-cli/cli/commands/resources/library"
 	"github.com/taubyte/tau-cli/cli/commands/resources/messaging"
 	"github.com/taubyte/tau-cli/cli/commands/resources/network"
@@ -73,7 +73,7 @@ func New() (*cli.App, error) {
 		smartops.New,
 		storage.New,
 		website.New,
-		jobs.New,
+		builds.New,
 	)
 
 	app.Commands = append(app.Commands, []*cli.Command{

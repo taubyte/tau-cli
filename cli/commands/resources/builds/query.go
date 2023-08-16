@@ -1,4 +1,4 @@
-package jobs
+package builds
 
 import (
 	"time"
@@ -7,41 +7,16 @@ import (
 	"github.com/taubyte/go-interfaces/services/patrick"
 	schemaCommon "github.com/taubyte/go-project-schema/common"
 	"github.com/taubyte/tau-cli/cli/common"
-	"github.com/taubyte/tau-cli/cli/common/options"
-	"github.com/taubyte/tau-cli/env"
-	"github.com/taubyte/tau-cli/i18n"
 	projectLib "github.com/taubyte/tau-cli/lib/project"
 	"github.com/taubyte/tau-cli/prompts"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	patrickClient "github.com/taubyte/tau-cli/singletons/patrick_client"
-	jobsTable "github.com/taubyte/tau-cli/table/jobs"
+	buildsTable "github.com/taubyte/tau-cli/table/builds"
 	"github.com/taubyte/tau-cli/validate"
 	"github.com/urfave/cli/v2"
 )
 
-type link struct {
-	common.UnimplementedBasic
-}
-
-func New() common.Basic {
-	return link{}
-}
-
-func (link) Base() (*cli.Command, []common.Option) {
-	selected, err := env.GetSelectedProject()
-	if err != nil {
-		selected = "selected"
-	}
-
-	return common.Base(&cli.Command{
-		Name:      "jobs",
-		ArgsUsage: i18n.ArgsUsageName,
-	}, options.NameFlagSelectedArg0(selected))
-}
-
-const defaultTimeFilter = "10m"
-
-func (link) Query() common.Command {
+func queryOrList() common.Command {
 	return common.Create(
 		&cli.Command{
 			Flags: []cli.Flag{
@@ -60,6 +35,14 @@ func (link) Query() common.Command {
 			Action: query,
 		},
 	)
+}
+
+func (link) Query() common.Command {
+	return queryOrList()
+}
+
+func (link) List() common.Command {
+	return queryOrList()
 }
 
 func query(ctx *cli.Context) error {
@@ -115,7 +98,7 @@ func query(ctx *cli.Context) error {
 		keys = append(keys, k)
 	}
 
-	t, err := jobsTable.ListNoRender(authC, jobMap, keys)
+	t, err := buildsTable.ListNoRender(authC, jobMap, keys)
 	if err != nil {
 		return err
 	}

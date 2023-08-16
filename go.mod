@@ -2,7 +2,7 @@ module github.com/taubyte/tau-cli
 
 go 1.19
 
-replace  github.com/taubyte/tau => ../tau
+replace github.com/taubyte/tau => ../tau
 
 // Direct Taubyte imports
 require (
@@ -121,6 +121,8 @@ require (
 	lukechampine.com/blake3 v1.2.1 // indirect
 )
 
+require github.com/taubyte/go-interfaces v0.2.12
+
 require (
 	atomicgo.dev/schedule v0.0.2 // indirect
 	github.com/DataDog/zstd v1.5.2 // indirect
@@ -232,7 +234,6 @@ require (
 	github.com/raulk/go-watchdog v1.3.0 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/taubyte/domain-validation v1.0.0 // indirect
-	github.com/taubyte/go-interfaces v0.2.12 // indirect
 	github.com/taubyte/p2p v0.9.1 // indirect
 	github.com/whyrusleeping/cbor-gen v0.0.0-20230126041949-52956bd4c9aa // indirect
 	github.com/whyrusleeping/chunker v0.0.0-20181014151217-fe64bd25879f // indirect
