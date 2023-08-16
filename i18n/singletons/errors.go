@@ -123,6 +123,14 @@ func LoadingAuthClientFailed(err error) error {
 	return fmt.Errorf(loadingAuthClientFailed, err)
 }
 
+func CreatingPatrickClientFailed(err error) error {
+	return fmt.Errorf(creatingAuthClientFailed, err)
+}
+
+func LoadingPatrickClientFailed(err error) error {
+	return fmt.Errorf(loadingAuthClientFailed, err)
+}
+
 func NoNetworkSelected() error {
 	return fmt.Errorf(noNetworkSelected)
 }
