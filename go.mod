@@ -2,8 +2,6 @@ module github.com/taubyte/tau-cli
 
 go 1.19
 
-replace github.com/taubyte/tau => ../tau
-
 // Direct Taubyte imports
 require (
 	github.com/google/go-github/v53 v53.2.0
@@ -13,7 +11,7 @@ require (
 	github.com/taubyte/go-simple-git v0.2.5
 	github.com/taubyte/go-specs v0.10.6
 	github.com/taubyte/http v0.10.4
-	github.com/taubyte/tau v1.0.7
+	github.com/taubyte/tau v1.0.8
 	github.com/taubyte/utils v0.1.6
 )
 
