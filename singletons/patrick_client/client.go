@@ -34,7 +34,7 @@ func getClientUrl() (url string, err error) {
 
 	switch profile.NetworkType {
 	case common.DreamlandNetwork:
-		url = fmt.Sprintf("http://localhost:%d", getDreamlandPatrickUrl())
+		url = fmt.Sprintf("http://localhost:%d", getDreamlandPatrickPort())
 	case common.RemoteNetwork:
 		url = fmt.Sprintf("https://patrick.tau.%s", profile.Network)
 	default:
@@ -83,7 +83,7 @@ func loadClient() (config.Profile, *client.Client, error) {
 	return profile, client, nil
 }
 
-func getDreamlandPatrickUrl() int {
+func getDreamlandPatrickPort() int {
 	ctx, ctxC := context.WithTimeout(context.Background(), 30*time.Second)
 	defer ctxC()
 

@@ -76,10 +76,12 @@ func query(ctx *cli.Context) error {
 	if err != nil {
 		return err
 	}
+
 	tRangeNano := time.Duration(tRange) * time.Nanosecond
 	rangeEnd := time.Now().Unix() - int64(tRangeNano.Seconds())
 
-	jobMap := make(map[int64]*patrick.Job, len(jobIds))
+	// index string for unique jobs, int64 to order by time
+	jobMap := make(map[string]map[int64]*patrick.Job, len(jobIds))
 	for _, id := range jobIds {
 		job, err := patrickC.Job(id)
 		if err != nil {
@@ -88,14 +90,17 @@ func query(ctx *cli.Context) error {
 		}
 
 		if job.Timestamp >= rangeEnd {
-			jobMap[job.Timestamp] = job
+			jobMap[id] = make(map[int64]*patrick.Job, 1)
+			jobMap[id][job.Timestamp] = job
 		}
 	}
 
 	// separate keys from original for loop to ensure unique values
-	keys := make([]int64, 0, len(jobMap))
-	for k := range jobMap {
-		keys = append(keys, k)
+	keys := make([]int64, 0, len(jobIds))
+	for _, v := range jobMap {
+		for key, _ := range v {
+			keys = append(keys, key)
+		}
 	}
 
 	t, err := buildsTable.ListNoRender(authC, jobMap, keys)

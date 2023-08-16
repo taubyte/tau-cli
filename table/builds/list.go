@@ -14,7 +14,7 @@ import (
 	"golang.org/x/text/language"
 )
 
-func ListNoRender(authClient *authHttp.Client, jobMap map[int64]*patrick.Job, keys []int64) (table.Writer, error) {
+func ListNoRender(authClient *authHttp.Client, jobMap map[string]map[int64]*patrick.Job, keys []int64) (table.Writer, error) {
 	keysIface := int64arr(keys)
 	sort.Sort(keysIface)
 
@@ -32,36 +32,39 @@ func ListNoRender(authClient *authHttp.Client, jobMap map[int64]*patrick.Job, ke
 
 	timeZone, _ := time.LoadLocation("Local")
 	for _, key := range keysIface {
-		job := jobMap[key]
-		unixTime := time.Unix(job.Timestamp, 0).In(timeZone)
-		date := unixTime.Format("01/02/2006")
-		time := unixTime.Format("3:04:05 PM")
+		for _, timeMap := range jobMap {
+			if job, ok := timeMap[key]; ok {
+				unixTime := time.Unix(job.Timestamp, 0).In(timeZone)
+				date := unixTime.Format("01/02/2006")
+				time := unixTime.Format("3:04:05 PM")
 
-		repo, err := authClient.GetRepositoryById(fmt.Sprintf("%d", job.Meta.Repository.ID))
-		if err != nil {
-			return nil, err
-		}
+				repo, err := authClient.GetRepositoryById(fmt.Sprintf("%d", job.Meta.Repository.ID))
+				if err != nil {
+					return nil, err
+				}
 
-		repoType := "Unknown"
-		name := repo.Get().Name()
-		nameSplit := strings.SplitN(name, "_", 3)
-		if nameSplit[0] == "tb" {
-			switch nameSplit[1] {
-			case "library", "website", "code":
-				repoType = cases.Title(language.English).String(nameSplit[1])
-			default:
-				repoType = "Config"
+				repoType := "Unknown"
+				name := repo.Get().Name()
+				nameSplit := strings.SplitN(name, "_", 3)
+				if nameSplit[0] == "tb" {
+					switch nameSplit[1] {
+					case "library", "website", "code":
+						repoType = cases.Title(language.English).String(nameSplit[1])
+					default:
+						repoType = "Config"
+					}
+				}
+				t.AppendRow(table.Row{
+					date,
+					time,
+					repoType,
+					job.Status.String(),
+					job.Meta.HeadCommit.ID,
+				})
+
+				t.AppendSeparator()
 			}
 		}
-		t.AppendRow(table.Row{
-			date,
-			time,
-			repoType,
-			job.Status.String(),
-			job.Meta.HeadCommit.ID,
-		})
-
-		t.AppendSeparator()
 	}
 
 	return t, nil

@@ -18,6 +18,4 @@ func (UnimplementedBasic) Push() Command                  { return NotImplemente
 func (UnimplementedBasic) Pull() Command                  { return NotImplemented }
 func (UnimplementedBasic) Checkout() Command              { return NotImplemented }
 func (UnimplementedBasic) Import() Command                { return NotImplemented }
-func (UnimplementedBasic) Retry() Command                 { return NotImplemented }
-func (UnimplementedBasic) Cancel() Command                { return NotImplemented }
 func (UnimplementedBasic) Base() (*cli.Command, []Option) { return nil, nil }
