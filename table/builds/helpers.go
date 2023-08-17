@@ -49,17 +49,17 @@ func row(authClient *authHttp.Client, job *patrick.Job, timeZone *time.Location,
 	}, nil
 }
 
-type int64arr []int64
+type jobArray []*patrick.Job
 
-func (a int64arr) Len() int           { return len(a) }
-func (a int64arr) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a int64arr) Less(i, j int) bool { return a[i] > a[j] }
-func (a int64arr) String() (s string) {
+func (a jobArray) Len() int           { return len(a) }
+func (a jobArray) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a jobArray) Less(i, j int) bool { return a[i].Timestamp > a[j].Timestamp }
+func (a jobArray) String() (s string) {
 	sep := "" // for printing separating commas
 	for _, el := range a {
 		s += sep
 		sep = ", "
-		s += fmt.Sprintf("%d", el)
+		s += fmt.Sprintf("%d", el.Timestamp)
 	}
 	return
 }

@@ -3,6 +3,7 @@ module github.com/taubyte/tau-cli
 go 1.19
 
 replace github.com/taubyte/go-interfaces => ../go-interfaces
+replace github.com/taubyte/tau => ../tau
 
 // Direct Taubyte imports
 require (

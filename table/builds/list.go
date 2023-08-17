@@ -11,10 +11,7 @@ import (
 	authHttp "github.com/taubyte/tau/clients/http/auth"
 )
 
-func ListNoRender(authClient *authHttp.Client, jobMap map[string]map[int64]*patrick.Job, keys []int64, showCommit bool) (table.Writer, error) {
-	keysIface := int64arr(keys)
-	sort.Sort(keysIface)
-
+func ListNoRender(authClient *authHttp.Client, jobs []*patrick.Job, showCommit bool) (table.Writer, error) {
 	t := table.NewWriter()
 	t.SetOutputMirror(os.Stdout)
 	t.SetAllowedRowLength(79)
@@ -22,6 +19,9 @@ func ListNoRender(authClient *authHttp.Client, jobMap map[string]map[int64]*patr
 	if showCommit {
 		lastColumn = "Commit"
 	}
+
+	_jobs := jobArray(jobs)
+	sort.Sort(_jobs)
 
 	t.SetColumnConfigs([]table.ColumnConfig{
 		{Align: text.AlignCenter},
@@ -33,19 +33,14 @@ func ListNoRender(authClient *authHttp.Client, jobMap map[string]map[int64]*patr
 	t.AppendHeader(table.Row{"", "Time", "Type", lastColumn})
 
 	timeZone, _ := time.LoadLocation("Local")
-	for _, key := range keysIface {
-		for _, timeMap := range jobMap {
-			if job, ok := timeMap[key]; ok {
-
-				row, err := row(authClient, job, timeZone, showCommit)
-				if err != nil {
-					return nil, err
-				}
-
-				t.AppendRow(row)
-				t.AppendSeparator()
-			}
+	for _, job := range _jobs {
+		row, err := row(authClient, job, timeZone, showCommit)
+		if err != nil {
+			return nil, err
 		}
+
+		t.AppendRow(row)
+		t.AppendSeparator()
 	}
 
 	return t, nil
