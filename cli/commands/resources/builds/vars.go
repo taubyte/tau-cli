@@ -1,3 +1,4 @@
 package builds
 
-const defaultTimeFilter = "10m"
+// 7days
+const defaultTimeFilter = "168h"
