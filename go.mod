@@ -2,6 +2,8 @@ module github.com/taubyte/tau-cli
 
 go 1.19
 
+replace github.com/taubyte/go-interfaces => ../go-interfaces
+
 // Direct Taubyte imports
 require (
 	github.com/google/go-github/v53 v53.2.0
@@ -13,6 +15,7 @@ require (
 	github.com/taubyte/http v0.10.4
 	github.com/taubyte/tau v1.0.8
 	github.com/taubyte/utils v0.1.6
+	github.com/taubyte/go-interfaces v0.2.12
 )
 
 // Direct imports
@@ -118,8 +121,6 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	lukechampine.com/blake3 v1.2.1 // indirect
 )
-
-require github.com/taubyte/go-interfaces v0.2.12
 
 require (
 	atomicgo.dev/schedule v0.0.2 // indirect

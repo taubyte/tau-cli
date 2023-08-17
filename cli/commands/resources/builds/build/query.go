@@ -1,0 +1,87 @@
+package build
+
+import (
+	"errors"
+
+	"github.com/jedib0t/go-pretty/v6/table"
+	"github.com/taubyte/go-interfaces/services/patrick"
+	"github.com/taubyte/tau-cli/cli/common"
+	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
+	patrickClient "github.com/taubyte/tau-cli/singletons/patrick_client"
+	buildsTable "github.com/taubyte/tau-cli/table/builds"
+	"github.com/urfave/cli/v2"
+)
+
+func (link) Query() common.Command {
+	return common.Create(
+		&cli.Command{
+			Flags: []cli.Flag{
+				&cli.StringFlag{
+					Name:    "jid",
+					Aliases: []string{"id"},
+					Usage:   "job id to query",
+				},
+			},
+			Action: query,
+		},
+	)
+}
+
+func query(ctx *cli.Context) error {
+	patrickC, err := patrickClient.Load()
+	if err != nil {
+		return err
+	}
+
+	authC, err := authClient.Load()
+	if err != nil {
+		return err
+	}
+
+	jobId := ctx.String("jid")
+	if len(jobId) < 1 {
+		return errors.New("job id not set")
+	}
+
+	job, err := patrickC.Job(jobId)
+	if err != nil {
+		return err
+	}
+
+	jobMap := make(map[string]map[int64]*patrick.Job, 1)
+	jobMap[jobId] = make(map[int64]*patrick.Job, 1)
+	jobMap[jobId][job.Timestamp] = job
+	t, err := buildsTable.ListNoRender(authC, jobMap, []int64{job.Timestamp}, true)
+	if err != nil {
+		return err
+	}
+
+	t.SetStyle(table.StyleLight)
+	t.Render()
+
+	return nil
+}
+
+// func renderJobs(authClient *authHttp.Client, patrickClient *patrick.Client, ids []string) ([]string, error) {
+// 	timeZone, _ := time.LoadLocation("Local")
+// 	var renderedJobs []string
+// 	for _, id := range ids {
+// 		job, err := patrickClient.Job(id)
+// 		if err != nil {
+// 			return nil, err
+// 		}
+
+// 		t := table.NewWriter()
+// 		row, err := buildsTable.Row(authClient, job, timeZone)
+// 		if err != nil {
+// 			return nil, err
+// 		}
+
+// 		t.AppendRow(row)
+// 		t.SetStyle(table.StyleLight)
+
+// 		renderedJobs = append(renderedJobs, "\n"+t.Render())
+// 	}
+
+// 	return renderedJobs, nil
+// }

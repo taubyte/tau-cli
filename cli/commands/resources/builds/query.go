@@ -94,7 +94,7 @@ func query(ctx *cli.Context) error {
 		}
 	}
 
-	t, err := buildsTable.ListNoRender(authC, jobMap, keys)
+	t, err := buildsTable.ListNoRender(authC, jobMap, keys, false)
 	if err != nil {
 		return err
 	}
