@@ -5,14 +5,11 @@ import (
 
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/taubyte/go-interfaces/services/patrick"
-	schemaCommon "github.com/taubyte/go-project-schema/common"
 	"github.com/taubyte/tau-cli/cli/common"
 	projectLib "github.com/taubyte/tau-cli/lib/project"
-	"github.com/taubyte/tau-cli/prompts"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	patrickClient "github.com/taubyte/tau-cli/singletons/patrick_client"
 	buildsTable "github.com/taubyte/tau-cli/table/builds"
-	"github.com/taubyte/tau-cli/validate"
 	"github.com/urfave/cli/v2"
 )
 
@@ -21,15 +18,10 @@ func queryOrList() common.Command {
 		&cli.Command{
 			Flags: []cli.Flag{
 				&cli.StringFlag{
-					Name:        "time",
-					Aliases:     []string{"t"},
-					Usage:       "filters jobs by time range",
+					Name:        "since",
+					Aliases:     []string{"t", "s"},
+					Usage:       "(optional) filters jobs by time range",
 					DefaultText: defaultTimeFilter,
-				},
-				&cli.BoolFlag{
-					Name:    "defaulttime",
-					Aliases: []string{"dt"},
-					Usage:   "use default time filter (10m)",
 				},
 			},
 			Action: query,
@@ -67,18 +59,17 @@ func query(ctx *cli.Context) error {
 		return err
 	}
 
-	timeRange := defaultTimeFilter
-	if !ctx.Bool("defaulttime") {
-		timeRange = prompts.GetOrRequireAString(ctx, "time", "Job time range", validate.Time, defaultTimeFilter)
+	since := defaultTimeFilter
+	if _since := ctx.String("since"); len(_since) > 0 {
+		since = _since
 	}
 
-	tRange, err := schemaCommon.StringToTime(timeRange)
+	sinceParsed, err := time.ParseDuration(since)
 	if err != nil {
 		return err
 	}
 
-	tRangeNano := time.Duration(tRange) * time.Nanosecond
-	rangeEnd := time.Now().Unix() - int64(tRangeNano.Seconds())
+	rangeEnd := time.Now().Add(-sinceParsed).Unix()
 
 	// index string for unique jobs, int64 to order by time
 	jobMap := make(map[string]map[int64]*patrick.Job, len(jobIds))
@@ -98,7 +89,7 @@ func query(ctx *cli.Context) error {
 	// separate keys from original for loop to ensure unique values
 	keys := make([]int64, 0, len(jobIds))
 	for _, v := range jobMap {
-		for key, _ := range v {
+		for key := range v {
 			keys = append(keys, key)
 		}
 	}
