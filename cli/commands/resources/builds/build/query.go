@@ -48,10 +48,7 @@ func query(ctx *cli.Context) error {
 		return err
 	}
 
-	jobMap := make(map[string]map[int64]*patrick.Job, 1)
-	jobMap[jobId] = make(map[int64]*patrick.Job, 1)
-	jobMap[jobId][job.Timestamp] = job
-	t, err := buildsTable.ListNoRender(authC, jobMap, []int64{job.Timestamp}, true)
+	t, err := buildsTable.ListNoRender(authC, []*patrick.Job{job}, true)
 	if err != nil {
 		return err
 	}
@@ -61,27 +58,3 @@ func query(ctx *cli.Context) error {
 
 	return nil
 }
-
-// func renderJobs(authClient *authHttp.Client, patrickClient *patrick.Client, ids []string) ([]string, error) {
-// 	timeZone, _ := time.LoadLocation("Local")
-// 	var renderedJobs []string
-// 	for _, id := range ids {
-// 		job, err := patrickClient.Job(id)
-// 		if err != nil {
-// 			return nil, err
-// 		}
-
-// 		t := table.NewWriter()
-// 		row, err := buildsTable.Row(authClient, job, timeZone)
-// 		if err != nil {
-// 			return nil, err
-// 		}
-
-// 		t.AppendRow(row)
-// 		t.SetStyle(table.StyleLight)
-
-// 		renderedJobs = append(renderedJobs, "\n"+t.Render())
-// 	}
-
-// 	return renderedJobs, nil
-// }

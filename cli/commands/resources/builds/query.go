@@ -13,7 +13,7 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-func queryOrList() common.Command {
+func (link) Query() common.Command {
 	return common.Create(
 		&cli.Command{
 			Flags: []cli.Flag{
@@ -29,12 +29,8 @@ func queryOrList() common.Command {
 	)
 }
 
-func (link) Query() common.Command {
-	return queryOrList()
-}
-
-func (link) List() common.Command {
-	return queryOrList()
+func (l link) List() common.Command {
+	return l.Query()
 }
 
 func query(ctx *cli.Context) error {
@@ -71,8 +67,8 @@ func query(ctx *cli.Context) error {
 
 	rangeEnd := time.Now().Add(-sinceParsed).Unix()
 
-	// index string for unique jobs, int64 to order by time
-	jobMap := make(map[string]map[int64]*patrick.Job, len(jobIds))
+	// index string for unique jobs
+	jobs := make([]*patrick.Job, 0, len(jobIds))
 	for _, id := range jobIds {
 		job, err := patrickC.Job(id)
 		if err != nil {
@@ -81,20 +77,12 @@ func query(ctx *cli.Context) error {
 		}
 
 		if job.Timestamp >= rangeEnd {
-			jobMap[id] = make(map[int64]*patrick.Job, 1)
-			jobMap[id][job.Timestamp] = job
+			jobs = append(jobs, job)
 		}
 	}
 
 	// separate keys from original for loop to ensure unique values
-	keys := make([]int64, 0, len(jobIds))
-	for _, v := range jobMap {
-		for key := range v {
-			keys = append(keys, key)
-		}
-	}
-
-	t, err := buildsTable.ListNoRender(authC, jobMap, keys, false)
+	t, err := buildsTable.ListNoRender(authC, jobs, false)
 	if err != nil {
 		return err
 	}
