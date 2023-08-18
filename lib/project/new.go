@@ -9,6 +9,7 @@ import (
 	"github.com/taubyte/tau-cli/common"
 	"github.com/taubyte/tau-cli/env"
 	projectI18n "github.com/taubyte/tau-cli/i18n/project"
+	singletonsI18n "github.com/taubyte/tau-cli/i18n/singletons"
 	"github.com/taubyte/tau-cli/prompts/spinner"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	"github.com/taubyte/tau-cli/singletons/session"
@@ -55,7 +56,7 @@ func New(p *Project, location string, embedToken bool) error {
 
 	client, err := authClient.Load()
 	if err != nil {
-		return fmt.Errorf("loading auth client failed with: %w", err)
+		return singletonsI18n.LoadingAuthClientFailed(err)
 	}
 
 	// Create config repository

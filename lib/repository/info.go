@@ -3,13 +3,14 @@ package repositoryLib
 import (
 	"fmt"
 
+	singletonsI18n "github.com/taubyte/tau-cli/i18n/singletons"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 )
 
 func (info *Info) GetNameFromID() error {
 	client, err := authClient.Load()
 	if err != nil {
-		return fmt.Errorf("loading auth client failed with: %w", err)
+		return singletonsI18n.LoadingAuthClientFailed(err)
 	}
 
 	repo, err := client.GetRepositoryById(info.ID)

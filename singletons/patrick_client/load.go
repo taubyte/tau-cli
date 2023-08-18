@@ -9,7 +9,7 @@ func Load() (*patrickClient.Client, error) {
 	if _client == nil {
 		_, client, err := loadClient()
 		if err != nil {
-			return nil, singletonsI18n.LoadingAuthClientFailed(err)
+			return nil, singletonsI18n.LoadingPatrickClientFailed(err)
 		}
 
 		_client = client

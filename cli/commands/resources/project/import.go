@@ -6,10 +6,12 @@ import (
 
 	"github.com/google/go-github/v53/github"
 	"github.com/taubyte/tau-cli/cli/common"
+	"github.com/taubyte/tau-cli/env"
 	"github.com/taubyte/tau-cli/flags"
 	"github.com/taubyte/tau-cli/i18n"
 	projectI18n "github.com/taubyte/tau-cli/i18n/project"
 	repositoryI18n "github.com/taubyte/tau-cli/i18n/repository"
+	singletonsI18n "github.com/taubyte/tau-cli/i18n/singletons"
 	loginLib "github.com/taubyte/tau-cli/lib/login"
 	"github.com/taubyte/tau-cli/prompts"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
@@ -37,6 +39,10 @@ func (link) Import() common.Command {
 }
 
 func _import(ctx *cli.Context) error {
+	if network, _ := env.GetSelectedNetwork(); len(network) < 1 {
+		return singletonsI18n.NoNetworkSelected()
+	}
+
 	profile, err := loginLib.GetSelectedProfile()
 	if err != nil {
 		return err
