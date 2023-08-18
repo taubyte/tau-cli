@@ -6,7 +6,6 @@ import (
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/taubyte/go-interfaces/services/patrick"
 	"github.com/taubyte/tau-cli/cli/common"
-	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	patrickClient "github.com/taubyte/tau-cli/singletons/patrick_client"
 	buildsTable "github.com/taubyte/tau-cli/table/builds"
 	"github.com/urfave/cli/v2"
@@ -33,11 +32,6 @@ func query(ctx *cli.Context) error {
 		return err
 	}
 
-	authC, err := authClient.Load()
-	if err != nil {
-		return err
-	}
-
 	jobId := ctx.String("jid")
 	if len(jobId) < 1 {
 		return errors.New("job id not set")
@@ -48,7 +42,7 @@ func query(ctx *cli.Context) error {
 		return err
 	}
 
-	t, err := buildsTable.ListNoRender(authC, []*patrick.Job{job}, true)
+	t, err := buildsTable.ListNoRender([]*patrick.Job{job}, true)
 	if err != nil {
 		return err
 	}

@@ -8,10 +8,10 @@ import (
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/jedib0t/go-pretty/v6/text"
 	"github.com/taubyte/go-interfaces/services/patrick"
-	authHttp "github.com/taubyte/tau/clients/http/auth"
+	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 )
 
-func ListNoRender(authClient *authHttp.Client, jobs []*patrick.Job, showCommit bool) (table.Writer, error) {
+func ListNoRender(jobs []*patrick.Job, showCommit bool) (table.Writer, error) {
 	t := table.NewWriter()
 	t.SetOutputMirror(os.Stdout)
 	t.SetAllowedRowLength(79)
@@ -32,9 +32,14 @@ func ListNoRender(authClient *authHttp.Client, jobs []*patrick.Job, showCommit b
 
 	t.AppendHeader(table.Row{"", "Time", "Type", lastColumn})
 
+	auth, err := authClient.Load()
+	if err != nil {
+		return nil, err
+	}
+
 	timeZone, _ := time.LoadLocation("Local")
 	for _, job := range _jobs {
-		row, err := row(authClient, job, timeZone, showCommit)
+		row, err := row(auth, job, timeZone, showCommit)
 		if err != nil {
 			return nil, err
 		}

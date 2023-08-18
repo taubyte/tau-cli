@@ -79,11 +79,4 @@ func query(ctx *cli.Context) error {
 	}
 
 	return nil
-
-	// job.Logs
-
-	// patrickC.LogFile(jobId,)
-
-	// job.Logs
-
 }

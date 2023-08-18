@@ -7,7 +7,6 @@ import (
 	"github.com/taubyte/go-interfaces/services/patrick"
 	"github.com/taubyte/tau-cli/cli/common"
 	projectLib "github.com/taubyte/tau-cli/lib/project"
-	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
 	patrickClient "github.com/taubyte/tau-cli/singletons/patrick_client"
 	buildsTable "github.com/taubyte/tau-cli/table/builds"
 	"github.com/urfave/cli/v2"
@@ -40,11 +39,6 @@ func query(ctx *cli.Context) error {
 	}
 
 	patrickC, err := patrickClient.Load()
-	if err != nil {
-		return err
-	}
-
-	authC, err := authClient.Load()
 	if err != nil {
 		return err
 	}
@@ -82,7 +76,7 @@ func query(ctx *cli.Context) error {
 	}
 
 	// separate keys from original for loop to ensure unique values
-	t, err := buildsTable.ListNoRender(authC, jobs, false)
+	t, err := buildsTable.ListNoRender(jobs, false)
 	if err != nil {
 		return err
 	}
