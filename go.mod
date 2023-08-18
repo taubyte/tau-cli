@@ -2,6 +2,9 @@ module github.com/taubyte/tau-cli
 
 go 1.19
 
+replace github.com/taubyte/tau  => ../tau
+replace github.com/taubyte/dreamland => ../dreamland
+
 // Direct Taubyte imports
 require (
 	github.com/google/go-github/v53 v53.2.0

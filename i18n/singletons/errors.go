@@ -33,7 +33,7 @@ const (
 	// Auth_client
 	profileDoesNotExist      = "profile does not exist"
 	creatingAuthClientFailed = "creating auth client failed with: %w"
-	loadingAuthClientFailed  = "loading auth client failed with: %w"
+	loadingClientFailed      = "loading %s client failed with: %s"
 
 	//Network
 	noNetworkSelected = "no network selected"
@@ -120,7 +120,7 @@ func CreatingAuthClientFailed(err error) error {
 }
 
 func LoadingAuthClientFailed(err error) error {
-	return fmt.Errorf(loadingAuthClientFailed, err)
+	return fmt.Errorf(loadingClientFailed, "auth", err)
 }
 
 func CreatingPatrickClientFailed(err error) error {
@@ -128,7 +128,7 @@ func CreatingPatrickClientFailed(err error) error {
 }
 
 func LoadingPatrickClientFailed(err error) error {
-	return fmt.Errorf(loadingAuthClientFailed, err)
+	return fmt.Errorf(loadingClientFailed, "patrick", err)
 }
 
 func NoNetworkSelected() error {
