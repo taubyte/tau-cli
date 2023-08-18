@@ -63,7 +63,10 @@ func NewGeneratedFQDN(prefix string) (string, error) {
 	var fqdn string
 	selectedNetwork, _ := env.GetSelectedNetwork()
 	switch selectedNetwork {
-	case common.DreamlandNetwork, common.PythonTestNetwork:
+	case common.DreamlandNetwork:
+		universe, _ := env.GetCustomNetworkUrl()
+		fqdn = parseFqdn(fmt.Sprintf(".%s.localtau", universe))
+	case common.PythonTestNetwork:
 		fqdn = parseFqdn(DefaultGeneratedFqdnSuffix)
 	case common.RemoteNetwork:
 		customNetworkUrl, _ := env.GetCustomNetworkUrl()
@@ -86,7 +89,10 @@ func NewGeneratedFQDN(prefix string) (string, error) {
 func IsAGeneratedFQDN(fqdn string) (bool, error) {
 	selectedNetwork, _ := env.GetSelectedNetwork()
 	switch selectedNetwork {
-	case common.DreamlandNetwork, common.PythonTestNetwork:
+	case common.DreamlandNetwork:
+		universe, _ := env.GetCustomNetworkUrl()
+		return strings.HasSuffix(fqdn, fmt.Sprintf(".%s.localtau", universe)), nil
+	case common.PythonTestNetwork:
 		return strings.HasSuffix(fqdn, DefaultGeneratedFqdnSuffix), nil
 	case common.RemoteNetwork:
 		customNetworkUrl, _ := env.GetCustomNetworkUrl()
