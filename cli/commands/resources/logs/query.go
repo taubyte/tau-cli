@@ -58,7 +58,6 @@ func query(ctx *cli.Context) error {
 	}
 
 	for resourceId, cid := range job.Logs {
-		_ = cid
 		log, err := patrickC.LogFile(jobId, cid)
 		if err != nil {
 			return err
