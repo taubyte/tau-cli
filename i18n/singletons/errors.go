@@ -33,7 +33,7 @@ const (
 	// Auth_client
 	profileDoesNotExist      = "profile does not exist"
 	creatingAuthClientFailed = "creating auth client failed with: %w"
-	loadingClientFailed      = "loading %s client failed with: %s"
+	loadingClientFailed      = "loading %s client failed with: %w"
 
 	//Network
 	noNetworkSelected = "no network selected"
