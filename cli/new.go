@@ -9,10 +9,12 @@ import (
 	"github.com/taubyte/tau-cli/cli/commands/login"
 	"github.com/taubyte/tau-cli/cli/commands/resources/application"
 	"github.com/taubyte/tau-cli/cli/commands/resources/builds"
+	"github.com/taubyte/tau-cli/cli/commands/resources/builds/build"
 	"github.com/taubyte/tau-cli/cli/commands/resources/database"
 	"github.com/taubyte/tau-cli/cli/commands/resources/domain"
 	"github.com/taubyte/tau-cli/cli/commands/resources/function"
 	"github.com/taubyte/tau-cli/cli/commands/resources/library"
+	"github.com/taubyte/tau-cli/cli/commands/resources/logs"
 	"github.com/taubyte/tau-cli/cli/commands/resources/messaging"
 	"github.com/taubyte/tau-cli/cli/commands/resources/network"
 	"github.com/taubyte/tau-cli/cli/commands/resources/project"
@@ -74,6 +76,8 @@ func New() (*cli.App, error) {
 		storage.New,
 		website.New,
 		builds.New,
+		build.New,
+		logs.New,
 	)
 
 	app.Commands = append(app.Commands, []*cli.Command{

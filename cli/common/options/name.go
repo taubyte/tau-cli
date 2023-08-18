@@ -9,6 +9,25 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
+func SetFlagAsArgs0(flag string) func(ctx *cli.Context) error {
+	return func(ctx *cli.Context) error {
+		first := ctx.Args().First()
+		if len(first) == 0 {
+			return nil
+		}
+
+		return ctx.Set(flag, first)
+	}
+}
+
+func FlagArg0(flag string) common.Option {
+	return func(l common.Linker) {
+		// Insert name flag into first position
+		l.Flags().Shift(flags.Name)
+		l.Before().Shift(SetFlagAsArgs0(flag))
+	}
+}
+
 func SetNameAsArgs0(ctx *cli.Context) error {
 	first := ctx.Args().First()
 	if len(first) == 0 {
