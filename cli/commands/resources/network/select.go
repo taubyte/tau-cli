@@ -66,7 +66,6 @@ func _select(ctx *cli.Context) error {
 
 		profile.NetworkType = common.DreamlandNetwork
 		profile.Network = universeName
-
 	default:
 		dreamClient, err := dreamland.Client(ctx.Context)
 		if err != nil {
