@@ -41,6 +41,7 @@ func Select(ctx *cli.Context, name string, setDefault bool) error {
 		return err
 	}
 
-	env.SetSelectedNetwork(ctx, profile.Network)
+	env.SetSelectedNetwork(ctx, profile.NetworkType)
+	env.SetNetworkUrl(ctx, profile.Network)
 	return env.SetSelectedUser(ctx, name)
 }
