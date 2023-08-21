@@ -20,10 +20,11 @@ type Profile struct {
 
 	// TODO get from config when verifying token
 	// may need to fake in tests
-	GitUsername string `yaml:"git_username"`
-	GitEmail    string `yaml:"git_email"`
-	NetworkType string `yaml:"type,omitempty"`
-	Network     string `yaml:"network"`
+	GitUsername string   `yaml:"git_username"`
+	GitEmail    string   `yaml:"git_email"`
+	NetworkType string   `yaml:"type,omitempty"`
+	Network     string   `yaml:"network"`
+	History     []string `yaml:"history"`
 }
 
 type Project struct {

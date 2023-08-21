@@ -11,6 +11,7 @@ import (
 	"github.com/taubyte/tau-cli/singletons/config"
 	"github.com/taubyte/tau-cli/singletons/dreamland"
 	"github.com/taubyte/tau-cli/validate"
+	slices "github.com/taubyte/utils/slices/string"
 
 	networkFlags "github.com/taubyte/tau-cli/flags/network"
 	networkI18n "github.com/taubyte/tau-cli/i18n/network"
@@ -26,7 +27,6 @@ func (link) Select() cliCommon.Command {
 	)
 }
 
-// TODO: maybe save the old custom url when switching and prompt to use same as saved before
 func _select(ctx *cli.Context) error {
 	// Setting string flag with value counts as two
 	if ctx.NumFlags() > 2 {
@@ -45,6 +45,10 @@ func _select(ctx *cli.Context) error {
 
 		if err := validate.SeerFQDN(ctx.Context, profile.Network); err != nil {
 			return err
+		}
+
+		if !slices.Contains(profile.History, profile.Network) {
+			profile.History = append(profile.History, profile.Network)
 		}
 
 	case ctx.IsSet(networkFlags.Universe.Name):
@@ -77,19 +81,26 @@ func _select(ctx *cli.Context) error {
 			networkSelections = append(networkSelections, common.DreamlandNetwork)
 		}
 
+		networkSelections = append(networkSelections, profile.History...)
+
 		prev := []string{}
 		if len(profile.NetworkType) > 0 {
 			prev = append(prev, profile.NetworkType)
 		}
 
-		profile.NetworkType = prompts.GetOrAskForSelection(ctx, "Network", prompts.NetworkPrompts, networkSelections, prev...)
-		if profile.NetworkType == common.RemoteNetwork {
+		network := prompts.GetOrAskForSelection(ctx, "Network", prompts.NetworkPrompts, networkSelections, prev...)
+		if network == common.RemoteNetwork {
+			profile.NetworkType = common.RemoteNetwork
 			profile.Network = prompts.GetOrRequireAString(ctx, "", prompts.FQDN, validate.FQDNValidator, profile.Network)
 			if err := validate.SeerFQDN(ctx.Context, profile.Network); err != nil {
 				return err
 			}
 
-		} else if profile.NetworkType == common.DreamlandNetwork {
+			if !slices.Contains(profile.History, profile.Network) {
+				profile.History = append(profile.History, profile.Network)
+			}
+
+		} else if network == common.DreamlandNetwork {
 			universes, err := dreamClient.Status()
 			if err != nil {
 				return fmt.Errorf("calling dreamland status failed with: %w", err)
@@ -104,6 +115,9 @@ func _select(ctx *cli.Context) error {
 			if err != nil {
 				return fmt.Errorf("universe selection failed with: %w", err)
 			}
+		} else {
+			profile.NetworkType = common.RemoteNetwork
+			profile.Network = network
 		}
 	}
 

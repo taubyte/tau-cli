@@ -63,6 +63,7 @@ func TestProfiles(t *testing.T) {
         git_username: ""
         git_email: ""
         network: ""
+        history: []
 `
 
 	configData, err := readConfig()
