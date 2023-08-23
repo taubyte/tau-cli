@@ -73,7 +73,7 @@ func query(ctx *cli.Context) error {
 				return err
 			}
 		} else {
-			fmt.Printf("Resource: %s\n\n %s\n\n", resourceId, string(data))
+			fmt.Printf("-----------------------------------------------------------------------------\nResource: %s\n\n%s\n\n", resourceId, string(data))
 		}
 	}
 
