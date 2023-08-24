@@ -67,7 +67,7 @@ func _delete(ctx *cli.Context) error {
 				prompts.MultiSelect(ctx,
 					prompts.MultiSelectConfig{
 						Field:   "resource",
-						Prompt:  "Remove Resources?",
+						Prompt:  "Select additional resources to unregister",
 						Options: resources,
 					},
 				)...,
@@ -226,7 +226,7 @@ func resourceNames(websites []website.Website, libraries []libraries.Library) []
 
 func formatDeleteConfirm(project string, repos []string) string {
 	formattedMessage := fmt.Sprintf(
-		"Removing project `%s` will unregister the following repositories:",
+		"Removing project `%s` will unregister the following repositories from auth:",
 		pterm.FgCyan.Sprint(project),
 	)
 
