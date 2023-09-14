@@ -1,8 +1,9 @@
 package args
 
 import (
-	slices "github.com/taubyte/utils/slices/string"
+	slices "github.com/taubyte/utils/slices/string" // TODO Deprecate
 	"github.com/urfave/cli/v2"
+	// "slices" // TODO Upgrade to Go 1.21.1
 )
 
 func parseCommandArguments(commands []*cli.Command, args ...string) []string {
@@ -15,11 +16,13 @@ func parseCommandArguments(commands []*cli.Command, args ...string) []string {
 			// parse arguments after cmd.Name so that `login testprofile -provider github` becomes `login -provider github testprofile`
 			// and `login -provider github testprofile` becomes `login -provider github testprofile`
 			idx := IndexOf(args, cmd.Name)
+			// idx := slices.Index(args, cmd.Name)
 
 			// Check aliases
 			if idx == -1 {
 				for _, alias := range cmd.Aliases {
 					idx = IndexOf(args, alias)
+					// idx = IndexOf(args, alias)
 					if idx != -1 {
 						break
 					}
@@ -34,9 +37,11 @@ func parseCommandArguments(commands []*cli.Command, args ...string) []string {
 			if len(cmd.Subcommands) > 0 {
 				for _, sCmd := range cmd.Subcommands {
 					sIdx := IndexOf(args, sCmd.Name)
+					// sIdx := slices.Index(args, sCmd.Name)
 					if sIdx == -1 {
 						for _, alias := range sCmd.Aliases {
 							sIdx = IndexOf(args, alias)
+							// sIdx = slices.Index(args, alias)
 							if sIdx != -1 {
 								break
 							}
@@ -102,9 +107,11 @@ func MovePostFixCommands(args []string, commands []*cli.Command) []string {
 	for _, cmd := range commands {
 		argName := cmd.Name
 		idx := IndexOf(args, argName)
+		// idx := slices.Index(args, argName)
 		if idx == -1 {
 			for _, alias := range cmd.Aliases {
 				idx = IndexOf(args, alias)
+				// idx = slices.Index(args, alias)
 				if idx != -1 {
 					argName = alias
 					break
