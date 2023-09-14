@@ -1,6 +1,6 @@
 package args
 
-// TODO "golang.org/x/exp/slices"
+// TODO Deprecate
 func IndexOf(slice []string, val string) int {
 	for i, item := range slice {
 		if item == val {
