@@ -1,6 +1,21 @@
-package login
+//Comments add:
 
-import (
+/*
+Overall, this code defines a "login" CLI command 
+that allows users to manage login profiles. It handles options, 
+internationalization, profile creation, and profile selection based 
+on user input and flags. The specific behavior of some functions (e.g., New and Select)
+ is not provided in this code snippet, so their exact functionality would 
+ depend on their implementations in other parts of the codebase.
+package login
+*/
+
+/* IMPORT
+The code starts by importing various packages and modules, 
+including packages related to CLI handling, flags, internationalization 
+(i18n), login functionality, prompts, and utility functions for string slices.
+*/
+import ( 
 	"github.com/taubyte/tau-cli/cli/common/options"
 	"github.com/taubyte/tau-cli/flags"
 	loginFlags "github.com/taubyte/tau-cli/flags/login"
@@ -13,6 +28,11 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
+/* VAR
+var Command Declaration: The code defines a variable named Command, 
+which is a pointer to a cli.Command struct. This struct represents 
+the definition of a CLI command.
+*/ 
 var Command = &cli.Command{
 	Name: "login",
 	Flags: flags.Combine(
@@ -27,6 +47,7 @@ var Command = &cli.Command{
 	Before:    options.SetNameAsArgs0,
 }
 
+//Run Function: This function, Run(ctx *cli.Context) error, is executed when the "login" command is run.
 func Run(ctx *cli.Context) error {
 	_default, options, err := loginLib.GetProfiles()
 	if err != nil {
