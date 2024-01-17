@@ -1,9 +1,11 @@
 {
-  "name": "tau",
-  "version": "0.1.11",
+  "name": "@taubyte/cli",
+  "version": "0.1.12",
+  "tau": "0.1.11",
+  "dream": "1.0.3",
   "description": "Node wrapper for taubyte/tau-cli",
   "bin": {
-    "dream": "./index.js"
+    "tau": "./index.js"
   },
   "main": "index.js",
   "scripts": {

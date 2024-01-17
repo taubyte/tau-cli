@@ -10,6 +10,16 @@
 
 ## Installation
 
+### Self extracting
+```
+curl https://get.tau.link/cli | sh
+```
+
+### NPM
+```bash
+npm i @taubyte/cli
+```
+
 ### Fetch and Install with Go
 ```shell
 go install github.com/taubyte/tau-cli@latest
