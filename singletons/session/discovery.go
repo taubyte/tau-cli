@@ -4,30 +4,38 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"strconv"
 
 	"github.com/mitchellh/go-ps"
 )
 
-func parentId(pid int) (int, error) {
-	process, err := ps.FindProcess(pid)
+func parentId() int {
+	var ppid int
+
+	envppid := os.Getenv("TAU_PPID")
+	if envppid != "" {
+		ppid, _ = strconv.Atoi(envppid)
+	} else {
+		ppid = os.Getppid()
+	}
+
+	process, err := ps.FindProcess(ppid)
 	if err != nil {
-		return 0, err
+		return ppid
 	}
 
 	// This is for `go run .`
-	if process.Executable() == "go" {
-		return process.PPid(), nil
+	if process.Executable() == "go" || process.Executable() == "node" {
+		return process.PPid()
 	}
 
-	return process.Pid(), nil
+	return process.Pid()
 }
 
 func discoverOrCreateConfigFileLoc() (string, error) {
-	grandPid, err := parentId(os.Getppid())
-	if err != nil {
-		return "", err
-	}
+	grandPid := parentId()
 
+	var err error
 	processDir, found := nearestProcessDirectory(grandPid)
 	if !found {
 		processDir, err = createProcessDirectory(grandPid)
