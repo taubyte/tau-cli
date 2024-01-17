@@ -9,11 +9,12 @@ const tar = require("tar");
 const packageJson = require("./package.json");
 
 const binaryDir = path.join(__dirname, "bin");
-const binaryPath = path.join(binaryDir, "tau");
-const packageVersion = packageJson.version;
+const binaryPaths = {"tau-cli":path.join(binaryDir, "tau"), "dreamland": path.join(binaryDir, "dreamland")}
+const tauVersion = packageJson.tau;
+const dreamVersion = packageJson.dream;
 
-function binaryExists() {
-  return fs.existsSync(binaryPath);
+function binaryExists(name) {
+  return fs.existsSync(binaryPaths[name]);
 }
 
 function parseAssetName() {
@@ -40,18 +41,16 @@ function parseAssetName() {
   return { os, arch };
 }
 
-async function downloadAndExtractBinary() {
-  if (binaryExists()) {
+async function downloadAndExtractBinary(name, version) {
+  if (binaryExists(name)) {
     return;
   }
 
-  let version = packageVersion;
-
   const { os: currentOs, arch: currentArch } = parseAssetName();
-  const assetName = `tau-cli_${version}_${currentOs}_${currentArch}.tar.gz`;
-  const assetUrl = `https://github.com/taubyte/tau-cli/releases/download/v${version}/${assetName}`;
+  const assetName = `${name}_${version}_${currentOs}_${currentArch}.tar.gz`;
+  const assetUrl = `https://github.com/taubyte/${name}/releases/download/v${version}/${assetName}`;
 
-  console.log(`Downloading tau-cli v${version}...`);
+  console.log(`Downloading ${name} v${version}...`);
   const { data, headers } = await axios({
     url: assetUrl,
     method: "GET",
@@ -78,7 +77,7 @@ async function downloadAndExtractBinary() {
 
   return new Promise((resolve, reject) => {
     writer.on("finish", async () => {
-      console.log(`Extracting tau-cli v${version}...`);
+      console.log(`Extracting ${name} v${version}...`);
       await tar.x({
         file: tarPath,
         C: binaryDir,
@@ -91,7 +90,7 @@ async function downloadAndExtractBinary() {
 }
 
 function executeBinary() {
-  if (!binaryExists()) {
+  if (!binaryExists("tau-cli")) {
     console.error("Binary not found. Please run the install script.");
     return;
   }
@@ -99,8 +98,12 @@ function executeBinary() {
   // Capture arguments passed to the script, excluding the first two elements
   const args = process.argv.slice(2);
 
-  const child = spawn(binaryPath, args, {
+  const child = spawn(binaryPaths["tau-cli"], args, {
     stdio: "inherit",
+    env: {
+      ...process.env,
+      DREAM_BINARY: path.join(__dirname, binaryPaths["dreamland"]) // Replace with your environment variable and value
+  }
   });
 
   child.on("error", (err) => {
@@ -110,7 +113,8 @@ function executeBinary() {
 
 async function main() {
   try {
-    await downloadAndExtractBinary();
+    await downloadAndExtractBinary("tau-cli",tauVersion);
+    await downloadAndExtractBinary("dreamland", dreamVersion);
     executeBinary();
   } catch (err) {
     console.error(err.message);
