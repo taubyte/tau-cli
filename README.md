@@ -1,23 +1,38 @@
-# tau-cli
+<h2 align="center">
+  <a href="https://taubyte.com" target="_blank" rel="noopener noreferrer">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="images/tau-cli-logo-box-v2.png">
+      <img width="80" src="images/tau-cli-logo-box-v2.png" alt="Tau CLI">
+    </picture>
+  </a>
+  <br />
+  Tau CLI
+  
+  ***Local Coding Equals Global Production***
+</h2>
+<div align="center">
 
 [![Release](https://img.shields.io/github/release/taubyte/tau-cli.svg)](https://github.com/taubyte/tau-cli/releases)
 [![License](https://img.shields.io/github/license/taubyte/tau-cli)](LICENSE)
 [![Go Report Card](https://goreportcard.com/badge/taubyte/tau-cli)](https://goreportcard.com/report/taubyte/tau-cli)
 [![GoDoc](https://godoc.org/github.com/taubyte/tau-cli?status.svg)](https://pkg.go.dev/github.com/taubyte/tau-cli)
-[![Discord](https://img.shields.io/discord/973677117722202152?color=%235865f2&label=discord)](https://discord.gg/taubyte)
+[![Discord](https://img.shields.io/discord/973677117722202152?color=%235865f2&label=discord)](https://discord.gg/wM8mdskh)
 
-`tau` is a command line tool for interacting with a Taubyte-based Cloud Network. Similar to the [web console](https://console.taubyte.com), it allows you to create and manage projects, applications, resources, and more.
+</div>
+
+`tau` is a command-line interface (CLI) tool for interacting with [Taubyte-based Clouds](https://github.com/taubyte). It enables users to create, manage projects, applications, resources, and more directly from the terminal.
+
 
 ## Installation
-
-### Self extracting
-```
-curl https://get.tau.link/cli | sh
-```
 
 ### NPM
 ```bash
 npm i @taubyte/cli
+```
+
+### Self extracting
+```
+curl https://get.tau.link/cli | sh
 ```
 
 ### Fetch and Install with Go
