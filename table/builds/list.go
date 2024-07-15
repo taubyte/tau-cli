@@ -7,8 +7,8 @@ import (
 
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/jedib0t/go-pretty/v6/text"
-	"github.com/taubyte/go-interfaces/services/patrick"
 	authClient "github.com/taubyte/tau-cli/singletons/auth_client"
+	"github.com/taubyte/tau/core/services/patrick"
 )
 
 func ListNoRender(jobs []*patrick.Job, showCommit bool) (table.Writer, error) {

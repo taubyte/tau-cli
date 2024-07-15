@@ -4,8 +4,8 @@ import (
 	"os"
 	"strings"
 
-	git "github.com/taubyte/go-simple-git"
 	"github.com/taubyte/tau-cli/states"
+	"github.com/taubyte/tau/pkg/git"
 )
 
 func loadTemplates() error {

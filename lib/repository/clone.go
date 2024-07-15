@@ -6,12 +6,12 @@ import (
 	"path"
 	"strings"
 
-	git "github.com/taubyte/go-simple-git"
 	libraryI18n "github.com/taubyte/tau-cli/i18n/library"
 	websiteI18n "github.com/taubyte/tau-cli/i18n/website"
 	loginLib "github.com/taubyte/tau-cli/lib/login"
 	"github.com/taubyte/tau-cli/singletons/config"
 	"github.com/taubyte/tau-cli/states"
+	"github.com/taubyte/tau/pkg/git"
 )
 
 func (info *Info) HasBeenCloned(project config.Project, provider string) bool {

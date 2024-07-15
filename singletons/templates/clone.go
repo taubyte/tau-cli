@@ -6,8 +6,8 @@ import (
 	"path"
 	"strings"
 
-	git "github.com/taubyte/go-simple-git"
 	"github.com/taubyte/tau-cli/states"
+	"github.com/taubyte/tau/pkg/git"
 )
 
 // Template root will give the location of the template and clone

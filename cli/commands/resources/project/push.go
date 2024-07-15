@@ -1,7 +1,6 @@
 package project
 
 import (
-	gosimplegit "github.com/taubyte/go-simple-git"
 	"github.com/taubyte/tau-cli/cli/common"
 	"github.com/taubyte/tau-cli/flags"
 	projectFlags "github.com/taubyte/tau-cli/flags/project"
@@ -9,6 +8,7 @@ import (
 	projectLib "github.com/taubyte/tau-cli/lib/project"
 	"github.com/taubyte/tau-cli/prompts"
 	projectPrompts "github.com/taubyte/tau-cli/prompts/project"
+	"github.com/taubyte/tau/pkg/git"
 	"github.com/urfave/cli/v2"
 )
 
@@ -41,7 +41,7 @@ func push(ctx *cli.Context) error {
 		repository:  repoHandler,
 		projectName: project.Name,
 		errorFormat: projectI18n.PullingProjectFailed,
-		action: func(r *gosimplegit.Repository) error {
+		action: func(r *git.Repository) error {
 			err = r.Commit(commitMessage, ".")
 			if err != nil {
 				return err

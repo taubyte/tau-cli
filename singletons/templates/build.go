@@ -1,7 +1,7 @@
 package templates
 
 import (
-	gosimplegit "github.com/taubyte/go-simple-git"
+	"github.com/taubyte/tau/pkg/git"
 )
 
 func Get() *templates {
@@ -10,7 +10,7 @@ func Get() *templates {
 	return _templates
 }
 
-func Repository() *gosimplegit.Repository {
+func Repository() *git.Repository {
 	return Get().repository
 }
 

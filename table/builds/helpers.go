@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/jedib0t/go-pretty/v6/table"
-	"github.com/taubyte/go-interfaces/services/patrick"
 	authHttp "github.com/taubyte/tau/clients/http/auth"
+	"github.com/taubyte/tau/core/services/patrick"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )

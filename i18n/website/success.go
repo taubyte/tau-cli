@@ -26,7 +26,7 @@ func Registered(url string) {
 	printer.SuccessWithName("%s repository: %s", "Registered", url)
 }
 
-// Do not implement, this is already verbose from gosimplegit
+// Do not implement, this is already verbose from git
 // func Cloned(url string) {
 // 	printer.SuccessWithName("%s repository: %s", "Cloned", url)
 // }

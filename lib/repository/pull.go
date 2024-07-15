@@ -1,8 +1,8 @@
 package repositoryLib
 
 import (
-	git "github.com/taubyte/go-simple-git"
 	"github.com/taubyte/tau-cli/singletons/config"
+	"github.com/taubyte/tau/pkg/git"
 )
 
 func (info *Info) Pull(project config.Project, url string) (*git.Repository, error) {

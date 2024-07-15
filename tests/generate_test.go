@@ -15,14 +15,14 @@ import (
 func obfuscateToken() func() {
 	prevToken := Token
 	Token = "<git-token>"
-	err := os.Setenv("TAU_TEST_GIT_TOKEN", Token)
+	err := os.Setenv("TEST_GIT_TOKEN", Token)
 	if err != nil {
 		log.Fatalf("unset token failed with: %s", err)
 	}
 
 	return func() {
 		Token = prevToken
-		err := os.Setenv("TAU_TEST_GIT_TOKEN", prevToken)
+		err := os.Setenv("TEST_GIT_TOKEN", prevToken)
 		if err != nil {
 			log.Fatalf("reset token failed with: %s", err)
 		}

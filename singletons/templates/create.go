@@ -1,6 +1,6 @@
 package templates
 
-import git "github.com/taubyte/go-simple-git"
+import "github.com/taubyte/tau/pkg/git"
 
 var _templates *templates
 

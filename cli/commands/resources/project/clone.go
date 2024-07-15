@@ -4,7 +4,6 @@ import (
 	"os"
 	"path"
 
-	gosimplegit "github.com/taubyte/go-simple-git"
 	"github.com/taubyte/tau-cli/cli/common"
 	"github.com/taubyte/tau-cli/flags"
 	projectFlags "github.com/taubyte/tau-cli/flags/project"
@@ -14,6 +13,7 @@ import (
 	"github.com/taubyte/tau-cli/prompts"
 	projectPrompts "github.com/taubyte/tau-cli/prompts/project"
 	"github.com/taubyte/tau-cli/singletons/config"
+	"github.com/taubyte/tau/pkg/git"
 	"github.com/urfave/cli/v2"
 )
 
@@ -82,7 +82,7 @@ func clone(c *cli.Context) error {
 			repository:  repository,
 			projectName: project.Name,
 			errorFormat: projectI18n.CheckingOutProjectFailed,
-			action: func(r *gosimplegit.Repository) error {
+			action: func(r *git.Repository) error {
 				return r.Checkout(branch)
 			},
 		}).Run()

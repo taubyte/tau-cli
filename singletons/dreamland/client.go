@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	dreamland "github.com/taubyte/dreamland/service"
-	"github.com/taubyte/dreamland/service/api"
 	"github.com/taubyte/tau-cli/env"
+	dreamland "github.com/taubyte/tau/clients/http/dream"
+	"github.com/taubyte/tau/dream/api"
 )
 
 var dream_client *dreamland.Client
