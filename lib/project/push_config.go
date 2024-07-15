@@ -3,6 +3,7 @@
 package projectLib
 
 import (
+	"fmt"
 	"os"
 	"path"
 	"strings"
@@ -39,7 +40,7 @@ func cloneProjectAndPushConfig(clientProject *httpClient.Project, location, desc
 	// Clone project to given location
 	projectRepository, err := Repository(clientProject.Name).Clone(configProject, embedToken)
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to clone %s with %w", clientProject.Name, err)
 	}
 
 	// Get go-project-schema project for config access

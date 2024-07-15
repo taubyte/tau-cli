@@ -4,11 +4,11 @@ import (
 	"time"
 
 	"github.com/jedib0t/go-pretty/v6/table"
-	"github.com/taubyte/go-interfaces/services/patrick"
 	"github.com/taubyte/tau-cli/cli/common"
 	projectLib "github.com/taubyte/tau-cli/lib/project"
 	patrickClient "github.com/taubyte/tau-cli/singletons/patrick_client"
 	buildsTable "github.com/taubyte/tau-cli/table/builds"
+	"github.com/taubyte/tau/core/services/patrick"
 	"github.com/urfave/cli/v2"
 )
 

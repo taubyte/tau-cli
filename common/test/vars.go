@@ -9,10 +9,10 @@ type Repository struct {
 }
 
 func GitToken() string {
-	token := os.Getenv("TAU_TEST_GIT_TOKEN")
+	token := os.Getenv("TEST_GIT_TOKEN")
 
 	if token == "" {
-		panic("TAU_TEST_GIT_TOKEN not set")
+		panic("TEST_GIT_TOKEN not set")
 	}
 
 	return token

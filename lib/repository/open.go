@@ -3,12 +3,12 @@ package repositoryLib
 import (
 	"fmt"
 
-	git "github.com/taubyte/go-simple-git"
 	libraryI18n "github.com/taubyte/tau-cli/i18n/library"
 	websiteI18n "github.com/taubyte/tau-cli/i18n/website"
 	loginLib "github.com/taubyte/tau-cli/lib/login"
 	"github.com/taubyte/tau-cli/singletons/config"
 	"github.com/taubyte/tau-cli/states"
+	"github.com/taubyte/tau/pkg/git"
 )
 
 func (info *Info) Open(project config.Project, url string) (*git.Repository, error) {
