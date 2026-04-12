@@ -1,6 +1,8 @@
 # Submodule (CI clones it; consumers get the prebuilt binary via index.js)
 tau/
 
+bin/
+
 # Not needed in the published npm package
 .github/
 .gitmodules
