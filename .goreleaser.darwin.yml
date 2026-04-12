@@ -1,0 +1,37 @@
+project_name: tau-cli
+release:
+  github:
+    owner: taubyte
+    name: tau-cli
+
+  draft: false
+  replace_existing_draft: false
+  prerelease: auto
+
+  name_template: ""
+  disable: false
+  skip_upload: false
+
+builds:
+  - id: "darwin"
+    main: "./tools/tau/main.go"
+    binary: "tau"
+    goos:
+      - darwin
+    goarch:
+      - arm64
+      - amd64
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+
+changelog:
+  disable: true
+
+checksum:
+  disable: true
+
+archives:
+  - files:
+      - none*

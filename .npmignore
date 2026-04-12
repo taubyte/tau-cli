@@ -1,0 +1,2 @@
+# Ignore the tau submodule (source builds happen in CI from this checkout)
+tau/

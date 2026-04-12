@@ -1,0 +1,51 @@
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            config: ".goreleaser.linux.yml"
+          - os: macos-latest
+            config: ".goreleaser.darwin.yml"
+          - os: windows-latest
+            config: ".goreleaser.windows.yml"
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: "1.26.0"
+
+      - name: Remove .git folder from submodule on Windows
+        if: runner.os == 'Windows'
+        run: Remove-Item -Recurse -Force tau\.git
+        shell: powershell
+
+      - name: Remove .git folder from submodule on Linux/macOS
+        if: runner.os != 'Windows'
+        run: rm -rf tau/.git
+        shell: bash
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v4
+        with:
+          version: latest
+          args: release --config ../${{ matrix.config }}
+          workdir: tau
+        env:
+          # Default token is enough for releases on github.com. If uploads fail, set GORELEASER_TOKEN and reference it here.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
