@@ -1,2 +1,9 @@
-# Ignore the tau submodule (source builds happen in CI from this checkout)
+# Submodule (CI clones it; consumers get the prebuilt binary via index.js)
 tau/
+
+# Not needed in the published npm package
+.github/
+.gitmodules
+.goreleaser.darwin.yml
+.goreleaser.linux.yml
+.goreleaser.windows.yml
